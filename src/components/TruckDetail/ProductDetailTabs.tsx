@@ -3,25 +3,40 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '../ui/tabs';
 import ContactForm from '../ContactForm';
 import CostEstimator from './CostEstimator';
 import { Truck } from '@/models/TruckTypes';
-import { marked } from 'marked';
 
-// Configure marked for sync output
-marked.use({
-  async: false,
-  breaks: true,
-  gfm: true
-});
-
-// Helper to parse markdown content (supports both markdown and raw HTML)
+// Simple custom markdown parser for basic markdown syntax
 const parseContent = (content: string): string => {
   if (!content) return '';
-  try {
-    // Parse markdown to HTML synchronously
-    const result = marked.parse(content);
-    return typeof result === 'string' ? result : content;
-  } catch {
-    return content;
-  }
+
+  let html = content;
+
+  // Convert headings (must be at start of line)
+  html = html.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
+  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+
+  // Convert bold **text** first
+  html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+
+  // Convert unordered list items (- item)
+  html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
+
+  // Wrap consecutive <li> in <ul>
+  html = html.replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>');
+
+  // Convert remaining single newlines to <br> for plain text paragraphs
+  // Skip lines that start with < (HTML tags)
+  const lines = html.split('\n');
+  html = lines.map((line, i) => {
+    // Don't add <br> after block elements or before them
+    if (line.startsWith('<') || line.trim() === '') return line;
+    if (i < lines.length - 1 && !lines[i + 1].startsWith('<')) {
+      return line + '<br>';
+    }
+    return line;
+  }).join('\n');
+
+  return html;
 };
 
 interface ProductDetailTabsProps {

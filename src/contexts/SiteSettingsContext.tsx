@@ -1,4 +1,4 @@
-import React, { createContext, useContext, ReactNode } from 'react';
+import * as React from 'react';
 import type { SiteSettings, Branch } from '@/types/siteSettings';
 
 // Default values (used as fallback if context is not provided)
@@ -61,11 +61,11 @@ const defaultSiteSettings: SiteSettings = {
 };
 
 // Context
-const SiteSettingsContext = createContext<SiteSettings>(defaultSiteSettings);
+const SiteSettingsContext = React.createContext<SiteSettings>(defaultSiteSettings);
 
 // Provider component
 interface SiteSettingsProviderProps {
-    children: ReactNode;
+    children: React.ReactNode;
     settings?: Partial<SiteSettings>;
 }
 
@@ -98,7 +98,7 @@ export const SiteSettingsProvider: React.FC<SiteSettingsProviderProps> = ({ chil
 
 // Hook to use settings
 export const useSiteSettings = () => {
-    const context = useContext(SiteSettingsContext);
+    const context = React.useContext(SiteSettingsContext);
     return context;
 };
 
