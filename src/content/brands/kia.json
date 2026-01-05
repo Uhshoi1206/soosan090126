@@ -1,0 +1,15 @@
+{
+    "id": "kia",
+    "name": "Kia",
+    "slug": "kia",
+    "logo": "https://cdn.soosanmotor.com/soosanmotor.com_logo_Kia.webp",
+    "logoAlt": "Logo thương hiệu Kia - Xe tải Kia tại Soosan Motor",
+    "description": "Kia Motors - Thương hiệu ô tô Hàn Quốc với dòng xe tải K200, K250 phổ biến tại Việt Nam.",
+    "seoTitle": "Xe Tải Kia Chính Hãng | Đại Lý Soosan Motor",
+    "seoDescription": "Phân phối xe tải Kia K200, K250. Xe tải nhẹ Hàn Quốc, giá tốt.",
+    "country": "Hàn Quốc",
+    "website": "https://www.kia.com",
+    "foundedYear": 1944,
+    "order": 7,
+    "isActive": true
+}

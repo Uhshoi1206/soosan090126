@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Layout from '../components/Layout.tsx';
+import { getEntry } from 'astro:content';
+
+const settingsEntry = await getEntry('settings', 'site-settings');
+const settings = settingsEntry?.data;
+const phone = settings?.contact_section?.phone || '0815555528';
+const phoneDisplay = settings?.contact_section?.phoneDisplay || '0815555528';
+const email = settings?.contact_section?.email || 'sales@soosanmotor.com';
+const organizationName = settings?.organization_section?.organizationName || 'Soosan Vina Motor';
+---
+
+<BaseLayout
+  title="Chính Sách Bảo Mật | Soosan Vina Motor"
+  description="Chính sách bảo mật thông tin khách hàng của Soosan Vina Motor. Cam kết bảo vệ quyền riêng tư và dữ liệu cá nhân của quý khách hàng."
+>
+  <Layout client:load siteSettings={settings}>
+    <!-- Hero Section / Page Header -->
+    <section class="relative page-header-bg page-header-text py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            Chính Sách Bảo Mật
+          </h1>
+          <p class="text-lg text-gray-200">
+            Cam kết bảo vệ quyền riêng tư và thông tin cá nhân của quý khách hàng
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto prose prose-lg">
+          
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8 rounded-r-lg">
+            <p class="text-blue-700 mb-0">
+              <strong>Cập nhật lần cuối:</strong> Ngày 01 tháng 01 năm 2025
+            </p>
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">
+            <strong>{organizationName}</strong> ("chúng tôi") cam kết bảo vệ quyền riêng tư và thông tin cá nhân 
+            của quý khách hàng khi truy cập và sử dụng website của chúng tôi. Chính sách bảo mật này giải thích 
+            cách chúng tôi thu thập, sử dụng và bảo vệ thông tin của bạn.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">1. Thông Tin Chúng Tôi Thu Thập</h2>
+          <p class="text-gray-700">Chúng tôi có thể thu thập các loại thông tin sau:</p>
+          <ul class="list-disc pl-6 text-gray-700 space-y-2">
+            <li><strong>Thông tin liên hệ:</strong> Họ tên, số điện thoại, địa chỉ email khi bạn điền form liên hệ hoặc đăng ký nhận tư vấn</li>
+            <li><strong>Thông tin yêu cầu:</strong> Loại xe quan tâm, nhu cầu mua xe, địa chỉ giao hàng</li>
+            <li><strong>Thông tin kỹ thuật:</strong> Địa chỉ IP, loại trình duyệt, thời gian truy cập website</li>
+            <li><strong>Cookie:</strong> Dữ liệu cookie để cải thiện trải nghiệm người dùng</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">2. Mục Đích Sử Dụng Thông Tin</h2>
+          <p class="text-gray-700">Thông tin thu thập được sử dụng cho các mục đích:</p>
+          <ul class="list-disc pl-6 text-gray-700 space-y-2">
+            <li>Liên hệ tư vấn và hỗ trợ khách hàng về sản phẩm xe tải, sơ mi rơ moóc, xe cẩu</li>
+            <li>Gửi báo giá, thông tin khuyến mãi theo yêu cầu của khách hàng</li>
+            <li>Cải thiện chất lượng dịch vụ và trải nghiệm website</li>
+            <li>Thống kê, phân tích để nâng cao hiệu quả hoạt động</li>
+            <li>Tuân thủ các yêu cầu pháp lý liên quan</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">3. Bảo Mật Thông Tin</h2>
+          <p class="text-gray-700">Chúng tôi cam kết:</p>
+          <ul class="list-disc pl-6 text-gray-700 space-y-2">
+            <li>Không bán, cho thuê hoặc trao đổi thông tin cá nhân của khách hàng cho bên thứ ba</li>
+            <li>Áp dụng các biện pháp bảo mật kỹ thuật để bảo vệ dữ liệu khách hàng</li>
+            <li>Chỉ cho phép nhân viên được ủy quyền truy cập thông tin khi cần thiết</li>
+            <li>Thông tin có thể được chia sẻ với đối tác vận chuyển để hoàn thành đơn hàng</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">4. Cookie và Công Nghệ Theo Dõi</h2>
+          <p class="text-gray-700">
+            Website của chúng tôi sử dụng cookie để cải thiện trải nghiệm người dùng. Cookie giúp chúng tôi:
+          </p>
+          <ul class="list-disc pl-6 text-gray-700 space-y-2">
+            <li>Ghi nhớ các tùy chọn của bạn trên website</li>
+            <li>Phân tích lưu lượng truy cập và hành vi người dùng</li>
+            <li>Cải thiện hiệu suất và nội dung website</li>
+          </ul>
+          <p class="text-gray-700 mt-4">
+            Bạn có thể tắt cookie trong cài đặt trình duyệt, tuy nhiên điều này có thể ảnh hưởng đến một số tính năng của website.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">5. Quyền Của Khách Hàng</h2>
+          <p class="text-gray-700">Quý khách hàng có quyền:</p>
+          <ul class="list-disc pl-6 text-gray-700 space-y-2">
+            <li><strong>Truy cập:</strong> Yêu cầu xem thông tin cá nhân mà chúng tôi lưu trữ</li>
+            <li><strong>Chỉnh sửa:</strong> Yêu cầu cập nhật hoặc sửa đổi thông tin không chính xác</li>
+            <li><strong>Xóa:</strong> Yêu cầu xóa thông tin cá nhân khỏi hệ thống</li>
+            <li><strong>Từ chối:</strong> Từ chối nhận thông tin quảng cáo, khuyến mãi</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">6. Liên Kết Bên Ngoài</h2>
+          <p class="text-gray-700">
+            Website của chúng tôi có thể chứa liên kết đến các trang web khác. Chúng tôi không chịu trách nhiệm 
+            về chính sách bảo mật hoặc nội dung của các trang web bên ngoài.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">7. Thay Đổi Chính Sách</h2>
+          <p class="text-gray-700">
+            Chúng tôi có quyền cập nhật chính sách bảo mật này bất cứ lúc nào. Mọi thay đổi sẽ được đăng tải 
+            trên trang này với ngày cập nhật mới. Khuyến khích quý khách hàng kiểm tra định kỳ để nắm bắt các thay đổi.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">8. Liên Hệ</h2>
+          <p class="text-gray-700">
+            Nếu có bất kỳ câu hỏi nào về chính sách bảo mật này, vui lòng liên hệ với chúng tôi:
+          </p>
+          <div class="bg-gray-50 p-6 rounded-lg mt-4">
+            <p class="text-gray-700 mb-2"><strong>{organizationName}</strong></p>
+            <p class="text-gray-700 mb-2">
+              <strong>Điện thoại:</strong> 
+              <a href={`tel:${phone}`} class="text-primary hover:underline">{phoneDisplay}</a>
+            </p>
+            <p class="text-gray-700 mb-2">
+              <strong>Email:</strong> 
+              <a href={`mailto:${email}`} class="text-primary hover:underline">{email}</a>
+            </p>
+            <p class="text-gray-700">
+              <strong>Địa chỉ:</strong> Cụm công nghiệp Hạp Lĩnh, Phường Hạp Lĩnh, Tỉnh Bắc Ninh, Việt Nam
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </Layout>
+</BaseLayout>

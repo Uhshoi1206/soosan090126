@@ -1,0 +1,15 @@
+{
+    "id": "hyundai",
+    "name": "Hyundai",
+    "slug": "hyundai",
+    "logo": "https://cdn.soosanmotor.com/soosanmotor.com_logo_Hyundai.webp",
+    "logoAlt": "Logo thương hiệu Hyundai - Xe tải Hyundai chính hãng tại Soosan Motor",
+    "description": "Hyundai Motor Company - Tập đoàn sản xuất ô tô hàng đầu Hàn Quốc, nổi tiếng với các dòng xe tải HD, Mighty và đầu kéo chất lượng cao.",
+    "seoTitle": "Xe Tải Hyundai Chính Hãng | Đại Lý Soosan Motor",
+    "seoDescription": "Phân phối xe tải Hyundai chính hãng - HD65, HD120, Mighty, đầu kéo HD1000. Giá tốt nhất, bảo hành chính hãng.",
+    "country": "Hàn Quốc",
+    "website": "https://www.hyundai.com",
+    "foundedYear": 1967,
+    "order": 1,
+    "isActive": true
+}

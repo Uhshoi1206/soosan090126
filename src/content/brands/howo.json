@@ -1,0 +1,15 @@
+{
+    "id": "howo",
+    "name": "HOWO",
+    "slug": "howo",
+    "logo": "https://cdn.soosanmotor.com/soosanmotor.com_logo_HOWO.webp",
+    "logoAlt": "Logo thương hiệu HOWO - Xe tải HOWO tại Soosan Motor",
+    "description": "HOWO - Sinotruk, thương hiệu xe tải hạng nặng Trung Quốc, đối tác công nghệ với MAN (Đức).",
+    "seoTitle": "Xe Tải HOWO Giá Tốt | Đại Lý Soosan Motor",
+    "seoDescription": "Phân phối xe tải HOWO - Đầu kéo, xe ben, xe tải nặng. Công nghệ MAN, giá cạnh tranh.",
+    "country": "Trung Quốc",
+    "website": "https://www.sinotruk.com",
+    "foundedYear": 1956,
+    "order": 10,
+    "isActive": true
+}

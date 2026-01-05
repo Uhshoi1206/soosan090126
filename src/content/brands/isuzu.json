@@ -1,0 +1,15 @@
+{
+    "id": "isuzu",
+    "name": "Isuzu",
+    "slug": "isuzu",
+    "logo": "https://cdn.soosanmotor.com/soosanmotor.com_logo_Isuzu.webp",
+    "logoAlt": "Logo thương hiệu Isuzu - Xe tải Isuzu chính hãng tại Soosan Motor",
+    "description": "Isuzu Motors - Thương hiệu xe tải Nhật Bản uy tín với công nghệ động cơ diesel tiết kiệm nhiên liệu, dẫn đầu phân khúc xe tải nhẹ và trung.",
+    "seoTitle": "Xe Tải Isuzu Chính Hãng | Đại Lý Soosan Motor",
+    "seoDescription": "Phân phối xe tải Isuzu chính hãng - QKR, NPR, FRR, FVR, đầu kéo Giga. Động cơ bền bỉ, tiết kiệm nhiên liệu.",
+    "country": "Nhật Bản",
+    "website": "https://www.isuzu.co.jp",
+    "foundedYear": 1916,
+    "order": 2,
+    "isActive": true
+}

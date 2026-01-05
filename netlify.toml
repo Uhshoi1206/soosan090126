@@ -1,0 +1,12 @@
+[build]
+  command = "node scripts/generate-brands.cjs && node scripts/generate-cms-config.cjs && node scripts/organize-products.cjs && node scripts/organize-blogs.cjs && npm run build"
+  publish = "dist"
+
+[functions]
+  directory = ".netlify/v1/functions"
+  node_bundler = "none"
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/danh-muc-bai-viet/:splat"
+  status = 301

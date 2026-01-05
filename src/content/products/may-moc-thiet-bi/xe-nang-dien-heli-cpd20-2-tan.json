@@ -1,0 +1,52 @@
+{
+    "id": "xe-nang-dien-heli-cpd20-2-tan",
+    "name": "Xe Nâng Điện Heli CPD20 - 2 Tấn Kho Hàng Không Khí Thải",
+    "slug": "xe-nang-dien-heli-cpd20-2-tan",
+    "brand": "Heli",
+    "model": "CPD20",
+    "price": null,
+    "priceText": "Liên hệ",
+    "weightText": "3.850 kg",
+    "weight": 3850,
+    "length": 2650,
+    "width": 1150,
+    "height": 2150,
+    "dimensions": "2.650 x 1.150 x 2.150 mm",
+    "type": "may-moc-thiet-bi",
+    "isNew": true,
+    "isHot": true,
+    "stockStatus": "in-stock",
+    "origin": "Trung Quốc",
+    "thumbnailUrl": "/assets/xe-nang-dien-heli-cpd20.webp",
+    "images": [
+        "/assets/xe-nang-dien-heli-cpd20.webp"
+    ],
+    "description": "Xe nâng điện Heli CPD20 2 tấn - Xe nâng kho hàng không khí thải, nâng cao 3m, pin 48V/400Ah, vận hành êm ái. Phù hợp kho thực phẩm, dược phẩm, kho lạnh.",
+    "detailedDescription": "<h2>Xe Nâng Điện Heli CPD20 - Giải Pháp Xanh Cho Kho Hàng</h2>\n<p><strong>Xe nâng điện Heli CPD20</strong> là dòng xe nâng hiện đại với <strong>tải trọng 2 tấn</strong>, <strong>không khí thải</strong>, phù hợp kho hàng trong nhà.</p>\n\n<h3>Thông Số Kỹ Thuật</h3>\n<ul>\n<li><strong>Tải trọng:</strong> 2.000 kg</li>\n<li><strong>Chiều cao nâng:</strong> 3.000 mm</li>\n<li><strong>Pin:</strong> 48V / 400Ah</li>\n<li><strong>Động cơ:</strong> AC không chổi than</li>\n<li><strong>Tốc độ:</strong> 16 km/h</li>\n<li><strong>Khả năng leo dốc:</strong> 20%</li>\n<li><strong>Thời gian hoạt động:</strong> 6-8 giờ/lần sạc</li>\n</ul>\n\n<h3>Ưu Điểm</h3>\n<ul>\n<li>Không khí thải, không tiếng ồn</li>\n<li>Động cơ AC bền bỉ, ít bảo trì</li>\n<li>Phù hợp kho thực phẩm, dược phẩm</li>\n<li>Chi phí vận hành thấp</li>\n</ul>",
+    "features": [
+        "Tải trọng 2 tấn",
+        "Nâng cao 3m",
+        "Pin 48V/400Ah",
+        "Động cơ AC không chổi than",
+        "Không khí thải, êm ái",
+        "Tốc độ 16 km/h",
+        "Leo dốc 20%",
+        "Thương hiệu Heli số 1 Trung Quốc"
+    ],
+    "forkliftSpec": {
+        "loadCapacity": "2.000 kg",
+        "loadCenter": "500 mm",
+        "liftHeight": "3.000 mm",
+        "forkDimensions": "1070 x 122 x 40 mm",
+        "mastType": "Trụ nâng 2 tầng",
+        "freeLifHeight": "150 mm",
+        "tiltAngle": "6° / 12°",
+        "motorType": "Động cơ AC không chổi than",
+        "batterySpec": "48V / 400Ah Lead-acid",
+        "transmission": "Tự động vô cấp",
+        "steeringType": "Trợ lực điện EPS",
+        "tireType": "Lốp đặc siêu bền",
+        "turningRadius": "2.050 mm"
+    },
+    "order": 40
+}

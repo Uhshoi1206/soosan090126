@@ -1,0 +1,2538 @@
+backend:
+  name: github
+  repo: Uhshoi1206/soosan0901
+  branch: main
+  site_domain: "soosan0901.netlify.app"
+  base_url: "https://api.netlify.com"
+
+site_url: "https://soosan0901.netlify.app"
+display_url: "https://soosan0901.netlify.app"
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
+media_folder: "public/assets/uploads"
+public_folder: "/assets/uploads"
+
+locale: "vi"
+
+# Cấu hình slug global - đảm bảo tên file luôn là ASCII
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  # =========================================================
+  # CÀI ĐẶT TRANG WEB (Singleton)
+  # =========================================================
+  - name: "settings"
+    label: "⚙️ Cài Đặt Trang Web"
+    description: "Quản lý thông tin chung, logo, liên hệ, chi nhánh, SEO..."
+    files:
+      - name: "site-settings"
+        label: "Cài Đặt Chính"
+        file: "src/content/settings/site-settings.json"
+        fields:
+          - label: "📋 Thông Tin Chung"
+            name: "general_section"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Tên Trang Web", name: "siteName", widget: "string", default: "Soosan Motor" }
+              - { label: "Slogan", name: "siteTagline", widget: "string", default: "Chuyên cung cấp xe tải chất lượng" }
+              - { label: "Mô Tả SEO", name: "siteDescription", widget: "text" }
+              - { label: "Từ Khóa SEO", name: "siteKeywords", widget: "list" }
+              - { label: "URL Trang Web", name: "siteUrl", widget: "string", default: "https://soosanmotor.com" }
+              - { label: "🌐 CDN URL", name: "cdnUrl", widget: "string", default: "https://cdn.soosanmotor.com", hint: "URL của CDN lưu trữ hình ảnh, VD: https://cdn.soosanmotor.com" }
+          - label: "🖼️ Hình Ảnh"
+            name: "images_section"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Logo", name: "logo", widget: "string", default: "https://cdn.soosanmotor.com/soosanmotor.com_logo_Soosan.webp" }
+              - { label: "Alt Text Logo", name: "logoAlt", widget: "string", default: "Soosan Motor Logo" }
+              - { label: "Favicon", name: "favicon", widget: "string", default: "/favicon.ico" }
+              - { label: "Ảnh Open Graph", name: "ogImage", widget: "string", required: false }
+          - label: "📞 Thông Tin Liên Hệ"
+            name: "contact_section"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Số Điện Thoại Chính", name: "phone", widget: "string", default: "0764678901" }
+              - { label: "Số Điện Thoại Hiển Thị", name: "phoneDisplay", widget: "string", default: "0764 6789 01" }
+              - { label: "Email", name: "email", widget: "string", default: "sales@soosanmotor.com" }
+              - { label: "Địa Chỉ Trụ Sở", name: "address", widget: "text" }
+          - label: "🏢 Hệ Thống Chi Nhánh"
+            name: "branches"
+            widget: "list"
+            collapsed: true
+            label_singular: "Vùng Miền"
+            summary: "{{fields.regionName}}"
+            fields:
+              - { label: "Tên Vùng", name: "regionName", widget: "string" }
+              - label: "Danh Sách Chi Nhánh"
+                name: "addresses"
+                widget: "list"
+                label_singular: "Chi Nhánh"
+                summary: "{{fields.province}}"
+                fields:
+                  - { label: "Tỉnh/Thành Phố", name: "province", widget: "string" }
+                  - { label: "Địa Chỉ", name: "address", widget: "string" }
+                  - { label: "Số Điện Thoại", name: "phone", widget: "string" }
+                  - { label: "Link Google Maps", name: "mapUrl", widget: "string", required: false }
+          - label: "🌐 Mạng Xã Hội"
+            name: "social_section"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Facebook URL", name: "facebookUrl", widget: "string", required: false }
+              - { label: "Facebook Username", name: "facebookUsername", widget: "string", required: false }
+              - { label: "Messenger URL", name: "messengerUrl", widget: "string", required: false }
+              - { label: "YouTube URL", name: "youtubeUrl", widget: "string", required: false }
+              - { label: "YouTube Channel Name", name: "youtubeChannelName", widget: "string", required: false }
+              - { label: "TikTok URL", name: "tiktokUrl", widget: "string", required: false }
+              - { label: "TikTok Username", name: "tiktokUsername", widget: "string", required: false }
+              - { label: "Zalo Phone", name: "zaloPhone", widget: "string", required: false }
+          - label: "🔍 SEO Nâng Cao"
+            name: "seo_section"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Google Verification", name: "googleVerification", widget: "string", required: false }
+              - { label: "Bing Verification", name: "bingVerification", widget: "string", required: false }
+              - { label: "Theme Color", name: "themeColor", widget: "color", default: "#dc2626" }
+          - label: "🎨 Bảng Màu Website"
+            name: "colors_section"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Màu Chủ Đạo (Primary)", name: "primaryColor", widget: "color", default: "#D84315" }
+              - label: "Header"
+                name: "header"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Nền Header", name: "bgColor", widget: "color", default: "#FFFFFF" }
+                  - { label: "Màu Text", name: "textColor", widget: "color", default: "#1F2937" }
+                  - { label: "Màu Hover", name: "hoverColor", widget: "color", default: "#D84315" }
+              - label: "Footer"
+                name: "footer"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Nền Footer", name: "bgColor", widget: "color", default: "#111827" }
+                  - { label: "Màu Text", name: "textColor", widget: "color", default: "#FFFFFF" }
+                  - { label: "Màu Text Phụ", name: "mutedColor", widget: "color", default: "#9CA3AF" }
+              - label: "Page Headers"
+                name: "pageHeader"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Nền", name: "bgColor", widget: "color", default: "#1F2937" }
+                  - { label: "Màu Text", name: "textColor", widget: "color", default: "#FFFFFF" }
+              - label: "Buttons"
+                name: "buttons"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Nền Button Chính", name: "primaryBg", widget: "color", default: "#D84315" }
+                  - { label: "Text Button Chính", name: "primaryText", widget: "color", default: "#FFFFFF" }
+                  - { label: "Nền Button Phụ", name: "secondaryBg", widget: "color", default: "#F3F4F6" }
+                  - { label: "Text Button Phụ", name: "secondaryText", widget: "color", default: "#1F2937" }
+              - label: "Cards & Content"
+                name: "cards"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Nền Card", name: "bgColor", widget: "color", default: "#FFFFFF" }
+                  - { label: "Viền Card", name: "borderColor", widget: "color", default: "#E5E7EB" }
+          - label: "🏛️ Thông Tin Doanh Nghiệp (Schema.org)"
+            name: "organization_section"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Tên Tổ Chức", name: "organizationName", widget: "string", default: "Soosan Vina Motor" }
+              - { label: "Tên Thay Thế", name: "alternateName", widget: "string", default: "Soosan Motor" }
+              - label: "Loại Tổ Chức"
+                name: "organizationType"
+                widget: "select"
+                default: "AutoDealer"
+                options:
+                  - { label: "Đại lý ô tô", value: "AutoDealer" }
+                  - { label: "Doanh nghiệp địa phương", value: "LocalBusiness" }
+                  - { label: "Công ty", value: "Corporation" }
+                  - { label: "Tổ chức", value: "Organization" }
+              - { label: "Số Điện Thoại (Schema)", name: "schemaPhone", widget: "string", default: "+84-764-6789-01", hint: "Định dạng quốc tế: +84-xxx-xxx-xx" }
+              - { label: "Mức Giá", name: "priceRange", widget: "string", default: "₫₫₫", hint: "VD: ₫ (rẻ), ₫₫ (trung bình), ₫₫₫ (cao cấp)" }
+              - { label: "Ngày Thành Lập", name: "foundingDate", widget: "string", required: false }
+              - { label: "Mã Số Thuế", name: "vatNumber", widget: "string", required: false }
+              - { label: "Mô Tả Schema", name: "schemaDescription", widget: "text", default: "Nhà sản xuất và phân phối sơ mi rơ moóc, xe cẩu, xe tải chuyên dụng hàng đầu Việt Nam. Sản phẩm chất lượng Hàn Quốc, bảo hành chính hãng." }
+          - label: "📍 Địa Chỉ Schema (Trụ sở chính)"
+            name: "schema_address"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Địa Chỉ Đường", name: "streetAddress", widget: "string", default: "Cụm công nghiệp Hạp Lĩnh" }
+              - { label: "Phường/Xã", name: "addressLocality", widget: "string", default: "Phường Hạp Lĩnh" }
+              - { label: "Tỉnh/Thành Phố", name: "addressRegion", widget: "string", default: "Bắc Ninh" }
+              - { label: "Mã Bưu Điện", name: "postalCode", widget: "string", default: "220000" }
+              - { label: "Mã Quốc Gia", name: "addressCountry", widget: "string", default: "VN" }
+              - { label: "Vĩ Độ (Latitude)", name: "latitude", widget: "number", value_type: "float", default: 21.1215, hint: "VD: 21.1215" }
+              - { label: "Kinh Độ (Longitude)", name: "longitude", widget: "number", value_type: "float", default: 106.0763, hint: "VD: 106.0763" }
+          - label: "📦 Chính Sách Giao Hàng & Đổi Trả (Schema)"
+            name: "schema_policies"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Chính Sách Đổi Trả"
+                name: "returnPolicy"
+                widget: "select"
+                default: "MerchantReturnNotPermitted"
+                options:
+                  - { label: "Không cho phép đổi trả", value: "MerchantReturnNotPermitted" }
+                  - { label: "Đổi trả miễn phí", value: "MerchantReturnFiniteReturnWindow" }
+                  - { label: "Đổi trả có phí", value: "MerchantReturnUnlimitedWindow" }
+              - { label: "Số Ngày Đổi Trả", name: "returnDays", widget: "number", default: 0, hint: "0 = không cho đổi trả" }
+              - { label: "Phí Vận Chuyển (VND)", name: "shippingRate", widget: "number", default: 1, hint: "0 = miễn phí, 1 = tượng trưng, hoặc số tiền cụ thể" }
+              - { label: "Thời Gian Xử Lý (Tối Thiểu - Ngày)", name: "handlingTimeMin", widget: "number", default: 1 }
+              - { label: "Thời Gian Xử Lý (Tối Đa - Ngày)", name: "handlingTimeMax", widget: "number", default: 3 }
+              - { label: "Thời Gian Vận Chuyển (Tối Thiểu - Ngày)", name: "transitTimeMin", widget: "number", default: 2 }
+              - { label: "Thời Gian Vận Chuyển (Tối Đa - Ngày)", name: "transitTimeMax", widget: "number", default: 3 }
+          - label: "⭐ Đánh Giá Mẫu (Schema)"
+            name: "schema_reviews"
+            widget: "list"
+            collapsed: true
+            label_singular: "Đánh Giá"
+            summary: "{{fields.authorName}} - {{fields.rating}}⭐"
+            max: 5
+            fields:
+              - { label: "Tên Người Đánh Giá", name: "authorName", widget: "string" }
+              - { label: "Điểm Đánh Giá (1-5)", name: "rating", widget: "number", min: 1, max: 5, default: 5 }
+              - { label: "Ngày Đánh Giá", name: "datePublished", widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "Nội Dung Đánh Giá", name: "reviewBody", widget: "text" }
+
+  # =========================================================
+  # DANH MỤC SẢN PHẨM
+  # =========================================================
+  - name: "categories"
+    label: "📁 Danh Mục Sản Phẩm"
+    label_singular: "Danh Mục"
+    folder: "src/content/categories"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: id
+    extension: "json"
+    format: "json"
+    summary: "{{name}}"
+    fields:
+      - { label: "ID", name: "id", widget: "string", required: true }
+      - { label: "Tên Danh Mục", name: "name", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Mô Tả", name: "description", widget: "text", required: false }
+      - { label: "Từ Khóa", name: "keywords", widget: "list", required: false }
+      - { label: "Ẩn", name: "isHidden", widget: "boolean", default: false }
+      - { label: "Thứ Tự", name: "order", widget: "number", required: false }
+
+  # =========================================================
+  # DANH MỤC BÀI VIẾT
+  # =========================================================
+  - name: "blog-categories"
+    label: "📁 Danh Mục Bài Viết"
+    label_singular: "Danh Mục Bài Viết"
+    folder: "src/content/blog-categories"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: id
+    extension: "json"
+    format: "json"
+    summary: "{{name}}"
+    fields:
+      - { label: "ID", name: "id", widget: "string", required: true }
+      - { label: "Tên Danh Mục", name: "name", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Mô Tả", name: "description", widget: "text", required: false }
+      - { label: "Icon", name: "icon", widget: "string", required: false }
+      - { label: "Màu Sắc", name: "color", widget: "string", required: false }
+      - { label: "Ẩn", name: "isHidden", widget: "boolean", default: false }
+      - { label: "Thứ Tự", name: "order", widget: "number", required: false }
+
+  # =========================================================
+  # BANNER TRANG CHỦ
+  # =========================================================
+  - name: "banners"
+    label: "🎨 Banner Trang Chủ"
+    label_singular: "Banner"
+    folder: "src/content/banners"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    summary: "{{title}}"
+    fields:
+      - { label: "ID", name: "id", widget: "string", required: true }
+      - { label: "Tiêu Đề Chính", name: "title", widget: "string", required: true }
+      - { label: "Tiêu Đề Phụ (Highlight)", name: "highlightText", widget: "string", required: false }
+      - { label: "Mô Tả", name: "description", widget: "text", required: true }
+      - { label: "Ảnh Nền", name: "backgroundImage", widget: "string", required: true }
+      - { label: "Nút CTA - Text", name: "ctaPrimaryText", widget: "string", default: "Xem danh mục xe" }
+      - { label: "Nút CTA - Link", name: "ctaPrimaryLink", widget: "string", default: "/danh-muc-xe" }
+      - { label: "Nút Phụ - Text", name: "ctaSecondaryText", widget: "string", default: "Liên hệ tư vấn" }
+      - { label: "Nút Phụ - Link", name: "ctaSecondaryLink", widget: "string", default: "/lien-he" }
+      - { label: "Kích Hoạt", name: "isActive", widget: "boolean", default: true }
+      - { label: "Thứ Tự", name: "order", widget: "number", default: 0 }
+
+  # =========================================================
+  # THƯƠNG HIỆU NỔI TIẾNG
+  # =========================================================
+  - name: "brands"
+    label: "🏷️ Thương Hiệu Nổi Tiếng"
+    label_singular: "Thương Hiệu"
+    description: "Quản lý logo và thông tin các thương hiệu xe. Logo sẽ hiển thị ở trang chủ."
+    folder: "src/content/brands"
+    create: true
+    slug: "{{id}}"
+    identifier_field: id
+    extension: "json"
+    format: "json"
+    summary: "{{name}}"
+    sortable_fields: ['name', 'order', 'country']
+    fields:
+      - { label: "ID (slug)", name: "id", widget: "string", required: true, hint: "VD: hyundai, isuzu, hino..." }
+      - { label: "Tên Thương Hiệu", name: "name", widget: "string", required: true }
+      - { label: "Slug URL", name: "slug", widget: "string", required: true }
+      - { label: "Logo", name: "logo", widget: "image", required: false, hint: "Upload logo PNG/WebP nền trong suốt, kích thước khuyến nghị 200x100px" }
+      - { label: "Alt Text Logo (SEO)", name: "logoAlt", widget: "string", required: false, hint: "Mô tả logo cho SEO, VD: Logo thương hiệu Hyundai" }
+      - { label: "Mô Tả Thương Hiệu", name: "description", widget: "text", required: false }
+      - { label: "Tiêu Đề SEO", name: "seoTitle", widget: "string", required: false }
+      - { label: "Mô Tả SEO", name: "seoDescription", widget: "text", required: false }
+      - { label: "Quốc Gia", name: "country", widget: "string", required: false }
+      - { label: "Website Hãng", name: "website", widget: "string", required: false }
+      - { label: "Năm Thành Lập", name: "foundedYear", widget: "number", required: false }
+      - { label: "Thứ Tự", name: "order", widget: "number", default: 0 }
+      - { label: "Kích Hoạt", name: "isActive", widget: "boolean", default: true }
+
+  # =========================================================
+  # AUTO-GENERATED PRODUCT COLLECTIONS
+  # (Generated by scripts/generate-cms-config.js)
+  # =========================================================
+
+  # =========================================================
+  # SẢN PHẨM - XE TẢI
+  # =========================================================
+  - name: "products-xe-tai"
+    label: "🚚 Xe Tải"
+    label_singular: "Xe Tải"
+    folder: "src/content/products/xe-tai"
+    create: true
+    slug: "{{id}}"
+    extension: "json"
+    format: "json"
+    summary: "{{name}} - {{brand}}"
+    sortable_fields: ['name', 'brand', 'price', 'weight']
+    fields:
+      - { label: "ID", name: "id", widget: "string", required: true }
+      - { label: "Tên Sản Phẩm", name: "name", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Hãng", name: "brand", widget: "string", required: true }
+      - label: "Loại Xe"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Xe Tải", value: "xe-tai" }
+          - { label: "Cần Cẩu", value: "can-cau" }
+          - { label: "Sơ Mi Rơ Mooc", value: "mooc" }
+          - { label: "Xe Đầu Kéo", value: "dau-keo" }
+          - { label: "Máy Móc & Thiết Bị", value: "may-moc-thiet-bi" }
+      - { label: "Giá (VNĐ)", name: "price", widget: "number", required: false }
+      - { label: "Giá Hiển Thị", name: "priceText", widget: "string", required: false }
+      - { label: "Trọng Tải Hiển Thị", name: "weightText", widget: "string", required: true }
+      - { label: "Trọng Tải (kg)", name: "weight", widget: "number", required: true }
+      - { label: "Dài (mm)", name: "length", widget: "number", required: true }
+      - { label: "Rộng (mm)", name: "width", widget: "number", required: true }
+      - { label: "Cao (mm)", name: "height", widget: "number", required: true }
+      - { label: "Kích Thước", name: "dimensions", widget: "string", required: true }
+      - { label: "Ảnh Đại Diện", name: "thumbnailUrl", widget: "string", required: true }
+      - { label: "Ảnh Sản Phẩm", name: "images", widget: "list", required: true }
+      - { label: "Video URL (YouTube)", name: "videoUrl", widget: "string", required: false }
+      - { label: "Mới", name: "isNew", widget: "boolean", default: false }
+      - { label: "Nổi Bật", name: "isHot", widget: "boolean", default: false }
+      - { label: "Ẩn", name: "isHidden", widget: "boolean", default: false }
+      - label: "Tình Trạng Kho"
+        name: "stockStatus"
+        widget: "select"
+        default: "in-stock"
+        options:
+          - { label: "Sẵn hàng", value: "in-stock" }
+          - { label: "Hết hàng", value: "out-of-stock" }
+          - { label: "Đặt trước", value: "pre-order" }
+          - { label: "Ngừng kinh doanh", value: "discontinued" }
+      - { label: "Xuất Xứ", name: "origin", widget: "string", required: false }
+      - { label: "Mô Tả Ngắn", name: "description", widget: "text", required: false }
+      - { label: "Mô Tả Chi Tiết", name: "detailedDescription", widget: "markdown", required: false }
+      - { label: "Tính Năng", name: "features", widget: "list", required: false }
+      - { label: "Model", name: "model", widget: "string", required: false }
+      - { label: "Model Động Cơ", name: "engineModel", widget: "string", required: false }
+      - { label: "Loại Động Cơ", name: "engineType", widget: "string", required: false }
+      - { label: "Dung Tích Động Cơ", name: "engineCapacity", widget: "string", required: false }
+      - { label: "Công Suất Động Cơ", name: "enginePower", widget: "string", required: false }
+      - { label: "Mô-men Xoắn", name: "engineTorque", widget: "string", required: false }
+      - { label: "Tiêu Chuẩn Khí Thải", name: "emissionStandard", widget: "string", required: false }
+      - { label: "Nhiên Liệu", name: "fuel", widget: "string", required: false }
+      - { label: "Hộp Số", name: "transmission", widget: "string", required: false }
+      - { label: "Chiều Dài Cơ Sở", name: "wheelbase", widget: "number", required: false }
+      - { label: "Chiều Dài Cơ Sở (Text)", name: "wheelbaseText", widget: "string", required: false }
+      - { label: "Khoảng Sáng Gầm", name: "groundClearance", widget: "number", required: false }
+      - { label: "Bán Kính Quay Vòng", name: "turningRadius", widget: "number", required: false }
+      - { label: "Khối Lượng Bản Thân", name: "kerbWeight", widget: "string", required: false }
+      - { label: "Khối Lượng Toàn Bộ", name: "grossWeight", widget: "string", required: false }
+      - { label: "Lốp Xe", name: "tires", widget: "string", required: false }
+      - { label: "Treo Trước", name: "frontSuspension", widget: "string", required: false }
+      - { label: "Treo Sau", name: "rearSuspension", widget: "string", required: false }
+      - { label: "Phanh Trước", name: "frontBrake", widget: "string", required: false }
+      - { label: "Phanh Sau", name: "rearBrake", widget: "string", required: false }
+      - { label: "Hệ Thống Phanh", name: "brakeSystem", widget: "string", required: false }
+      - { label: "Hệ Thống Lái", name: "steeringType", widget: "string", required: false }
+      - { label: "Loại Cabin", name: "cabinType", widget: "string", required: false }
+      - { label: "Số Chỗ Ngồi", name: "seats", widget: "number", required: false }
+      - { label: "Dung Tích Bình Nhiên Liệu", name: "fuelTankCapacity", widget: "string", required: false }
+      - { label: "Tính Năng Cabin", name: "cabinFeatures", widget: "list", required: false }
+      - { label: "Thứ Tự Sắp Xếp", name: "order", widget: "number", required: false }
+      # ========= THÔNG SỐ KỸ THUẬT (tự động từ dữ liệu) =========
+      - label: "🔝 Aerial Platform"
+        name: "aerialPlatformSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Chiều Cao Làm Việc", name: "workingHeight", widget: "string", required: false }
+          - { label: "Tầm Vươn Ngang", name: "horizontalReach", widget: "string", required: false }
+          - { label: "Tải Trọng Sàn", name: "platformCapacity", widget: "string", required: false }
+          - { label: "Kích Thước Sàn", name: "platformSize", widget: "string", required: false }
+          - { label: "Góc Nâng Cần", name: "boomElevation", widget: "string", required: false }
+          - { label: "Xoay", name: "slewing", widget: "string", required: false }
+          - { label: "Loại Cần", name: "boomType", widget: "string", required: false }
+          - { label: "Cấp Cách Điện", name: "insulationRating", widget: "string", required: false }
+          - { label: "Tầm Chân Chống", name: "outriggerSpan", widget: "string", required: false }
+          - { label: "Hệ Thống Điều Khiển", name: "controlSystem", widget: "string", required: false }
+          - { label: "Tính Năng An Toàn", name: "safetyFeatures", widget: "string", required: false }
+      - label: "♻️ Arm Roll"
+        name: "armRollSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Dung Tích Thùng", name: "binCapacity", widget: "string", required: false }
+          - { label: "Kích Thước Thùng", name: "binDimension", widget: "string", required: false }
+          - { label: "Vật Liệu Thùng", name: "binMaterial", widget: "string", required: false }
+          - { label: "Sàn Thùng", name: "binFloor", widget: "string", required: false }
+          - { label: "Loại Móc", name: "hookType", widget: "string", required: false }
+          - { label: "Khung Cánh Tay", name: "armFrame", widget: "string", required: false }
+          - { label: "Trục Xoay", name: "pivotShaft", widget: "string", required: false }
+          - { label: "Con Lăn Đuôi", name: "tailRoller", widget: "string", required: false }
+          - { label: "Góc Nâng", name: "liftAngle", widget: "string", required: false }
+          - { label: "Góc Nghiêng", name: "tiltAngle", widget: "string", required: false }
+          - { label: "Số Xi Lanh", name: "cylinderCount", widget: "string", required: false }
+          - { label: "Kích Thước Xi Lanh", name: "cylinderDimension", widget: "string", required: false }
+          - { label: "Áp Suất Thủy Lực", name: "hydraulicPressure", widget: "string", required: false }
+          - { label: "Lực Nâng", name: "liftingForce", widget: "string", required: false }
+          - { label: "Xuất Xứ Xi Lanh", name: "cylinderOrigin", widget: "string", required: false }
+          - { label: "Bơm Thủy Lực", name: "hydraulicPump", widget: "string", required: false }
+          - { label: "Dung Tích Bình Dầu", name: "oilTankCapacity", widget: "string", required: false }
+          - { label: "Lọc Dầu", name: "oilFilter", widget: "string", required: false }
+          - { label: "Dầu Thủy Lực", name: "hydraulicOil", widget: "string", required: false }
+          - { label: "Thời Gian Nâng", name: "liftingTime", widget: "string", required: false }
+          - { label: "Thời Gian Hạ", name: "loweringTime", widget: "string", required: false }
+          - { label: "Hệ Thống Điều Khiển", name: "controlSystem", widget: "string", required: false }
+          - { label: "Khóa Thùng", name: "binLock", widget: "string", required: false }
+          - { label: "Van An Toàn", name: "safetyValve", widget: "string", required: false }
+      - label: "🛢️ Bitumen Tank"
+        name: "bitumenTankSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Dung Tích", name: "capacity", widget: "string", required: false }
+          - { label: "Kích Thước Bồn", name: "tankDimension", widget: "string", required: false }
+          - { label: "Vật Liệu Bên Trong", name: "innerMaterial", widget: "string", required: false }
+          - { label: "Vật Liệu Bảo Ôn", name: "insulationMaterial", widget: "string", required: false }
+          - { label: "Vỏ Ngoài", name: "outerShell", widget: "string", required: false }
+          - { label: "Nhiệt Độ Làm Việc", name: "workingTemperature", widget: "string", required: false }
+          - { label: "Giữ Nhiệt", name: "heatRetention", widget: "string", required: false }
+          - { label: "Kích Thước Cửa Manhole", name: "manholeSize", widget: "string", required: false }
+          - { label: "Loại Gia Nhiệt", name: "heatingType", widget: "string", required: false }
+          - { label: "Loại Đầu Đốt", name: "burnerType", widget: "string", required: false }
+          - { label: "Công Suất Đầu Đốt", name: "burnerPower", widget: "string", required: false }
+          - { label: "Dầu Truyền Nhiệt", name: "heatTransferOil", widget: "string", required: false }
+          - { label: "Bơm Tuần Hoàn Dầu", name: "oilCirculationPump", widget: "string", required: false }
+          - { label: "Cuộn Gia Nhiệt", name: "heatingCoil", widget: "string", required: false }
+          - { label: "Bình Nhiên Liệu", name: "fuelTank", widget: "string", required: false }
+          - { label: "Cảm Biến Nhiệt Độ", name: "temperatureSensor", widget: "string", required: false }
+          - { label: "Điều Khiển Tự Động", name: "autoControl", widget: "string", required: false }
+          - { label: "Hệ Thống An Toàn", name: "safetySystem", widget: "string", required: false }
+          - { label: "Loại Bơm Nhựa Đường", name: "bitumenPumpType", widget: "string", required: false }
+          - { label: "Lưu Lượng Bơm", name: "pumpFlowRate", widget: "string", required: false }
+          - { label: "Áp Suất Bơm", name: "pumpPressure", widget: "string", required: false }
+          - { label: "Dẫn Động Bơm", name: "pumpDrive", widget: "string", required: false }
+          - { label: "Chiều Rộng Thanh Phun", name: "sprayBarWidth", widget: "string", required: false }
+          - { label: "Số Vòi Phun", name: "nozzleCount", widget: "string", required: false }
+          - { label: "Điều Khiển Vòi Phun", name: "nozzleControl", widget: "string", required: false }
+          - { label: "Nâng Thanh Phun", name: "sprayBarLift", widget: "string", required: false }
+          - { label: "Mật Độ Phun", name: "sprayDensity", widget: "string", required: false }
+          - { label: "Súng Phun Cầm Tay", name: "handSprayGun", widget: "string", required: false }
+          - { label: "Hệ Thống Hiển Thị", name: "displaySystem", widget: "string", required: false }
+          - { label: "Chứng Nhận", name: "certifications", widget: "string", required: false }
+      - label: "📦 Closed Box"
+        name: "closedBox"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Vật Liệu Thành", name: "wallMaterial", widget: "string", required: false }
+          - { label: "Vật Liệu Sàn", name: "floorMaterial", widget: "string", required: false }
+          - { label: "Chiều Cao Thành Bên", name: "sideHeight", widget: "string", required: false }
+          - { label: "Loại Cửa", name: "doorType", widget: "string", required: false }
+          - { label: "Cách Nhiệt", name: "insulation", widget: "string", required: false }
+          - { label: "Gia Cường", name: "reinforcement", widget: "string", required: false }
+          - { label: "Thể Tích", name: "volume", widget: "string", required: false }
+      - label: "🚧 Concrete Mixer"
+        name: "concreteMixerSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Dung Tích Trống", name: "drumVolume", widget: "string", required: false }
+          - { label: "Vật Liệu Trống", name: "drumMaterial", widget: "string", required: false }
+          - { label: "Bơm Thủy Lực", name: "hydraulicPump", widget: "string", required: false }
+          - { label: "Motor Thủy Lực", name: "hydraulicMotor", widget: "string", required: false }
+          - { label: "Hộp Giảm Tốc", name: "gearReducer", widget: "string", required: false }
+          - { label: "Tốc Độ Quay", name: "rotationSpeed", widget: "string", required: false }
+          - { label: "Bình Nước", name: "waterTank", widget: "string", required: false }
+          - { label: "Máng Xả", name: "dischargeTrough", widget: "string", required: false }
+          - { label: "Cầu Trước", name: "frontAxle", widget: "string", required: false }
+          - { label: "Cầu Sau", name: "rearAxle", widget: "string", required: false }
+          - { label: "Tỷ Số Truyền Cầu", name: "axleRatio", widget: "string", required: false }
+          - { label: "Độ Dày Trống", name: "drumThickness", widget: "string", required: false }
+          - { label: "Tỷ Lệ Nạp", name: "fillRatio", widget: "string", required: false }
+          - { label: "Bê Tông Dư", name: "residualConcrete", widget: "string", required: false }
+      - label: "🚧 Concrete Pump"
+        name: "concretePumpSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Công Suất Bơm", name: "pumpCapacity", widget: "string", required: false }
+          - { label: "Áp Suất Tối Đa", name: "maxPressure", widget: "string", required: false }
+          - { label: "Chu Kỳ Bơm", name: "pumpCycle", widget: "string", required: false }
+          - { label: "Xi Lanh Bê Tông", name: "concreteCylinder", widget: "string", required: false }
+          - { label: "Chiều Cao Phễu", name: "hopperHeight", widget: "string", required: false }
+          - { label: "Loại Van", name: "valveType", widget: "string", required: false }
+          - { label: "Hệ Thống Thủy Lực", name: "hydraulicSystem", widget: "string", required: false }
+          - { label: "Vật Liệu Cần", name: "boomMaterial", widget: "string", required: false }
+          - { label: "Kiểm Soát Rung", name: "vibrationControl", widget: "string", required: false }
+          - { label: "Hệ Thống Điều Khiển", name: "controlSystem", widget: "string", required: false }
+          - { label: "Tự Làm Sạch", name: "selfCleaning", widget: "string", required: false }
+          - { label: "Tiết Kiệm Nhiên Liệu", name: "fuelSaving", widget: "string", required: false }
+          - label: "Phiên Bản Cần"
+            name: "boomVersions"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - label: "SYM5296THB-38m"
+                name: "SYM5296THB-38m"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - { label: "Chiều Cao Tối Đa", name: "maxHeight", widget: "string", required: false }
+                  - { label: "Tầm Với Tối Đa", name: "maxReach", widget: "string", required: false }
+                  - { label: "Độ Sâu Tối Đa", name: "maxDepth", widget: "string", required: false }
+                  - { label: "Số Đốt", name: "sections", widget: "number", required: false }
+                  - { label: "Loại Gấp", name: "foldType", widget: "string", required: false }
+                  - { label: "Xoay", name: "rotation", widget: "string", required: false }
+              - label: "SYM5442THB-56m"
+                name: "SYM5442THB-56m"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - { label: "Chiều Cao Tối Đa", name: "maxHeight", widget: "string", required: false }
+                  - { label: "Tầm Với Tối Đa", name: "maxReach", widget: "string", required: false }
+                  - { label: "Độ Sâu Tối Đa", name: "maxDepth", widget: "string", required: false }
+                  - { label: "Số Đốt", name: "sections", widget: "number", required: false }
+                  - { label: "Loại Gấp", name: "foldType", widget: "string", required: false }
+                  - { label: "Xoay", name: "rotation", widget: "string", required: false }
+              - label: "Cầu 43X-5RZ"
+                name: "43X-5RZ"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - { label: "Chiều Cao Tối Đa", name: "maxHeight", widget: "string", required: false }
+                  - { label: "Tầm Với Tối Đa", name: "maxReach", widget: "string", required: false }
+                  - { label: "Độ Sâu Tối Đa", name: "maxDepth", widget: "string", required: false }
+                  - { label: "Số Đốt", name: "sections", widget: "number", required: false }
+                  - { label: "Loại Gấp", name: "foldType", widget: "string", required: false }
+                  - { label: "Xoay", name: "rotation", widget: "string", required: false }
+                  - { label: "Đường Kính Ống", name: "pipeDiameter", widget: "string", required: false }
+              - label: "Cầu 56X-6RZ"
+                name: "56X-6RZ"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - { label: "Chiều Cao Tối Đa", name: "maxHeight", widget: "string", required: false }
+                  - { label: "Tầm Với Tối Đa", name: "maxReach", widget: "string", required: false }
+                  - { label: "Độ Sâu Tối Đa", name: "maxDepth", widget: "string", required: false }
+                  - { label: "Số Đốt", name: "sections", widget: "number", required: false }
+                  - { label: "Loại Gấp", name: "foldType", widget: "string", required: false }
+                  - { label: "Xoay", name: "rotation", widget: "string", required: false }
+                  - { label: "Đường Kính Ống", name: "pipeDiameter", widget: "string", required: false }
+          - label: "Chân Chống"
+            name: "outriggers"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Loại Đầu", name: "frontType", widget: "string", required: false }
+              - { label: "Loại Phía Sau", name: "rearType", widget: "string", required: false }
+              - { label: "Cảm Biến Áp Suất", name: "pressureSensor", widget: "string", required: false }
+              - { label: "Nhịp", name: "span", widget: "string", required: false }
+          - { label: "Khung Gầm", name: "chassis", widget: "string", required: false }
+          - { label: "Dịch Vụ", name: "service", widget: "string", required: false }
+          - { label: "Thể Tích Phễu", name: "hopperVolume", widget: "string", required: false }
+          - { label: "Bơm Thủy Lực", name: "hydraulicPump", widget: "string", required: false }
+          - { label: "Điều Khiển Từ Xa", name: "remoteControl", widget: "string", required: false }
+          - { label: "Chống Lật", name: "antiTipping", widget: "string", required: false }
+          - { label: "Công Thức Bánh", name: "wheelFormula", widget: "string", required: false }
+      - label: "🏗️ Crane"
+        name: "craneSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Model", name: "model", widget: "string", required: false }
+          - { label: "Sức Nâng Tối Đa", name: "maxLiftingCapacity", widget: "string", required: false }
+          - { label: "Sức Nâng (Text)", name: "liftingCapacityText", widget: "string", required: false }
+          - { label: "Mô-men Nâng Tối Đa", name: "maxLiftingMoment", widget: "string", required: false }
+          - { label: "Chiều Cao Nâng Tối Đa", name: "maxLiftingHeight", widget: "string", required: false }
+          - { label: "Bán Kính Làm Việc Tối Đa", name: "maxWorkingRadius", widget: "string", required: false }
+          - { label: "Loại Cần", name: "boomType", widget: "string", required: false }
+          - { label: "Số Đốt Cần", name: "boomSections", widget: "string", required: false }
+          - { label: "Chiều Dài Cần", name: "boomLength", widget: "string", required: false }
+          - { label: "Góc Lắc Cần", name: "boomLuffingAngle", widget: "string", required: false }
+          - { label: "Góc Xoay", name: "swingAngle", widget: "string", required: false }
+          - { label: "Tốc Độ Xoay", name: "swingSpeed", widget: "string", required: false }
+          - { label: "Tốc Độ Định Mức Tời", name: "winchRatedSpeed", widget: "string", required: false }
+          - { label: "Loại Cáp Tời", name: "winchRopeType", widget: "string", required: false }
+          - { label: "Mở Rộng Chân Chống Trước", name: "outriggersFrontExtension", widget: "string", required: false }
+          - { label: "Mở Rộng Chân Chống Sau", name: "outriggersRearExtension", widget: "string", required: false }
+          - { label: "Loại Chân Chống", name: "outriggersType", widget: "string", required: false }
+          - { label: "Dung Tích Bình Thủy Lực", name: "hydraulicTankCapacity", widget: "string", required: false }
+          - { label: "Lưu Lượng Dầu Thủy Lực", name: "hydraulicOilFlow", widget: "string", required: false }
+          - { label: "Áp Suất Làm Việc Thủy Lực", name: "hydraulicOperatingPressure", widget: "string", required: false }
+          - { label: "Hệ Thống Điều Khiển", name: "controlSystem", widget: "string", required: false }
+          - { label: "Tính Năng An Toàn", name: "safetyFeatures", widget: "string", required: false }
+          - { label: "Chi Tiết Sức Nâng", name: "detailedLiftingCapacity", widget: "list", required: false }
+          - { label: "Sức Nâng Tối Thiểu", name: "minLiftingCapacity", widget: "string", required: false }
+          - { label: "Chiều Cao Làm Việc Tối Đa", name: "maxWorkingHeight", widget: "string", required: false }
+          - { label: "Tốc Độ Duỗi Cần", name: "boomExtensionSpeed", widget: "string", required: false }
+          - { label: "Tốc Độ Nâng Cần", name: "boomLuffingSpeed", widget: "string", required: false }
+          - { label: "Xuất Xứ", name: "origin", widget: "string", required: false }
+          - { label: "Loại Bơm Thủy Lực", name: "hydraulicPumpType", widget: "string", required: false }
+      - label: "🚚 Dump Truck"
+        name: "dumpTruckSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Loại Ben", name: "dumpType", widget: "string", required: false }
+          - { label: "Hệ Thống Thủy Lực", name: "hydraulicSystem", widget: "string", required: false }
+          - { label: "Dung Tích Ben", name: "dumpVolume", widget: "string", required: false }
+          - { label: "Cầu Trước", name: "frontAxle", widget: "string", required: false }
+          - { label: "Cầu Sau", name: "rearAxle", widget: "string", required: false }
+          - { label: "Tỷ Số Truyền Cầu", name: "axleRatio", widget: "string", required: false }
+          - { label: "Góc Nâng", name: "liftingAngle", widget: "string", required: false }
+          - { label: "Sức Nâng", name: "liftingCapacity", widget: "string", required: false }
+          - { label: "Loại Trục", name: "axleType", widget: "string", required: false }
+      - label: "🚒 Fire Fighting"
+        name: "fireFightingSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Dung Tích Bình Nước", name: "waterTankCapacity", widget: "string", required: false }
+          - { label: "Vật Liệu Bình Nước", name: "waterTankMaterial", widget: "string", required: false }
+          - { label: "Dung Tích Bình Bọt", name: "foamTankCapacity", widget: "string", required: false }
+          - { label: "Vật Liệu Bình Bọt", name: "foamTankMaterial", widget: "string", required: false }
+          - { label: "Loại Bọt", name: "foamType", widget: "string", required: false }
+          - { label: "Hệ Thống Pha Bọt", name: "foamMixingSystem", widget: "string", required: false }
+          - { label: "Loại Bơm", name: "pumpType", widget: "string", required: false }
+          - { label: "Lưu Lượng Bơm", name: "pumpFlowRate", widget: "string", required: false }
+          - { label: "Áp Suất Bơm", name: "pumpPressure", widget: "string", required: false }
+          - { label: "Dẫn Động Bơm", name: "pumpDrive", widget: "string", required: false }
+          - { label: "Độ Sâu Hút", name: "suctionDepth", widget: "string", required: false }
+          - { label: "Thời Gian Hút", name: "suctionTime", widget: "string", required: false }
+          - { label: "Súng Phun", name: "monitorGun", widget: "string", required: false }
+          - { label: "Tầm Phun", name: "monitorRange", widget: "string", required: false }
+          - { label: "Góc Xoay Súng Phun", name: "monitorRotation", widget: "string", required: false }
+          - { label: "Cửa Xả", name: "dischargeOutlets", widget: "string", required: false }
+          - { label: "Cuộn Ống", name: "hosereels", widget: "string", required: false }
+          - { label: "Vòi Chữa Cháy D65", name: "fireHoseD65", widget: "string", required: false }
+          - { label: "Vòi Chữa Cháy D50", name: "fireHoseD50", widget: "string", required: false }
+          - { label: "Loại Vòi A", name: "nozzleTypeA", widget: "string", required: false }
+          - { label: "Loại Vòi B", name: "nozzleTypeB", widget: "string", required: false }
+          - { label: "Vòi Phun Bọt", name: "foamNozzle", widget: "string", required: false }
+          - { label: "Ống Nhánh", name: "branchPipe", widget: "string", required: false }
+          - { label: "Khớp Nối", name: "coupling", widget: "string", required: false }
+          - { label: "Thang 3 Đốt", name: "ladder3Section", widget: "string", required: false }
+          - { label: "Thang Móc", name: "hookLadder", widget: "string", required: false }
+          - { label: "Tải Trọng Thang", name: "ladderCapacity", widget: "string", required: false }
+          - { label: "Rìu", name: "axe", widget: "string", required: false }
+          - { label: "Xà Beng", name: "crowbar", widget: "string", required: false }
+          - { label: "Cưa Sắt", name: "hacksaw", widget: "string", required: false }
+          - { label: "Quần Áo Chống Cháy", name: "fireProofSuit", widget: "string", required: false }
+          - { label: "Mũ Chữa Cháy", name: "fireHelmet", widget: "string", required: false }
+          - { label: "Bộ Thở SCBA", name: "scbaSet", widget: "string", required: false }
+          - { label: "Tháp Đèn", name: "lightTower", widget: "string", required: false }
+          - { label: "Còi Báo", name: "siren", widget: "string", required: false }
+          - { label: "Đèn Cảnh Báo", name: "warningLights", widget: "string", required: false }
+          - { label: "Chứng Nhận", name: "certifications", widget: "string", required: false }
+      - label: "⛽ Fuel Tanker"
+        name: "fuelTankerSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Thể Tích Bồn", name: "tankVolume", widget: "string", required: false }
+          - label: "Vật Liệu Bồn"
+            name: "tankMaterial"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Thép", name: "steel", widget: "string", required: false }
+              - { label: "Nhôm", name: "aluminum", widget: "string", required: false }
+          - { label: "Hình Dạng Bồn", name: "tankShape", widget: "string", required: false }
+          - { label: "Số Khoang", name: "compartments", widget: "string", required: false }
+          - { label: "Hệ Thống Van", name: "valveSystem", widget: "string", required: false }
+          - { label: "Loại Nắp", name: "lidType", widget: "string", required: false }
+          - { label: "Thang", name: "ladder", widget: "string", required: false }
+          - label: "Tính Năng An Toàn"
+            name: "safetyFeatures"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Công Tắc Chính", name: "mainSwitch", widget: "string", required: false }
+              - { label: "Xích Tiếp Đất", name: "groundingChain", widget: "string", required: false }
+              - { label: "Hệ Thống Chống Bó Cứng Phanh", name: "abs", widget: "string", required: false }
+              - { label: "Phanh Xả", name: "exhaustBrake", widget: "string", required: false }
+              - { label: "Mạch Kép", name: "dualCircuit", widget: "string", required: false }
+          - label: "Lợi Ích Nhôm"
+            name: "aluminumBenefits"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Giảm Trọng Lượng", name: "weightReduction", widget: "string", required: false }
+              - { label: "Dung Tích Bổ Sung", name: "extraCapacity", widget: "string", required: false }
+              - { label: "Chống Gỉ", name: "noRust", widget: "string", required: false }
+          - { label: "Tiết Kiệm Nhiên Liệu", name: "fuelSaving", widget: "string", required: false }
+          - { label: "Thu Hồi Hơi", name: "vaporRecovery", widget: "string", required: false }
+          - { label: "Lớp Phủ", name: "coating", widget: "string", required: false }
+          - label: "Độ Tin Cậy"
+            name: "reliability"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Độ Bền Động Cơ", name: "engineDurability", widget: "string", required: false }
+              - { label: "Độ Bền Khung Gầm", name: "chassisStrength", widget: "string", required: false }
+              - { label: "Giá Trị Bán Lại", name: "resaleValue", widget: "string", required: false }
+      - label: "📋 Glass Rack"
+        name: "glassRackSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Loại Giá Đỡ", name: "rackType", widget: "string", required: false }
+          - { label: "Vật Liệu Giá Đỡ", name: "rackMaterial", widget: "string", required: false }
+          - { label: "Hoàn Thiện Bề Mặt", name: "surfaceFinish", widget: "string", required: false }
+          - { label: "Kích Thước Giá Đỡ", name: "rackDimension", widget: "string", required: false }
+          - { label: "Góc Giá Đỡ", name: "rackAngle", widget: "string", required: false }
+          - { label: "Tải Trọng Mỗi Bên", name: "loadCapacityPerSide", widget: "string", required: false }
+          - { label: "Vật Liệu Đệm", name: "paddingMaterial", widget: "string", required: false }
+          - { label: "Vật Liệu Ngăn Cách", name: "separatorMaterial", widget: "string", required: false }
+          - { label: "Loại Dây Đai", name: "strapType", widget: "string", required: false }
+          - { label: "Số Lượng Dây Đai", name: "strapQuantity", widget: "string", required: false }
+          - { label: "Điểm Buộc", name: "tieDownPoints", widget: "string", required: false }
+          - { label: "Giằng Chéo", name: "crossBracing", widget: "string", required: false }
+          - { label: "Điểm Dừng", name: "endStops", widget: "string", required: false }
+          - { label: "Kích Thước Kính Tối Đa", name: "maxGlassSize", widget: "string", required: false }
+          - { label: "Chứng Nhận", name: "certifications", widget: "string", required: false }
+      - label: "📋 Livestock Body"
+        name: "livestockBodySpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Kích Thước Bên Trong", name: "innerDimensions", widget: "string", required: false }
+          - { label: "Vật Liệu", name: "material", widget: "string", required: false }
+          - { label: "Vật Liệu Khung", name: "frameMaterial", widget: "string", required: false }
+          - { label: "Vật Liệu Sàn", name: "floorMaterial", widget: "string", required: false }
+          - { label: "Thiết Kế", name: "design", widget: "string", required: false }
+          - { label: "Bửng Nâng", name: "tailLift", widget: "string", required: false }
+          - { label: "Loại Hàng Hóa", name: "cargoType", widget: "string", required: false }
+      - label: "📋 Man Basket"
+        name: "manBasketSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Model", name: "model", widget: "string", required: false }
+          - { label: "Kích Thước", name: "size", widget: "string", required: false }
+          - { label: "Dung Tích", name: "capacity", widget: "string", required: false }
+          - { label: "Số Người", name: "persons", widget: "string", required: false }
+          - { label: "Vật Liệu", name: "material", widget: "string", required: false }
+          - { label: "Cấp Cách Điện", name: "insulationRating", widget: "string", required: false }
+          - { label: "Điện Trở Cách Điện", name: "insulationResistance", widget: "string", required: false }
+          - { label: "Sàn", name: "floor", widget: "string", required: false }
+          - { label: "Lan Can", name: "railing", widget: "string", required: false }
+          - { label: "Móc An Toàn", name: "safetyHook", widget: "string", required: false }
+          - { label: "Trọng Lượng", name: "weight", widget: "string", required: false }
+          - { label: "Kết Nối", name: "connection", widget: "string", required: false }
+          - { label: "Giá Dụng Cụ", name: "toolHolder", widget: "string", required: false }
+          - { label: "Chứng Nhận", name: "certification", widget: "string", required: false }
+          - { label: "Màu Sắc", name: "color", widget: "string", required: false }
+      - label: "🧹 Street Sweeper"
+        name: "streetSweeperSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Dung Tích Thùng Rác", name: "garbageTankCapacity", widget: "string", required: false }
+          - { label: "Dung Tích Bình Nước", name: "waterTankCapacity", widget: "string", required: false }
+          - { label: "Vật Liệu Bồn", name: "tankMaterial", widget: "string", required: false }
+          - { label: "Đường Kính Chổi Chính", name: "mainBrushDiameter", widget: "string", required: false }
+          - { label: "Đường Kính Chổi Bên", name: "sideBrushDiameter", widget: "string", required: false }
+          - { label: "Chiều Rộng Quét", name: "sweepingWidth", widget: "string", required: false }
+          - { label: "Dẫn Động Chổi", name: "brushDrive", widget: "string", required: false }
+          - { label: "Áp Suất Chổi", name: "brushPressure", widget: "string", required: false }
+          - { label: "Loại Bơm Chân Không", name: "vacuumPumpType", widget: "string", required: false }
+          - { label: "Lưu Lượng Khí Hút", name: "vacuumAirFlow", widget: "string", required: false }
+          - { label: "Mức Chân Không", name: "vacuumLevel", widget: "string", required: false }
+          - { label: "Chiều Rộng Vòi Hút", name: "suctionNozzleWidth", widget: "string", required: false }
+          - { label: "Hệ Thống Lọc", name: "filterSystem", widget: "string", required: false }
+          - { label: "Vệ Sinh Bộ Lọc", name: "filterCleaning", widget: "string", required: false }
+          - { label: "Áp Suất Phun Bụi", name: "dustSprayPressure", widget: "string", required: false }
+          - { label: "Lưu Lượng Phun Bụi", name: "dustSprayFlow", widget: "string", required: false }
+          - { label: "Bơm Cao Áp", name: "highPressurePump", widget: "string", required: false }
+          - { label: "Lưu Lượng Cao Áp", name: "highPressureFlow", widget: "string", required: false }
+          - { label: "Chiều Dài Ống Súng Phun", name: "sprayGunHoseLength", widget: "string", required: false }
+          - { label: "Loại Bơm Nước", name: "waterPumpType", widget: "string", required: false }
+          - { label: "Hệ Thống Đổ", name: "dumpingSystem", widget: "string", required: false }
+          - { label: "Tốc Độ Quét", name: "sweepingSpeed", widget: "string", required: false }
+          - { label: "Năng Suất Quét", name: "sweepingProductivity", widget: "string", required: false }
+          - { label: "Hệ Thống Điều Khiển", name: "controlSystem", widget: "string", required: false }
+          - { label: "Tính Năng An Toàn", name: "safetyFeatures", widget: "string", required: false }
+      - label: "🛗 Tail Lift"
+        name: "tailLift"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Loại", name: "type", widget: "string", required: false }
+          - { label: "Sức Nâng", name: "liftCapacity", widget: "string", required: false }
+          - { label: "Kích Thước Sàn", name: "platformSize", widget: "string", required: false }
+          - { label: "Chiều Cao Nâng", name: "liftHeight", widget: "string", required: false }
+          - { label: "Nguồn Điện", name: "powerSource", widget: "string", required: false }
+          - { label: "Hệ Thống Điều Khiển", name: "controlSystem", widget: "string", required: false }
+          - { label: "Thời Gian Nâng", name: "liftTime", widget: "string", required: false }
+          - { label: "Bơm Thủy Lực", name: "hydraulicPump", widget: "string", required: false }
+          - { label: "Chất Lỏng Thủy Lực", name: "hydraulicFluid", widget: "string", required: false }
+          - { label: "Tính Năng An Toàn", name: "safetyFeatures", widget: "string", required: false }
+      - label: "🛢️ Tank"
+        name: "tankSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Dung Tích", name: "capacity", widget: "string", required: false }
+          - { label: "Dung Tích (Text)", name: "capacityText", widget: "string", required: false }
+          - { label: "Vật Liệu", name: "material", widget: "string", required: false }
+          - { label: "Độ Dày", name: "thickness", widget: "string", required: false }
+          - { label: "Hình Dạng Bồn", name: "tankShape", widget: "string", required: false }
+          - { label: "Kích Thước Bồn", name: "tankDimension", widget: "string", required: false }
+          - { label: "Hệ Thống Vít Tải", name: "augerSystem", widget: "string", required: false }
+          - { label: "Đường Kính Vít Tải", name: "augerDiameter", widget: "string", required: false }
+          - { label: "Công Suất Vít Tải", name: "augerCapacity", widget: "string", required: false }
+          - { label: "Cánh Tay Xả", name: "dischargeArm", widget: "string", required: false }
+          - { label: "Motor Thủy Lực", name: "hydraulicMotor", widget: "string", required: false }
+          - { label: "Bơm Thủy Lực", name: "hydraulicPump", widget: "string", required: false }
+          - { label: "Cửa Nạp", name: "inletHatch", widget: "string", required: false }
+          - { label: "Cửa Manhole", name: "manhole", widget: "string", required: false }
+          - { label: "Lớp Phủ", name: "coating", widget: "string", required: false }
+          - { label: "Thang", name: "ladder", widget: "string", required: false }
+          - { label: "Vật Liệu Bồn", name: "tankMaterial", widget: "string", required: false }
+          - { label: "Dung Tích Bồn", name: "tankCapacity", widget: "string", required: false }
+          - { label: "Kích Thước Bồn", name: "tankDimensions", widget: "string", required: false }
+          - { label: "Áp Suất Làm Việc", name: "workingPressure", widget: "string", required: false }
+          - { label: "Số Khoang", name: "compartments", widget: "string", required: false }
+          - { label: "Loại Hàn", name: "weldingType", widget: "string", required: false }
+          - { label: "Bề Mặt Trong", name: "innerSurface", widget: "string", required: false }
+          - { label: "Loại Bơm", name: "pumpType", widget: "string", required: false }
+          - { label: "Lưu Lượng Bơm", name: "pumpFlow", widget: "string", required: false }
+          - { label: "Ống Xả", name: "dischargeHose", widget: "string", required: false }
+          - { label: "Van An Toàn", name: "safetyValve", widget: "string", required: false }
+          - { label: "Hệ Thống Tiếp Đất", name: "groundingSystem", widget: "string", required: false }
+          - { label: "Áp Suất Thiết Kế", name: "designPressure", widget: "string", required: false }
+          - { label: "Nhiệt Độ Làm Việc", name: "workingTemperature", widget: "string", required: false }
+          - { label: "Áp Suất Thử", name: "testPressure", widget: "string", required: false }
+          - { label: "Có Cách Nhiệt", name: "insulationPresent", widget: "boolean", required: false }
+          - { label: "Vật Liệu Lót", name: "liningMaterial", widget: "string", required: false }
+          - { label: "Độ Dày Lót", name: "liningThickness", widget: "string", required: false }
+          - { label: "Vách Ngăn", name: "baffles", widget: "string", required: false }
+          - { label: "Kích Thước Cửa Manhole", name: "manholeSize", widget: "string", required: false }
+          - { label: "Hệ Thống Van", name: "valveSystem", widget: "string", required: false }
+          - { label: "Hệ Thống Xả Liệu", name: "dischargingSystem", widget: "string", required: false }
+          - { label: "Hệ Thống Đo Lường", name: "measurementSystem", widget: "string", required: false }
+          - { label: "Thiết Bị An Toàn", name: "safetyEquipment", widget: "string", required: false }
+          - { label: "Tính Năng An Toàn", name: "safetyFeatures", widget: "string", required: false }
+          - { label: "Chứng Nhận", name: "certifications", widget: "string", required: false }
+          - { label: "Hoàn Thiện Bề Mặt", name: "surfaceFinish", widget: "string", required: false }
+          - { label: "Van Đáy", name: "bottomValve", widget: "string", required: false }
+          - { label: "Van Thở", name: "breathingValve", widget: "string", required: false }
+          - { label: "Đường Ống", name: "piping", widget: "string", required: false }
+          - { label: "Khớp Nối", name: "coupling", widget: "string", required: false }
+          - { label: "Chứng Chỉ", name: "certificates", widget: "string", required: false }
+          - { label: "Hệ Thống Làm Sạch", name: "cleaningSystem", widget: "string", required: false }
+          - { label: "Cách Nhiệt", name: "thermalInsulation", widget: "string", required: false }
+          - { label: "Van Khẩn Cấp", name: "emergencyValve", widget: "string", required: false }
+          - { label: "Thu Hồi Hơi", name: "vaporRecovery", widget: "string", required: false }
+          - { label: "Đồng Hồ Lưu Lượng", name: "flowMeter", widget: "string", required: false }
+          - { label: "Bình Chữa Cháy", name: "fireExtinguisher", widget: "string", required: false }
+          - { label: "Biển Cảnh Báo", name: "warningSign", widget: "string", required: false }
+          - { label: "Sơn", name: "painting", widget: "string", required: false }
+          - { label: "Liên Kết Lót", name: "liningBonding", widget: "string", required: false }
+          - { label: "Lưu Lượng Bơm", name: "pumpFlowRate", widget: "string", required: false }
+          - { label: "Cột Áp Bơm", name: "pumpHead", widget: "string", required: false }
+          - { label: "Seal Bơm", name: "pumpSeal", widget: "string", required: false }
+          - { label: "Dẫn Động Bơm", name: "pumpDrive", widget: "string", required: false }
+          - { label: "Loại Van", name: "valveType", widget: "string", required: false }
+          - { label: "Các Kết Nối", name: "connections", widget: "string", required: false }
+          - { label: "Cấp ADR", name: "adrClass", widget: "string", required: false }
+          - { label: "Số UN", name: "unNumber", widget: "string", required: false }
+          - { label: "Nhóm Đóng Gói", name: "packingGroup", widget: "string", required: false }
+          - { label: "Mã Bồn", name: "tankCode", widget: "string", required: false }
+          - { label: "Biển Báo Nguy Hiểm", name: "hazardPlacard", widget: "string", required: false }
+          - { label: "Loại Hàng Hóa", name: "cargoType", widget: "string", required: false }
+          - { label: "Hệ Thống Gia Nhiệt", name: "heatingSystem", widget: "string", required: false }
+          - { label: "Độ Nghiêng Đáy", name: "bottomSlope", widget: "string", required: false }
+          - { label: "Motor Khuấy", name: "agitatorMotor", widget: "string", required: false }
+          - { label: "Tốc Độ Khuấy", name: "agitatorSpeed", widget: "string", required: false }
+          - { label: "Cánh Khuấy", name: "agitatorBlade", widget: "string", required: false }
+          - { label: "Trục Khuấy", name: "agitatorShaft", widget: "string", required: false }
+          - { label: "Điều Khiển Khuấy", name: "agitatorControl", widget: "string", required: false }
+          - { label: "Công Suất Khuấy", name: "agitatorPower", widget: "string", required: false }
+          - { label: "Bộ Lọc", name: "filter", widget: "string", required: false }
+          - { label: "Chất Bảo Quản", name: "preservative", widget: "string", required: false }
+          - { label: "Vật Liệu Đầu", name: "headMaterial", widget: "string", required: false }
+          - { label: "Tiêu Chuẩn Bơm", name: "pumpStandard", widget: "string", required: false }
+          - { label: "Vật Liệu Gioăng", name: "gasketMaterial", widget: "string", required: false }
+          - { label: "Công Suất Bơm", name: "pumpPower", widget: "string", required: false }
+          - { label: "Ống Xả", name: "dischargePipe", widget: "string", required: false }
+          - { label: "Kết Nối Ống", name: "hoseConnection", widget: "string", required: false }
+          - { label: "Bộ Xả Tĩnh Điện", name: "staticDischarger", widget: "string", required: false }
+          - { label: "Nhiệt Độ Thiết Kế", name: "designTemperature", widget: "string", required: false }
+          - { label: "Lớp Phủ Chống Tĩnh Điện", name: "antiStaticCoating", widget: "string", required: false }
+          - { label: "Bộ Ngăn Lửa", name: "flameArrester", widget: "string", required: false }
+          - { label: "Bơm", name: "pump", widget: "string", required: false }
+          - { label: "Motor Bơm", name: "pumpMotor", widget: "string", required: false }
+          - { label: "Tiêu Chuẩn", name: "standards", widget: "string", required: false }
+          - { label: "Van Chất Lỏng", name: "liquidValve", widget: "string", required: false }
+          - { label: "Van Hơi", name: "vaporValve", widget: "string", required: false }
+          - { label: "Van Xả", name: "drainValve", widget: "string", required: false }
+          - { label: "Đồng Hồ Áp Suất", name: "pressureGauge", widget: "string", required: false }
+          - { label: "Đồng Hồ Mức", name: "levelGauge", widget: "string", required: false }
+          - { label: "Bộ Dò Khí", name: "gasDetector", widget: "string", required: false }
+          - { label: "Loại Bảo Ôn", name: "insulationType", widget: "string", required: false }
+          - { label: "Mức Chân Không", name: "vacuumLevel", widget: "string", required: false }
+          - { label: "Tốc Độ Bay Hơi", name: "evaporationRate", widget: "string", required: false }
+          - { label: "Thời Gian Giữ", name: "holdingTime", widget: "string", required: false }
+          - { label: "Model Bơm", name: "pumpModel", widget: "string", required: false }
+          - { label: "Tự Mồi", name: "selfPriming", widget: "string", required: false }
+          - { label: "Dẫn Động PTO", name: "ptoDrive", widget: "string", required: false }
+          - { label: "Phun Trước", name: "frontSpray", widget: "string", required: false }
+          - { label: "Súng Phun Sau", name: "rearCannon", widget: "string", required: false }
+          - { label: "Phun Bên", name: "sideSpray", widget: "string", required: false }
+          - { label: "Cuộn Ống", name: "hoseReel", widget: "string", required: false }
+          - { label: "Cổng Hút", name: "suctionPort", widget: "string", required: false }
+      - label: "📋 Tilt Deck"
+        name: "tiltDeckSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Chiều Dài Sàn", name: "deckLength", widget: "string", required: false }
+          - { label: "Chiều Rộng Sàn", name: "deckWidth", widget: "string", required: false }
+          - { label: "Tải Trọng Sàn", name: "deckCapacity", widget: "string", required: false }
+          - { label: "Vật Liệu Sàn", name: "deckMaterial", widget: "string", required: false }
+          - { label: "Khung Sàn", name: "deckFrame", widget: "string", required: false }
+          - { label: "Góc Nghiêng", name: "tiltAngle", widget: "string", required: false }
+          - { label: "Xi Lanh Nghiêng", name: "tiltCylinder", widget: "string", required: false }
+          - { label: "Áp Suất Thủy Lực", name: "hydraulicPressure", widget: "string", required: false }
+          - { label: "Bơm Thủy Lực", name: "hydraulicPump", widget: "string", required: false }
+          - { label: "Chiều Dài Bửng", name: "rampLength", widget: "string", required: false }
+          - { label: "Chiều Rộng Bửng", name: "rampWidth", widget: "string", required: false }
+          - { label: "Tải Trọng Bửng", name: "rampCapacity", widget: "string", required: false }
+          - { label: "Góc Bửng", name: "rampAngle", widget: "string", required: false }
+          - { label: "Sức Nâng Tời", name: "winchCapacity", widget: "string", required: false }
+          - { label: "Thông Số Cáp Tời", name: "winchCableSpec", widget: "string", required: false }
+          - { label: "Tốc Độ Tời", name: "winchSpeed", widget: "string", required: false }
+          - { label: "Điều Khiển Tời", name: "winchControl", widget: "string", required: false }
+          - { label: "Điểm Buộc", name: "tieDownPoints", widget: "string", required: false }
+          - { label: "Tính Năng An Toàn", name: "safetyFeatures", widget: "string", required: false }
+
+
+  # =========================================================
+  # SẢN PHẨM - CẦN CẨU
+  # =========================================================
+  - name: "products-can-cau"
+    label: "🏗️ Cần Cẩu"
+    label_singular: "Cần Cẩu"
+    folder: "src/content/products/can-cau"
+    create: true
+    slug: "{{id}}"
+    extension: "json"
+    format: "json"
+    summary: "{{name}} - {{brand}}"
+    sortable_fields: ['name', 'brand', 'price', 'weight']
+    fields:
+      - { label: "ID", name: "id", widget: "string", required: true }
+      - { label: "Tên Sản Phẩm", name: "name", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Hãng", name: "brand", widget: "string", required: true }
+      - label: "Loại Xe"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Xe Tải", value: "xe-tai" }
+          - { label: "Cần Cẩu", value: "can-cau" }
+          - { label: "Sơ Mi Rơ Mooc", value: "mooc" }
+          - { label: "Xe Đầu Kéo", value: "dau-keo" }
+          - { label: "Máy Móc & Thiết Bị", value: "may-moc-thiet-bi" }
+      - { label: "Giá (VNĐ)", name: "price", widget: "number", required: false }
+      - { label: "Giá Hiển Thị", name: "priceText", widget: "string", required: false }
+      - { label: "Trọng Tải Hiển Thị", name: "weightText", widget: "string", required: true }
+      - { label: "Trọng Tải (kg)", name: "weight", widget: "number", required: true }
+      - { label: "Dài (mm)", name: "length", widget: "number", required: true }
+      - { label: "Rộng (mm)", name: "width", widget: "number", required: true }
+      - { label: "Cao (mm)", name: "height", widget: "number", required: true }
+      - { label: "Kích Thước", name: "dimensions", widget: "string", required: true }
+      - { label: "Ảnh Đại Diện", name: "thumbnailUrl", widget: "string", required: true }
+      - { label: "Ảnh Sản Phẩm", name: "images", widget: "list", required: true }
+      - { label: "Video URL (YouTube)", name: "videoUrl", widget: "string", required: false }
+      - { label: "Mới", name: "isNew", widget: "boolean", default: false }
+      - { label: "Nổi Bật", name: "isHot", widget: "boolean", default: false }
+      - { label: "Ẩn", name: "isHidden", widget: "boolean", default: false }
+      - label: "Tình Trạng Kho"
+        name: "stockStatus"
+        widget: "select"
+        default: "in-stock"
+        options:
+          - { label: "Sẵn hàng", value: "in-stock" }
+          - { label: "Hết hàng", value: "out-of-stock" }
+          - { label: "Đặt trước", value: "pre-order" }
+          - { label: "Ngừng kinh doanh", value: "discontinued" }
+      - { label: "Xuất Xứ", name: "origin", widget: "string", required: false }
+      - { label: "Mô Tả Ngắn", name: "description", widget: "text", required: false }
+      - { label: "Mô Tả Chi Tiết", name: "detailedDescription", widget: "markdown", required: false }
+      - { label: "Tính Năng", name: "features", widget: "list", required: false }
+      - { label: "Model", name: "model", widget: "string", required: false }
+      - { label: "Model Động Cơ", name: "engineModel", widget: "string", required: false }
+      - { label: "Loại Động Cơ", name: "engineType", widget: "string", required: false }
+      - { label: "Dung Tích Động Cơ", name: "engineCapacity", widget: "string", required: false }
+      - { label: "Công Suất Động Cơ", name: "enginePower", widget: "string", required: false }
+      - { label: "Mô-men Xoắn", name: "engineTorque", widget: "string", required: false }
+      - { label: "Tiêu Chuẩn Khí Thải", name: "emissionStandard", widget: "string", required: false }
+      - { label: "Nhiên Liệu", name: "fuel", widget: "string", required: false }
+      - { label: "Hộp Số", name: "transmission", widget: "string", required: false }
+      - { label: "Chiều Dài Cơ Sở", name: "wheelbase", widget: "number", required: false }
+      - { label: "Chiều Dài Cơ Sở (Text)", name: "wheelbaseText", widget: "string", required: false }
+      - { label: "Khoảng Sáng Gầm", name: "groundClearance", widget: "number", required: false }
+      - { label: "Bán Kính Quay Vòng", name: "turningRadius", widget: "number", required: false }
+      - { label: "Khối Lượng Bản Thân", name: "kerbWeight", widget: "string", required: false }
+      - { label: "Khối Lượng Toàn Bộ", name: "grossWeight", widget: "string", required: false }
+      - { label: "Lốp Xe", name: "tires", widget: "string", required: false }
+      - { label: "Treo Trước", name: "frontSuspension", widget: "string", required: false }
+      - { label: "Treo Sau", name: "rearSuspension", widget: "string", required: false }
+      - { label: "Phanh Trước", name: "frontBrake", widget: "string", required: false }
+      - { label: "Phanh Sau", name: "rearBrake", widget: "string", required: false }
+      - { label: "Hệ Thống Phanh", name: "brakeSystem", widget: "string", required: false }
+      - { label: "Hệ Thống Lái", name: "steeringType", widget: "string", required: false }
+      - { label: "Loại Cabin", name: "cabinType", widget: "string", required: false }
+      - { label: "Số Chỗ Ngồi", name: "seats", widget: "number", required: false }
+      - { label: "Dung Tích Bình Nhiên Liệu", name: "fuelTankCapacity", widget: "string", required: false }
+      - { label: "Tính Năng Cabin", name: "cabinFeatures", widget: "list", required: false }
+      - { label: "Thứ Tự Sắp Xếp", name: "order", widget: "number", required: false }
+      # ========= THÔNG SỐ KỸ THUẬT (tự động từ dữ liệu) =========
+      - label: "🏗️ Crane"
+        name: "craneSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Model", name: "model", widget: "string", required: false }
+          - { label: "Chassis Xe Tải Phù Hợp", name: "applicableTruckChassis", widget: "string", required: false }
+          - { label: "Trọng Lượng Cẩu Khi Hoạt Động", name: "craneOperatingWeight", widget: "string", required: false }
+          - { label: "Trọng Lượng Cẩu Ròng", name: "craneNetWeight", widget: "string", required: false }
+          - { label: "Mô-men Nâng Tối Đa", name: "maxLiftingMoment", widget: "string", required: false }
+          - { label: "Sức Nâng", name: "liftingCapacity", widget: "number", required: false }
+          - { label: "Sức Nâng (Text)", name: "liftingCapacityText", widget: "string", required: false }
+          - { label: "Chiều Cao Nâng Tối Đa", name: "maxLiftingHeight", widget: "string", required: false }
+          - { label: "Chiều Sâu Tối Đa Dưới Mặt Đất", name: "maxHeightBelowGround", widget: "string", required: false }
+          - { label: "Bán Kính Làm Việc Tối Thiểu", name: "minWorkingRadius", widget: "string", required: false }
+          - { label: "Bán Kính Làm Việc Tối Đa", name: "maxWorkingRadius", widget: "string", required: false }
+          - { label: "Loại Cần", name: "boomType", widget: "string", required: false }
+          - { label: "Số Đốt Cần", name: "boomSections", widget: "number", required: false }
+          - { label: "Chiều Dài Cần", name: "boomLength", widget: "string", required: false }
+          - { label: "Chiều Dài Cần Thu Gọn", name: "boomRetractedLength", widget: "string", required: false }
+          - { label: "Chiều Dài Cần Mở Rộng", name: "boomExtendedLength", widget: "string", required: false }
+          - { label: "Tốc Độ Duỗi Cần", name: "boomExtensionSpeed", widget: "string", required: false }
+          - { label: "Góc Lắc Cần", name: "boomLuffingAngle", widget: "string", required: false }
+          - { label: "Tốc Độ Nâng Cần", name: "boomLuffingSpeed", widget: "string", required: false }
+          - { label: "Cần Phụ", name: "jibBoom", widget: "string", required: false }
+          - { label: "Tầm Với Với Cần Phụ", name: "totalReachWithJib", widget: "string", required: false }
+          - { label: "Loại Tời", name: "winchType", widget: "string", required: false }
+          - { label: "Lực Kéo Đơn Tời", name: "winchSingleLinePull", widget: "string", required: false }
+          - { label: "Tốc Độ Định Mức Tời", name: "winchRatedSpeed", widget: "string", required: false }
+          - { label: "Tốc Độ Móc Tời", name: "winchHookSpeed", widget: "string", required: false }
+          - { label: "Sức Nâng Ròng Rọc", name: "sheaveBlockCapacity", widget: "string", required: false }
+          - { label: "Loại Ròng Rọc", name: "sheaveBlockType", widget: "string", required: false }
+          - { label: "Loại Cáp Tời", name: "winchRopeType", widget: "string", required: false }
+          - { label: "Kích Thước Cáp Tời", name: "winchRopeDimension", widget: "string", required: false }
+          - { label: "Lực Phanh Tời", name: "winchBrakingStrength", widget: "string", required: false }
+          - { label: "Loại Xoay", name: "swingType", widget: "string", required: false }
+          - { label: "Góc Xoay", name: "swingAngle", widget: "string", required: false }
+          - { label: "Tốc Độ Xoay", name: "swingSpeed", widget: "string", required: false }
+          - { label: "Loại Chân Chống", name: "outriggersType", widget: "string", required: false }
+          - { label: "Jack Dọc Chân Chống", name: "outriggersVerticalJacks", widget: "string", required: false }
+          - { label: "Dầm Ngang Chân Chống Trước", name: "outriggersHorizontalBeamsFront", widget: "string", required: false }
+          - { label: "Dầm Ngang Chân Chống Sau", name: "outriggersHorizontalBeamsRear", widget: "string", required: false }
+          - { label: "Thu Gọn Chân Chống Trước", name: "outriggersFrontRetracted", widget: "string", required: false }
+          - { label: "Mở Rộng Chân Chống Trước", name: "outriggersFrontExtension", widget: "string", required: false }
+          - { label: "Thu Gọn Chân Chống Sau", name: "outriggersRearRetracted", widget: "string", required: false }
+          - { label: "Mở Rộng Chân Chống Sau", name: "outriggersRearExtension", widget: "string", required: false }
+          - { label: "Loại Bơm Thủy Lực", name: "hydraulicPumpType", widget: "string", required: false }
+          - { label: "Áp Suất Làm Việc Thủy Lực", name: "hydraulicOperatingPressure", widget: "string", required: false }
+          - { label: "Lưu Lượng Dầu Thủy Lực", name: "hydraulicOilFlow", widget: "string", required: false }
+          - { label: "Vòng Tua Định Mức Thủy Lực", name: "hydraulicRatedRevolution", widget: "string", required: false }
+          - { label: "Dung Tích Bình Thủy Lực", name: "hydraulicTankCapacity", widget: "string", required: false }
+          - { label: "Van Điều Khiển Thủy Lực", name: "hydraulicControlValve", widget: "string", required: false }
+          - { label: "Áp Suất Van Xả Thủy Lực", name: "hydraulicReliefValvePressure", widget: "string", required: false }
+          - { label: "Van Cân Bằng Thủy Lực", name: "hydraulicCounterBalanceValve", widget: "string", required: false }
+          - { label: "Van Một Chiều Thủy Lực", name: "hydraulicPilotCheckValve", widget: "string", required: false }
+          - { label: "Motor Thủy Lực Nâng", name: "hydraulicMotorHoisting", widget: "string", required: false }
+          - { label: "Motor Thủy Lực Xoay", name: "hydraulicMotorSlewing", widget: "string", required: false }
+          - { label: "Xi Lanh Thủy Lực", name: "hydraulicCylinders", widget: "string", required: false }
+          - { label: "Hệ Thống An Toàn", name: "safetySystem", widget: "string", required: false }
+          - { label: "Tính Năng Tùy Chọn", name: "optionalFeatures", widget: "list", required: false }
+          - { label: "Hệ Thống Điều Khiển", name: "controlSystem", widget: "string", required: false }
+          - label: "Bảng Tải Trọng"
+            name: "ratedLoadChart"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Đơn Vị", name: "unit", widget: "string", required: false }
+              - { label: "Ghi Chú", name: "note", widget: "string", required: false }
+              - { label: "Chiều Dài Các Đốt Cần", name: "boomLengths", widget: "list", required: false }
+              - { label: "Dữ Liệu", name: "data", widget: "list", required: false }
+              - { label: "Sức Nâng Tời Phụ", name: "subWinchCapacity", widget: "string", required: false }
+          - { label: "Chi Tiết Sức Nâng", name: "detailedLiftingCapacity", widget: "list", required: false }
+          - { label: "Tốc Độ Đơn Tời", name: "winchSingleLineSpeed", widget: "string", required: false }
+          - { label: "Tính Năng An Toàn", name: "safetyFeatures", widget: "string", required: false }
+          - { label: "Trọng Lượng Cẩu Tiêu Chuẩn", name: "craneOperatingWeightSTD", widget: "string", required: false }
+          - { label: "Trọng Lượng Cẩu Với Mâm Kéo", name: "craneOperatingWeightTopSeat", widget: "string", required: false }
+          - { label: "Trọng Lượng Cẩu Ròng Tiêu Chuẩn", name: "craneNetWeightSTD", widget: "string", required: false }
+          - { label: "Trọng Lượng Cẩu Ròng Với Mâm Kéo", name: "craneNetWeightTopSeat", widget: "string", required: false }
+
+
+  # =========================================================
+  # SẢN PHẨM - SƠ MI RƠ MOOC
+  # =========================================================
+  - name: "products-mooc"
+    label: "🚛 Sơ Mi Rơ Mooc"
+    label_singular: "Sơ Mi Rơ Mooc"
+    folder: "src/content/products/mooc"
+    create: true
+    slug: "{{id}}"
+    extension: "json"
+    format: "json"
+    summary: "{{name}} - {{brand}}"
+    sortable_fields: ['name', 'brand', 'price', 'weight']
+    fields:
+      - { label: "ID", name: "id", widget: "string", required: true }
+      - { label: "Tên Sản Phẩm", name: "name", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Hãng", name: "brand", widget: "string", required: true }
+      - label: "Loại Xe"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Xe Tải", value: "xe-tai" }
+          - { label: "Cần Cẩu", value: "can-cau" }
+          - { label: "Sơ Mi Rơ Mooc", value: "mooc" }
+          - { label: "Xe Đầu Kéo", value: "dau-keo" }
+          - { label: "Máy Móc & Thiết Bị", value: "may-moc-thiet-bi" }
+      - { label: "Giá (VNĐ)", name: "price", widget: "number", required: false }
+      - { label: "Giá Hiển Thị", name: "priceText", widget: "string", required: false }
+      - { label: "Trọng Tải Hiển Thị", name: "weightText", widget: "string", required: true }
+      - { label: "Trọng Tải (kg)", name: "weight", widget: "number", required: true }
+      - { label: "Dài (mm)", name: "length", widget: "number", required: true }
+      - { label: "Rộng (mm)", name: "width", widget: "number", required: true }
+      - { label: "Cao (mm)", name: "height", widget: "number", required: true }
+      - { label: "Kích Thước", name: "dimensions", widget: "string", required: true }
+      - { label: "Ảnh Đại Diện", name: "thumbnailUrl", widget: "string", required: true }
+      - { label: "Ảnh Sản Phẩm", name: "images", widget: "list", required: true }
+      - { label: "Video URL (YouTube)", name: "videoUrl", widget: "string", required: false }
+      - { label: "Mới", name: "isNew", widget: "boolean", default: false }
+      - { label: "Nổi Bật", name: "isHot", widget: "boolean", default: false }
+      - { label: "Ẩn", name: "isHidden", widget: "boolean", default: false }
+      - label: "Tình Trạng Kho"
+        name: "stockStatus"
+        widget: "select"
+        default: "in-stock"
+        options:
+          - { label: "Sẵn hàng", value: "in-stock" }
+          - { label: "Hết hàng", value: "out-of-stock" }
+          - { label: "Đặt trước", value: "pre-order" }
+          - { label: "Ngừng kinh doanh", value: "discontinued" }
+      - { label: "Xuất Xứ", name: "origin", widget: "string", required: false }
+      - { label: "Mô Tả Ngắn", name: "description", widget: "text", required: false }
+      - { label: "Mô Tả Chi Tiết", name: "detailedDescription", widget: "markdown", required: false }
+      - { label: "Tính Năng", name: "features", widget: "list", required: false }
+      - { label: "Model", name: "model", widget: "string", required: false }
+      - { label: "Model Động Cơ", name: "engineModel", widget: "string", required: false }
+      - { label: "Loại Động Cơ", name: "engineType", widget: "string", required: false }
+      - { label: "Dung Tích Động Cơ", name: "engineCapacity", widget: "string", required: false }
+      - { label: "Công Suất Động Cơ", name: "enginePower", widget: "string", required: false }
+      - { label: "Mô-men Xoắn", name: "engineTorque", widget: "string", required: false }
+      - { label: "Tiêu Chuẩn Khí Thải", name: "emissionStandard", widget: "string", required: false }
+      - { label: "Nhiên Liệu", name: "fuel", widget: "string", required: false }
+      - { label: "Hộp Số", name: "transmission", widget: "string", required: false }
+      - { label: "Chiều Dài Cơ Sở", name: "wheelbase", widget: "number", required: false }
+      - { label: "Chiều Dài Cơ Sở (Text)", name: "wheelbaseText", widget: "string", required: false }
+      - { label: "Khoảng Sáng Gầm", name: "groundClearance", widget: "number", required: false }
+      - { label: "Bán Kính Quay Vòng", name: "turningRadius", widget: "number", required: false }
+      - { label: "Khối Lượng Bản Thân", name: "kerbWeight", widget: "string", required: false }
+      - { label: "Khối Lượng Toàn Bộ", name: "grossWeight", widget: "string", required: false }
+      - { label: "Lốp Xe", name: "tires", widget: "string", required: false }
+      - { label: "Treo Trước", name: "frontSuspension", widget: "string", required: false }
+      - { label: "Treo Sau", name: "rearSuspension", widget: "string", required: false }
+      - { label: "Phanh Trước", name: "frontBrake", widget: "string", required: false }
+      - { label: "Phanh Sau", name: "rearBrake", widget: "string", required: false }
+      - { label: "Hệ Thống Phanh", name: "brakeSystem", widget: "string", required: false }
+      - { label: "Hệ Thống Lái", name: "steeringType", widget: "string", required: false }
+      - { label: "Loại Cabin", name: "cabinType", widget: "string", required: false }
+      - { label: "Số Chỗ Ngồi", name: "seats", widget: "number", required: false }
+      - { label: "Dung Tích Bình Nhiên Liệu", name: "fuelTankCapacity", widget: "string", required: false }
+      - { label: "Tính Năng Cabin", name: "cabinFeatures", widget: "list", required: false }
+      - { label: "Thứ Tự Sắp Xếp", name: "order", widget: "number", required: false }
+      # ========= THÔNG SỐ KỸ THUẬT (tự động từ dữ liệu) =========
+      - label: "🛢️ Tank"
+        name: "tankSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Dung Tích", name: "capacity", widget: "number", required: false }
+          - { label: "Dung Tích (Text)", name: "capacityText", widget: "string", required: false }
+          - { label: "Vật Liệu", name: "material", widget: "string", required: false }
+          - { label: "Kích Thước Bồn", name: "tankDimensions", widget: "string", required: false }
+          - { label: "Cổng Nạp", name: "loadingPorts", widget: "string", required: false }
+          - { label: "Cổng Xả", name: "dischargePorts", widget: "string", required: false }
+          - { label: "Máy Nén Khí", name: "airCompressor", widget: "string", required: false }
+          - { label: "Hệ Thống Khí", name: "airSystem", widget: "string", required: false }
+          - { label: "Tốc Độ Xả", name: "dischargeRate", widget: "string", required: false }
+          - { label: "Tỷ Lệ Cặn", name: "residueRate", widget: "string", required: false }
+          - { label: "Số Khoang", name: "compartments", widget: "number", required: false }
+          - { label: "Bố Trí Khoang", name: "compartmentLayout", widget: "string", required: false }
+          - { label: "Thiết Bị An Toàn", name: "safetyEquipment", widget: "string", required: false }
+          - { label: "Hệ Thống Xả", name: "dischargeSystem", widget: "string", required: false }
+      - label: "📏 Trailer"
+        name: "trailerSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - label: "Kích Thước"
+            name: "dimensions"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Kích Thước Tổng Thể", name: "overallDimensions", widget: "string", required: false }
+              - { label: "Kích Thước Thùng", name: "containerDimensions", widget: "string", required: false }
+              - { label: "Chiều Dài Cơ Sở", name: "wheelbase", widget: "string", required: false }
+              - { label: "Dung Tích", name: "capacity", widget: "string", required: false }
+              - { label: "Kích Thước Thùng Hàng", name: "cargoBoxDimensions", widget: "string", required: false }
+              - { label: "Số Tầng", name: "numberOfLevels", widget: "string", required: false }
+              - { label: "Chiều Cao Chuồng", name: "cageHeight", widget: "string", required: false }
+              - { label: "Chiều Dài Khi Mở Rộng", name: "extendedLength", widget: "string", required: false }
+              - { label: "Khả Năng Mở Rộng", name: "extensionCapability", widget: "string", required: false }
+              - { label: "Dung Tích Thùng", name: "containerCapacity", widget: "string", required: false }
+              - { label: "Chiều Cao Sàn", name: "deckHeight", widget: "string", required: false }
+              - { label: "Chiều Dài Sàn", name: "deckLength", widget: "string", required: false }
+              - { label: "Chiều Dài Thùng", name: "containerLength", widget: "string", required: false }
+              - { label: "Kích Thước Bồn", name: "tankDimensions", widget: "string", required: false }
+          - label: "Trọng Lượng"
+            name: "weight"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Khối Lượng Bản Thân", name: "curbWeight", widget: "string", required: false }
+              - { label: "Tải Trọng Hữu Ích", name: "payload", widget: "string", required: false }
+              - { label: "Tổng Trọng Lượng", name: "grossWeight", widget: "string", required: false }
+              - { label: "Tải Trọng Chốt Kéo", name: "kingpinLoad", widget: "string", required: false }
+          - label: "Khung Gầm"
+            name: "chassis"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Dầm Chính", name: "mainBeam", widget: "string", required: false }
+              - { label: "Vật Liệu Khung", name: "frameMaterial", widget: "string", required: false }
+              - { label: "Chân Chống", name: "landingGear", widget: "string", required: false }
+              - { label: "Chốt Kéo", name: "kingpin", widget: "string", required: false }
+              - { label: "Xử Lý Bề Mặt", name: "surfaceTreatment", widget: "string", required: false }
+          - label: "Trục & Hệ Thống Treo"
+            name: "axleAndSuspension"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Loại Trục", name: "axleType", widget: "string", required: false }
+              - { label: "Số Trục", name: "axleCount", widget: "number", required: false }
+              - { label: "Loại Nhíp", name: "springType", widget: "string", required: false }
+              - { label: "Kích Thước Nhíp", name: "springDimension", widget: "string", required: false }
+              - { label: "Thông Số Lốp", name: "tireSpec", widget: "string", required: false }
+              - { label: "Trục Nâng", name: "liftingAxle", widget: "string", required: false }
+              - { label: "Loại Treo", name: "suspensionType", widget: "string", required: false }
+          - label: "Hệ Thống"
+            name: "systems"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Hệ Thống Phanh", name: "brakeSystem", widget: "string", required: false }
+              - { label: "Hệ Thống Điện", name: "electricSystem", widget: "string", required: false }
+              - { label: "Hệ Thống Thủy Lực", name: "hydraulicSystem", widget: "string", required: false }
+              - { label: "Hệ Thống Mở Rộng", name: "extensionSystem", widget: "string", required: false }
+              - { label: "Cụm Lạnh", name: "refrigerationUnit", widget: "string", required: false }
+              - { label: "Cửa Nâng", name: "liftGate", widget: "string", required: false }
+              - { label: "Bơm Chân Không", name: "vacuumPump", widget: "string", required: false }
+              - { label: "Hệ Thống Khí Nén", name: "pneumaticSystem", widget: "string", required: false }
+              - { label: "Hệ Thống Van", name: "valveSystem", widget: "string", required: false }
+              - { label: "Hệ Thống Gia Nhiệt", name: "heatingSystem", widget: "string", required: false }
+              - { label: "Hệ Thống Bơm", name: "pumpSystem", widget: "string", required: false }
+              - { label: "Máy Nén Khí", name: "airCompressor", widget: "string", required: false }
+              - { label: "Hệ Thống Khí", name: "airSystem", widget: "string", required: false }
+          - label: "Thân Xe"
+            name: "body"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Vật Liệu Sàn", name: "floorMaterial", widget: "string", required: false }
+              - { label: "Vật Liệu Thành Bên", name: "sideWallMaterial", widget: "string", required: false }
+              - { label: "Gia Cường", name: "reinforcement", widget: "string", required: false }
+              - { label: "Dầm Ngang", name: "crossBeams", widget: "string", required: false }
+              - { label: "Khóa Container", name: "containerLocks", widget: "string", required: false }
+              - { label: "Loại Khung", name: "frameType", widget: "string", required: false }
+              - { label: "Bửng", name: "ramp", widget: "string", required: false }
+              - { label: "Điểm Buộc", name: "tieDowns", widget: "string", required: false }
+              - { label: "Lan Can Bên", name: "sideRails", widget: "string", required: false }
+              - { label: "Chặn Bánh Xe", name: "wheelChocks", widget: "string", required: false }
+              - { label: "Kết Cấu Chuồng", name: "cageStructure", widget: "string", required: false }
+              - { label: "Thông Gió", name: "ventilation", widget: "string", required: false }
+              - { label: "Thoát Nước", name: "drainage", widget: "string", required: false }
+              - { label: "Cửa", name: "doors", widget: "string", required: false }
+              - { label: "Thành Bên", name: "sideWalls", widget: "string", required: false }
+              - { label: "Cấu Hình", name: "configurations", widget: "string", required: false }
+              - { label: "Cơ Chế Mở Rộng", name: "extensionMechanism", widget: "string", required: false }
+              - { label: "Hệ Thống Khóa", name: "lockingSystem", widget: "string", required: false }
+              - { label: "Vật Liệu", name: "material", widget: "string", required: false }
+              - { label: "Dải Nhiệt Độ", name: "temperatureRange", widget: "string", required: false }
+              - { label: "Cách Nhiệt", name: "insulation", widget: "string", required: false }
+              - { label: "Dung Tích", name: "capacity", widget: "string", required: false }
+              - { label: "Vách Ngăn Sóng", name: "waveBarrier", widget: "string", required: false }
+              - { label: "Hệ Thống Van", name: "valveSystem", widget: "string", required: false }
+              - { label: "Số Khoang", name: "compartments", widget: "string", required: false }
+              - { label: "Loại Hàng Hóa", name: "cargoType", widget: "string", required: false }
+              - { label: "Hệ Thống Xả", name: "unloadingSystem", widget: "string", required: false }
+              - { label: "Công Suất Xả", name: "unloadingCapacity", widget: "string", required: false }
+              - { label: "Áp Suất Thiết Kế", name: "designPressure", widget: "string", required: false }
+              - { label: "Nhiệt Độ Thiết Kế", name: "designTemperature", widget: "string", required: false }
+              - { label: "Nhiệt Độ Vận Hành", name: "operatingTemperature", widget: "string", required: false }
+              - { label: "Áp Suất Thử", name: "testPressure", widget: "string", required: false }
+          - label: "Hoàn Thiện"
+            name: "finishing"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Quy Trình Sơn", name: "paintProcess", widget: "string", required: false }
+              - { label: "Màu Sơn", name: "paintColor", widget: "string", required: false }
+              - { label: "Bảo Hành", name: "warranty", widget: "string", required: false }
+              - { label: "Phụ Kiện", name: "accessories", widget: "string", required: false }
+
+
+  # =========================================================
+  # SẢN PHẨM - XE ĐẦU KÉO
+  # =========================================================
+  - name: "products-dau-keo"
+    label: "🚛 Xe Đầu Kéo"
+    label_singular: "Xe Đầu Kéo"
+    folder: "src/content/products/dau-keo"
+    create: true
+    slug: "{{id}}"
+    extension: "json"
+    format: "json"
+    summary: "{{name}} - {{brand}}"
+    sortable_fields: ['name', 'brand', 'price', 'weight']
+    fields:
+      - { label: "ID", name: "id", widget: "string", required: true }
+      - { label: "Tên Sản Phẩm", name: "name", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Hãng", name: "brand", widget: "string", required: true }
+      - label: "Loại Xe"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Xe Tải", value: "xe-tai" }
+          - { label: "Cần Cẩu", value: "can-cau" }
+          - { label: "Sơ Mi Rơ Mooc", value: "mooc" }
+          - { label: "Xe Đầu Kéo", value: "dau-keo" }
+          - { label: "Máy Móc & Thiết Bị", value: "may-moc-thiet-bi" }
+      - { label: "Giá (VNĐ)", name: "price", widget: "number", required: false }
+      - { label: "Giá Hiển Thị", name: "priceText", widget: "string", required: false }
+      - { label: "Trọng Tải Hiển Thị", name: "weightText", widget: "string", required: true }
+      - { label: "Trọng Tải (kg)", name: "weight", widget: "number", required: true }
+      - { label: "Dài (mm)", name: "length", widget: "number", required: true }
+      - { label: "Rộng (mm)", name: "width", widget: "number", required: true }
+      - { label: "Cao (mm)", name: "height", widget: "number", required: true }
+      - { label: "Kích Thước", name: "dimensions", widget: "string", required: true }
+      - { label: "Ảnh Đại Diện", name: "thumbnailUrl", widget: "string", required: true }
+      - { label: "Ảnh Sản Phẩm", name: "images", widget: "list", required: true }
+      - { label: "Video URL (YouTube)", name: "videoUrl", widget: "string", required: false }
+      - { label: "Mới", name: "isNew", widget: "boolean", default: false }
+      - { label: "Nổi Bật", name: "isHot", widget: "boolean", default: false }
+      - { label: "Ẩn", name: "isHidden", widget: "boolean", default: false }
+      - label: "Tình Trạng Kho"
+        name: "stockStatus"
+        widget: "select"
+        default: "in-stock"
+        options:
+          - { label: "Sẵn hàng", value: "in-stock" }
+          - { label: "Hết hàng", value: "out-of-stock" }
+          - { label: "Đặt trước", value: "pre-order" }
+          - { label: "Ngừng kinh doanh", value: "discontinued" }
+      - { label: "Xuất Xứ", name: "origin", widget: "string", required: false }
+      - { label: "Mô Tả Ngắn", name: "description", widget: "text", required: false }
+      - { label: "Mô Tả Chi Tiết", name: "detailedDescription", widget: "markdown", required: false }
+      - { label: "Tính Năng", name: "features", widget: "list", required: false }
+      - { label: "Model", name: "model", widget: "string", required: false }
+      - { label: "Model Động Cơ", name: "engineModel", widget: "string", required: false }
+      - { label: "Loại Động Cơ", name: "engineType", widget: "string", required: false }
+      - { label: "Dung Tích Động Cơ", name: "engineCapacity", widget: "string", required: false }
+      - { label: "Công Suất Động Cơ", name: "enginePower", widget: "string", required: false }
+      - { label: "Mô-men Xoắn", name: "engineTorque", widget: "string", required: false }
+      - { label: "Tiêu Chuẩn Khí Thải", name: "emissionStandard", widget: "string", required: false }
+      - { label: "Nhiên Liệu", name: "fuel", widget: "string", required: false }
+      - { label: "Hộp Số", name: "transmission", widget: "string", required: false }
+      - { label: "Chiều Dài Cơ Sở", name: "wheelbase", widget: "number", required: false }
+      - { label: "Chiều Dài Cơ Sở (Text)", name: "wheelbaseText", widget: "string", required: false }
+      - { label: "Khoảng Sáng Gầm", name: "groundClearance", widget: "number", required: false }
+      - { label: "Bán Kính Quay Vòng", name: "turningRadius", widget: "number", required: false }
+      - { label: "Khối Lượng Bản Thân", name: "kerbWeight", widget: "string", required: false }
+      - { label: "Khối Lượng Toàn Bộ", name: "grossWeight", widget: "string", required: false }
+      - { label: "Lốp Xe", name: "tires", widget: "string", required: false }
+      - { label: "Treo Trước", name: "frontSuspension", widget: "string", required: false }
+      - { label: "Treo Sau", name: "rearSuspension", widget: "string", required: false }
+      - { label: "Phanh Trước", name: "frontBrake", widget: "string", required: false }
+      - { label: "Phanh Sau", name: "rearBrake", widget: "string", required: false }
+      - { label: "Hệ Thống Phanh", name: "brakeSystem", widget: "string", required: false }
+      - { label: "Hệ Thống Lái", name: "steeringType", widget: "string", required: false }
+      - { label: "Loại Cabin", name: "cabinType", widget: "string", required: false }
+      - { label: "Số Chỗ Ngồi", name: "seats", widget: "number", required: false }
+      - { label: "Dung Tích Bình Nhiên Liệu", name: "fuelTankCapacity", widget: "string", required: false }
+      - { label: "Tính Năng Cabin", name: "cabinFeatures", widget: "list", required: false }
+      - { label: "Thứ Tự Sắp Xếp", name: "order", widget: "number", required: false }
+      # ========= THÔNG SỐ KỸ THUẬT (tự động từ dữ liệu) =========
+      - label: "🚛 Tractor"
+        name: "tractorSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Mã Lực", name: "horsepower", widget: "number", required: false }
+          - { label: "Mô-men Xoắn", name: "torque", widget: "string", required: false }
+          - { label: "Hộp Số", name: "transmission", widget: "string", required: false }
+          - { label: "Loại Hộp Số", name: "transmissionType", widget: "string", required: false }
+          - { label: "Loại Cabin", name: "cabinType", widget: "string", required: false }
+          - { label: "Treo Cabin", name: "cabinSuspension", widget: "string", required: false }
+          - { label: "Chiều Cao Cabin", name: "cabinHeight", widget: "string", required: false }
+          - { label: "Chiều Dài Cơ Sở", name: "wheelbase", widget: "number", required: false }
+          - { label: "Dung Tích Bình Nhiên Liệu", name: "fuelTankCapacity", widget: "number", required: false }
+          - { label: "Dung Tích Bình Nhiên Liệu (Text)", name: "fuelTankCapacityText", widget: "string", required: false }
+          - { label: "Loại Mâm Kéo", name: "fifthWheelType", widget: "string", required: false }
+          - { label: "Tải Trọng Kéo Tối Đa", name: "maxTowingCapacity", widget: "number", required: false }
+          - { label: "Tải Trọng Kéo Tối Đa (Text)", name: "maxTowingCapacityText", widget: "string", required: false }
+          - { label: "Khối Lượng Bản Thân", name: "kerbWeight", widget: "string", required: false }
+          - { label: "Tổng Trọng Lượng", name: "grossWeight", widget: "string", required: false }
+          - { label: "Tải Trọng Kéo Thiết Kế", name: "designTowingCapacity", widget: "string", required: false }
+          - { label: "Hệ Thống Phanh", name: "brakingSystem", widget: "string", required: false }
+          - { label: "Phanh Xả", name: "exhaustBrake", widget: "string", required: false }
+          - { label: "Giường Ngủ", name: "sleepingBerth", widget: "boolean", required: false }
+          - { label: "Số Giường Ngủ", name: "sleepingBerthCount", widget: "number", required: false }
+          - { label: "Cấu Hình Trục", name: "axleConfiguration", widget: "string", required: false }
+          - { label: "Cầu Trước", name: "frontAxle", widget: "string", required: false }
+          - { label: "Cầu Sau", name: "rearAxle", widget: "string", required: false }
+          - { label: "Tỷ Số Truyền Cầu Sau", name: "rearAxleRatio", widget: "string", required: false }
+          - { label: "Khóa Vi Sai", name: "differentialLock", widget: "string", required: false }
+          - { label: "Chiều Rộng Xích", name: "trackWidth", widget: "string", required: false }
+          - { label: "Thông Số Khung", name: "frameSpec", widget: "string", required: false }
+          - { label: "Hệ Số Cản", name: "dragCoefficient", widget: "string", required: false }
+          - { label: "Tốc Độ Tối Đa", name: "maxSpeed", widget: "string", required: false }
+          - { label: "Tiêu Thụ Nhiên Liệu", name: "fuelConsumption", widget: "string", required: false }
+          - { label: "Chu Kỳ Thay Dầu", name: "oilChangeInterval", widget: "string", required: false }
+          - { label: "Tính Năng Nội Thất", name: "interiorFeatures", widget: "list", required: false }
+          - { label: "Tính Năng An Toàn", name: "safetyFeatures", widget: "list", required: false }
+          - { label: "Điều Hòa Không Khí", name: "airConditioner", widget: "boolean", required: false }
+          - { label: "Hệ Thống Điện", name: "electricSystem", widget: "string", required: false }
+          - { label: "Tỷ Số Nén", name: "compressionRatio", widget: "string", required: false }
+          - { label: "Ly Hợp", name: "clutch", widget: "string", required: false }
+          - { label: "Loại Cầu Sau", name: "rearAxleType", widget: "string", required: false }
+          - { label: "Hệ Thống Làm Mát", name: "coolingSystem", widget: "string", required: false }
+          - { label: "Tải Trọng Mâm Kéo", name: "fifthWheelLoad", widget: "string", required: false }
+          - { label: "Trọng Lượng Tổ Hợp Xe Thiết Kế", name: "designGCW", widget: "string", required: false }
+          - { label: "Phanh Đỗ", name: "parkingBrake", widget: "string", required: false }
+          - { label: "Hệ Thống Chống Bó Cứng Phanh", name: "abs", widget: "boolean", required: false }
+          - { label: "Hệ Thống Chống Trượt Bánh", name: "asr", widget: "boolean", required: false }
+          - { label: "Khoảng Sáng Gầm", name: "groundClearance", widget: "string", required: false }
+          - { label: "Khả Năng Leo Dốc", name: "climbingAbility", widget: "string", required: false }
+          - { label: "Bán Kính Quay Vòng", name: "turningRadius", widget: "string", required: false }
+          - { label: "Máy Phát Điện", name: "alternator", widget: "string", required: false }
+          - { label: "Motor Khởi Động", name: "starterMotor", widget: "string", required: false }
+          - { label: "Đường Kính x Hành Trình", name: "boreStroke", widget: "string", required: false }
+          - { label: "Thứ Tự Nổ", name: "firingOrder", widget: "string", required: false }
+          - { label: "Tỷ Số Truyền", name: "gearRatios", widget: "string", required: false }
+          - { label: "Hệ Thống Nhiên Liệu", name: "fuelSystem", widget: "string", required: false }
+          - { label: "Bộ Điều Chỉnh Khe Hở Tự Động", name: "autoSlackAdjuster", widget: "boolean", required: false }
+          - { label: "Hệ Thống Kiểm Soát Điện Tử", name: "esc", widget: "string", required: false }
+          - { label: "Vỏ Hộp Số", name: "transmissionHousing", widget: "string", required: false }
+          - { label: "Lật Cabin", name: "cabinTilt", widget: "string", required: false }
+          - { label: "Bình AdBlue", name: "adBlueTank", widget: "string", required: false }
+          - { label: "Vòng Tua Hành Trình", name: "cruisingRPM", widget: "string", required: false }
+          - { label: "Dải Công Suất", name: "horsepowerRange", widget: "string", required: false }
+          - { label: "Hệ Thống Van", name: "valveTrain", widget: "string", required: false }
+          - { label: "Phun Nhiên Liệu", name: "fuelInjection", widget: "string", required: false }
+          - { label: "Turbo Tăng Áp", name: "turbocharger", widget: "string", required: false }
+          - { label: "Dung Tích Dầu", name: "oilCapacity", widget: "string", required: false }
+          - { label: "Làm Mát Piston", name: "pistonCooling", widget: "string", required: false }
+          - { label: "Dải Tỷ Số Truyền", name: "gearRatioRange", widget: "string", required: false }
+          - { label: "An Toàn Cabin", name: "cabinSafety", widget: "string", required: false }
+          - { label: "Ghế Lái", name: "driverSeat", widget: "string", required: false }
+          - { label: "Phanh Jake", name: "jakeBrake", widget: "string", required: false }
+          - { label: "Bánh Răng Cầu Sau", name: "rearAxleGear", widget: "string", required: false }
+          - { label: "Tiết Kiệm Nhiên Liệu", name: "fuelSavings", widget: "string", required: false }
+          - { label: "Tiết Kiệm Lốp", name: "tireSavings", widget: "string", required: false }
+          - { label: "Biến Thể Công Suất", name: "horsepowerVariants", widget: "string", required: false }
+          - { label: "Chế Độ Tiết Kiệm", name: "ecoMode", widget: "string", required: false }
+          - { label: "Mô-men Xoắn Hộp Số", name: "transmissionTorque", widget: "string", required: false }
+          - { label: "Trọng Lượng Toàn Bộ Thiết Kế", name: "designGVW", widget: "string", required: false }
+          - { label: "Trục Trunnion", name: "trunnionShaft", widget: "boolean", required: false }
+          - { label: "Chu Kỳ Bảo Dưỡng", name: "serviceInterval", widget: "string", required: false }
+          - { label: "Tiêu Thụ Nhiên Liệu Riêng", name: "specificFuelConsumption", widget: "string", required: false }
+          - { label: "Khối Lượng Khô Động Cơ", name: "engineDryWeight", widget: "string", required: false }
+          - { label: "Tốc Độ Không Tải", name: "idleSpeed", widget: "string", required: false }
+          - { label: "Công Suất Làm Mát", name: "coolingCapacity", widget: "string", required: false }
+          - { label: "Nhiệt Độ Mở Thermostat", name: "thermostatOpening", widget: "string", required: false }
+          - { label: "Tỷ Số Truyền Lùi", name: "reverseRatios", widget: "string", required: false }
+          - { label: "Tải Trọng Cho Phép Mâm Kéo", name: "permittedLoadFifthWheel", widget: "string", required: false }
+          - { label: "Trọng Lượng Xe Toàn Bộ", name: "grossVehicleWeight", widget: "string", required: false }
+          - { label: "Vật Liệu Bình Khí", name: "airTankMaterial", widget: "string", required: false }
+          - label: "Tùy Chọn Cầu Sau"
+            name: "rearAxleOptions"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - label: "Cầu MAN"
+                name: "manAxle"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - { label: "Model", name: "model", widget: "string", required: false }
+                  - { label: "Loại", name: "type", widget: "string", required: false }
+                  - { label: "Tải Trọng", name: "loadCapacity", widget: "string", required: false }
+                  - { label: "Tỷ Số Truyền", name: "ratios", widget: "string", required: false }
+                  - { label: "Tiêu Thụ Nhiên Liệu", name: "fuelConsumption", widget: "string", required: false }
+                  - { label: "Ứng Dụng", name: "application", widget: "string", required: false }
+                  - { label: "Tốc Độ Tối Đa", name: "maxSpeed", widget: "string", required: false }
+              - label: "Giảm Tốc Moay Ơ"
+                name: "hubReduction"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - { label: "Model", name: "model", widget: "string", required: false }
+                  - { label: "Loại", name: "type", widget: "string", required: false }
+                  - { label: "Tải Trọng", name: "loadCapacity", widget: "string", required: false }
+                  - { label: "Tỷ Số Truyền", name: "ratios", widget: "string", required: false }
+                  - { label: "Tiêu Thụ Nhiên Liệu", name: "fuelConsumption", widget: "string", required: false }
+                  - { label: "Ứng Dụng", name: "application", widget: "string", required: false }
+                  - { label: "Tốc Độ Tối Đa", name: "maxSpeed", widget: "string", required: false }
+          - { label: "Ắc Quy", name: "battery", widget: "string", required: false }
+          - { label: "Hệ Thống CAN Bus", name: "canBus", widget: "boolean", required: false }
+          - { label: "Turbo Intercooler", name: "turboIntercooler", widget: "string", required: false }
+          - { label: "Ly Hợp Quạt Silicon", name: "siliconeFanClutch", widget: "string", required: false }
+          - { label: "Sàn Cabin", name: "cabinFloor", widget: "string", required: false }
+          - { label: "Mâm Kéo Điều Chỉnh Được", name: "fifthWheelAdjustable", widget: "string", required: false }
+          - { label: "Chiều Cao Yên Ngựa", name: "saddleHeight", widget: "number", required: false }
+          - { label: "Công Nghệ Động Cơ", name: "engineTechnology", widget: "string", required: false }
+          - { label: "Công Nghệ Khí Thải", name: "emissionTechnology", widget: "string", required: false }
+          - { label: "Không Gian Cabin", name: "cabinSpace", widget: "string", required: false }
+          - { label: "Ghế Giảm Xóc", name: "seatSuspension", widget: "string", required: false }
+          - { label: "Chiều Rộng Giường Ngủ", name: "sleepingBerthWidth", widget: "string", required: false }
+          - { label: "Phanh Phụ", name: "retarder", widget: "string", required: false }
+          - label: "Tính Năng Thông Minh"
+            name: "smartFeatures"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Chế Độ Tiết Kiệm", name: "ecoRoll", widget: "string", required: false }
+              - { label: "Hỗ Trợ Khởi Hành Dốc", name: "easyHillStart", widget: "string", required: false }
+              - { label: "Chế Độ 2 Nguồn", name: "dualPowerMode", widget: "string", required: false }
+          - { label: "Khí Động Học", name: "aerodynamics", widget: "string", required: false }
+          - { label: "Công Suất MaxxForce", name: "horsepowerMaxxForce", widget: "string", required: false }
+          - { label: "Công Suất Cummins", name: "horsepowerCummins", widget: "string", required: false }
+          - { label: "Mô-men Xoắn MaxxForce", name: "torqueMaxxForce", widget: "string", required: false }
+          - { label: "Mô-men Xoắn Cummins", name: "torqueCummins", widget: "string", required: false }
+          - label: "Thông Số MaxxForce"
+            name: "maxxForceSpecs"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Dung Tích Xi Lanh", name: "displacement", widget: "string", required: false }
+              - { label: "Đường Kính x Hành Trình", name: "boreStroke", widget: "string", required: false }
+              - { label: "Tỷ Số Nén", name: "compressionRatio", widget: "string", required: false }
+              - { label: "Vật Liệu Khối Động Cơ", name: "blockMaterial", widget: "string", required: false }
+              - { label: "Trọng Lượng Khô", name: "dryWeight", widget: "string", required: false }
+              - { label: "Phun Nhiên Liệu", name: "fuelInjection", widget: "string", required: false }
+              - { label: "Turbo", name: "turbo", widget: "string", required: false }
+              - { label: "Tiêu Thụ Nhiên Liệu VN", name: "fuelConsumptionVN", widget: "string", required: false }
+          - label: "Thông Số Cummins"
+            name: "cumminsSpecs"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Dung Tích Xi Lanh", name: "displacement", widget: "string", required: false }
+              - { label: "Turbo", name: "turbo", widget: "string", required: false }
+              - { label: "Trọng Lượng Khô", name: "dryWeight", widget: "string", required: false }
+              - { label: "Phanh Jake", name: "jakeBrake", widget: "string", required: false }
+          - { label: "Hộp Số UltraShift", name: "ultraShift", widget: "string", required: false }
+          - { label: "Chiều Rộng Cabin", name: "cabinWidth", widget: "string", required: false }
+          - { label: "Ưu Điểm Nhẹ", name: "lightweightAdvantage", widget: "string", required: false }
+          - { label: "Hệ Thống Cân Bằng Điện Tử", name: "espSystem", widget: "string", required: false }
+          - { label: "Máy Nén Khí", name: "airCompressor", widget: "string", required: false }
+          - { label: "Loại Bánh", name: "wheelType", widget: "string", required: false }
+          - { label: "Hệ Thống Diamond Logic", name: "diamondLogic", widget: "string", required: false }
+          - { label: "Cabin Êm Ái", name: "quietCab", widget: "string", required: false }
+          - { label: "Turbo VGS", name: "vgsTurbo", widget: "string", required: false }
+          - { label: "Hệ Thống SCR", name: "scrSystem", widget: "string", required: false }
+          - { label: "Overdrive", name: "overdrive", widget: "string", required: false }
+          - { label: "Kích Thước Giường Ngủ", name: "sleepingBerthSize", widget: "string", required: false }
+          - { label: "Bảng Điều Khiển", name: "dashboard", widget: "string", required: false }
+          - { label: "Tầm Hoạt Động", name: "range", widget: "string", required: false }
+          - { label: "Khả Năng Leo Dốc", name: "gradeability", widget: "string", required: false }
+          - { label: "Lót Khô", name: "dryLiners", widget: "string", required: false }
+          - { label: "Dòng Động Cơ", name: "engineFamily", widget: "string", required: false }
+          - { label: "Ưu Điểm Mô-men Xoắn", name: "torqueAdvantage", widget: "string", required: false }
+          - { label: "Trợ Lực Sang Số", name: "servoShift", widget: "string", required: false }
+          - { label: "Vật Liệu Giường Ngủ", name: "sleepingBerthMaterial", widget: "string", required: false }
+          - { label: "Hệ Thống Kiểm Soát Hành Trình", name: "cruiseControl", widget: "string", required: false }
+          - { label: "Hệ Thống Phân Bổ Lực Phanh Điện Tử", name: "ebd", widget: "boolean", required: false }
+          - { label: "Lợi Ích Khóa Vi Sai", name: "differentialLockBenefit", widget: "string", required: false }
+          - { label: "Vật Liệu Khối Động Cơ", name: "blockMaterial", widget: "string", required: false }
+          - { label: "Tuổi Thọ Động Cơ B10", name: "engineLifeB10", widget: "string", required: false }
+          - { label: "Quạt Nhớt", name: "viscousFan", widget: "string", required: false }
+          - { label: "Hỗ Trợ Hộp Số", name: "transmissionAssist", widget: "string", required: false }
+          - { label: "Biến Tần 220V", name: "inverter220V", widget: "string", required: false }
+          - { label: "Cửa Sổ Trời", name: "sunroof", widget: "boolean", required: false }
+          - { label: "Gương Sưởi", name: "heatedMirrors", widget: "boolean", required: false }
+          - { label: "Tùy Chọn Dung Tích Bình Nhiên Liệu", name: "fuelTankCapacityOptions", widget: "string", required: false }
+          - { label: "Vật Liệu Bình Nhiên Liệu", name: "fuelTankMaterial", widget: "string", required: false }
+          - { label: "Mâm Kéo", name: "fifthWheel", widget: "string", required: false }
+          - { label: "Khối Lượng Bản Thân Cầu MAN", name: "kerbWeightManAxle", widget: "string", required: false }
+          - { label: "Khối Lượng Bản Thân Moay Ơ Giảm Tốc", name: "kerbWeightHubReduction", widget: "string", required: false }
+          - { label: "Phanh Van Xả", name: "evb", widget: "string", required: false }
+          - { label: "Lợi Thế Tiết Kiệm Nhiên Liệu", name: "fuelSavingsAdvantage", widget: "string", required: false }
+
+
+  # =========================================================
+  # SẢN PHẨM - MÁY MÓC & THIẾT BỊ
+  # =========================================================
+  - name: "products-may-moc-thiet-bi"
+    label: "⚙️ Máy Móc & Thiết Bị"
+    label_singular: "Máy Móc & Thiết Bị"
+    folder: "src/content/products/may-moc-thiet-bi"
+    create: true
+    slug: "{{id}}"
+    extension: "json"
+    format: "json"
+    summary: "{{name}} - {{brand}}"
+    sortable_fields: ['name', 'brand', 'price', 'weight']
+    fields:
+      - { label: "ID", name: "id", widget: "string", required: true }
+      - { label: "Tên Sản Phẩm", name: "name", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Hãng", name: "brand", widget: "string", required: true }
+      - label: "Loại Xe"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Xe Tải", value: "xe-tai" }
+          - { label: "Cần Cẩu", value: "can-cau" }
+          - { label: "Sơ Mi Rơ Mooc", value: "mooc" }
+          - { label: "Xe Đầu Kéo", value: "dau-keo" }
+          - { label: "Máy Móc & Thiết Bị", value: "may-moc-thiet-bi" }
+      - { label: "Giá (VNĐ)", name: "price", widget: "number", required: false }
+      - { label: "Giá Hiển Thị", name: "priceText", widget: "string", required: false }
+      - { label: "Trọng Tải Hiển Thị", name: "weightText", widget: "string", required: true }
+      - { label: "Trọng Tải (kg)", name: "weight", widget: "number", required: true }
+      - { label: "Dài (mm)", name: "length", widget: "number", required: true }
+      - { label: "Rộng (mm)", name: "width", widget: "number", required: true }
+      - { label: "Cao (mm)", name: "height", widget: "number", required: true }
+      - { label: "Kích Thước", name: "dimensions", widget: "string", required: true }
+      - { label: "Ảnh Đại Diện", name: "thumbnailUrl", widget: "string", required: true }
+      - { label: "Ảnh Sản Phẩm", name: "images", widget: "list", required: true }
+      - { label: "Video URL (YouTube)", name: "videoUrl", widget: "string", required: false }
+      - { label: "Mới", name: "isNew", widget: "boolean", default: false }
+      - { label: "Nổi Bật", name: "isHot", widget: "boolean", default: false }
+      - { label: "Ẩn", name: "isHidden", widget: "boolean", default: false }
+      - label: "Tình Trạng Kho"
+        name: "stockStatus"
+        widget: "select"
+        default: "in-stock"
+        options:
+          - { label: "Sẵn hàng", value: "in-stock" }
+          - { label: "Hết hàng", value: "out-of-stock" }
+          - { label: "Đặt trước", value: "pre-order" }
+          - { label: "Ngừng kinh doanh", value: "discontinued" }
+      - { label: "Xuất Xứ", name: "origin", widget: "string", required: false }
+      - { label: "Mô Tả Ngắn", name: "description", widget: "text", required: false }
+      - { label: "Mô Tả Chi Tiết", name: "detailedDescription", widget: "markdown", required: false }
+      - { label: "Tính Năng", name: "features", widget: "list", required: false }
+      - { label: "Model", name: "model", widget: "string", required: false }
+      - { label: "Model Động Cơ", name: "engineModel", widget: "string", required: false }
+      - { label: "Loại Động Cơ", name: "engineType", widget: "string", required: false }
+      - { label: "Dung Tích Động Cơ", name: "engineCapacity", widget: "string", required: false }
+      - { label: "Công Suất Động Cơ", name: "enginePower", widget: "string", required: false }
+      - { label: "Mô-men Xoắn", name: "engineTorque", widget: "string", required: false }
+      - { label: "Tiêu Chuẩn Khí Thải", name: "emissionStandard", widget: "string", required: false }
+      - { label: "Nhiên Liệu", name: "fuel", widget: "string", required: false }
+      - { label: "Hộp Số", name: "transmission", widget: "string", required: false }
+      - { label: "Chiều Dài Cơ Sở", name: "wheelbase", widget: "number", required: false }
+      - { label: "Chiều Dài Cơ Sở (Text)", name: "wheelbaseText", widget: "string", required: false }
+      - { label: "Khoảng Sáng Gầm", name: "groundClearance", widget: "number", required: false }
+      - { label: "Bán Kính Quay Vòng", name: "turningRadius", widget: "number", required: false }
+      - { label: "Khối Lượng Bản Thân", name: "kerbWeight", widget: "string", required: false }
+      - { label: "Khối Lượng Toàn Bộ", name: "grossWeight", widget: "string", required: false }
+      - { label: "Lốp Xe", name: "tires", widget: "string", required: false }
+      - { label: "Treo Trước", name: "frontSuspension", widget: "string", required: false }
+      - { label: "Treo Sau", name: "rearSuspension", widget: "string", required: false }
+      - { label: "Phanh Trước", name: "frontBrake", widget: "string", required: false }
+      - { label: "Phanh Sau", name: "rearBrake", widget: "string", required: false }
+      - { label: "Hệ Thống Phanh", name: "brakeSystem", widget: "string", required: false }
+      - { label: "Hệ Thống Lái", name: "steeringType", widget: "string", required: false }
+      - { label: "Loại Cabin", name: "cabinType", widget: "string", required: false }
+      - { label: "Số Chỗ Ngồi", name: "seats", widget: "number", required: false }
+      - { label: "Dung Tích Bình Nhiên Liệu", name: "fuelTankCapacity", widget: "string", required: false }
+      - { label: "Tính Năng Cabin", name: "cabinFeatures", widget: "list", required: false }
+      - { label: "Thứ Tự Sắp Xếp", name: "order", widget: "number", required: false }
+      # ========= THÔNG SỐ KỸ THUẬT (tự động từ dữ liệu) =========
+      - label: "🔝 Aerial Platform"
+        name: "aerialPlatformSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Chiều Cao Sàn Tối Đa", name: "maxPlatformHeight", widget: "string", required: false }
+          - { label: "Chiều Cao Làm Việc", name: "workingHeight", widget: "string", required: false }
+          - { label: "Tải Trọng Sàn", name: "platformCapacity", widget: "string", required: false }
+          - { label: "Kích Thước Sàn", name: "platformSize", widget: "string", required: false }
+          - { label: "Tầm Vươn Ngang", name: "horizontalReach", widget: "string", required: false }
+          - { label: "Loại Cần", name: "boomType", widget: "string", required: false }
+          - { label: "Góc Nâng Cần", name: "boomElevation", widget: "string", required: false }
+          - { label: "Xoay", name: "slewing", widget: "string", required: false }
+          - { label: "Hệ Thống Điều Khiển", name: "controlSystem", widget: "string", required: false }
+          - { label: "Tính Năng An Toàn", name: "safetyFeatures", widget: "string", required: false }
+          - { label: "Điện Áp", name: "voltage", widget: "string", required: false }
+          - { label: "Dung Lượng Ắc Quy", name: "batteryCapacity", widget: "string", required: false }
+          - { label: "Tốc Độ Di Chuyển", name: "travelSpeed", widget: "string", required: false }
+          - { label: "Khả Năng Leo Dốc", name: "gradability", widget: "string", required: false }
+          - { label: "Loại Lốp", name: "tireType", widget: "string", required: false }
+          - { label: "Bán Kính Quay Vòng", name: "turningRadius", widget: "string", required: false }
+          - { label: "Tầm Chân Chống", name: "outriggerSpan", widget: "string", required: false }
+          - { label: "Hệ Thống Thủy Lực", name: "hydraulicSystem", widget: "string", required: false }
+          - { label: "Mở Rộng Sàn", name: "platformExtension", widget: "string", required: false }
+          - { label: "Thời Gian Sạc", name: "chargingTime", widget: "string", required: false }
+          - { label: "Thời Gian Hoạt Động", name: "operatingTime", widget: "string", required: false }
+          - { label: "Tốc Độ Nâng", name: "liftingSpeed", widget: "string", required: false }
+          - { label: "Tốc Độ Hạ", name: "loweringSpeed", widget: "string", required: false }
+          - { label: "Hệ Thống Dẫn Động", name: "driveSystem", widget: "string", required: false }
+          - { label: "Nhiệt Độ Vận Hành", name: "operatingTemperature", widget: "string", required: false }
+          - { label: "Mức Độ Ồn", name: "noiseLevel", widget: "string", required: false }
+          - { label: "Chứng Nhận", name: "certifications", widget: "string", required: false }
+      - label: "📋 Batching Plant"
+        name: "batchingPlantSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Sản Lượng Lý Thuyết", name: "theoreticalOutput", widget: "string", required: false }
+          - { label: "Loại Máy Trộn", name: "mixerType", widget: "string", required: false }
+          - { label: "Dung Tích Máy Trộn", name: "mixerCapacity", widget: "string", required: false }
+          - { label: "Số Phễu Cốt Liệu", name: "aggregateBins", widget: "string", required: false }
+          - { label: "Dung Tích Phễu Cốt Liệu", name: "aggregateBinCapacity", widget: "string", required: false }
+          - { label: "Dung Tích Silo Xi Măng", name: "cementSiloCapacity", widget: "string", required: false }
+          - { label: "Chiều Rộng Băng Tải", name: "conveyorWidth", widget: "string", required: false }
+          - { label: "Tốc Độ Băng Tải", name: "conveyorSpeed", widget: "string", required: false }
+          - { label: "Hệ Thống Cân", name: "weighingSystem", widget: "string", required: false }
+          - { label: "Độ Chính Xác Cân", name: "weighingAccuracy", widget: "string", required: false }
+          - { label: "Hệ Thống Điều Khiển", name: "controlSystem", widget: "string", required: false }
+          - { label: "Đo Nước", name: "waterMeasuring", widget: "string", required: false }
+          - { label: "Đo Phụ Gia", name: "admixtureMeasuring", widget: "string", required: false }
+          - { label: "Bộ Thu Bụi", name: "dustCollector", widget: "string", required: false }
+          - { label: "Thời Gian Lắp Đặt", name: "installTime", widget: "string", required: false }
+          - { label: "Tổng Công Suất", name: "totalPower", widget: "string", required: false }
+      - label: "🚜 Bulldozer"
+        name: "bulldozerSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Loại Lưỡi", name: "bladeType", widget: "string", required: false }
+          - { label: "Dung Tích Lưỡi", name: "bladeCapacity", widget: "string", required: false }
+          - { label: "Chiều Rộng Lưỡi", name: "bladeWidth", widget: "string", required: false }
+          - { label: "Chiều Cao Lưỡi", name: "bladeHeight", widget: "string", required: false }
+          - { label: "Độ Cao Nâng Lưỡi Tối Đa", name: "maxBladeRaise", widget: "string", required: false }
+          - { label: "Độ Sâu Đào Lưỡi Tối Đa", name: "maxBladeDig", widget: "string", required: false }
+          - { label: "Góc Nghiêng Lưỡi", name: "bladeTiltAngle", widget: "string", required: false }
+          - { label: "Lực Kéo", name: "drawbarPull", widget: "string", required: false }
+          - { label: "Chiều Dài Xích", name: "trackLength", widget: "string", required: false }
+          - { label: "Chiều Rộng Bánh Xích", name: "trackShoeWidth", widget: "string", required: false }
+          - { label: "Khổ Xích", name: "trackGauge", widget: "string", required: false }
+          - { label: "Áp Suất Đất", name: "groundPressure", widget: "string", required: false }
+          - { label: "Số Con Lăn", name: "numberOfRollers", widget: "string", required: false }
+          - { label: "Loại Cày Phá", name: "ripperType", widget: "string", required: false }
+          - { label: "Hệ Thống Thủy Lực", name: "hydraulicSystem", widget: "string", required: false }
+      - label: "📋 Compactor"
+        name: "compactorSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Loại Máy Đầm", name: "compactorType", widget: "string", required: false }
+          - { label: "Kích Thước Tấm", name: "plateSize", widget: "string", required: false }
+          - { label: "Lực Va Đập", name: "impactForce", widget: "string", required: false }
+          - { label: "Tần Số", name: "frequency", widget: "string", required: false }
+          - { label: "Độ Cao Nhảy", name: "jumpingHeight", widget: "string", required: false }
+          - { label: "Độ Sâu Đầm Nén", name: "compactionDepth", widget: "string", required: false }
+          - { label: "Tốc Độ Di Chuyển", name: "travelSpeed", widget: "string", required: false }
+          - { label: "Tay Cầm Nâng", name: "liftingHandle", widget: "string", required: false }
+          - { label: "Giảm Chấn", name: "shockMount", widget: "string", required: false }
+          - { label: "Điều Khiển Ga", name: "throttleControl", widget: "string", required: false }
+          - { label: "Lọc Gió", name: "airFilter", widget: "string", required: false }
+          - { label: "Dung Tích Dầu", name: "oilCapacity", widget: "string", required: false }
+          - { label: "Loại Đất Phù Hợp", name: "suitableSoil", widget: "string", required: false }
+      - label: "💨 Compressor"
+        name: "compressorSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Loại Máy Nén Khí", name: "compressorType", widget: "string", required: false }
+          - { label: "Lưu Lượng Khí Tự Do", name: "freeAirDelivery", widget: "string", required: false }
+          - { label: "Áp Suất Thường", name: "normalPressure", widget: "string", required: false }
+          - { label: "Áp Suất Tối Đa", name: "maxPressure", widget: "string", required: false }
+          - { label: "Kích Thước Ống Xả Khí", name: "airOutletSize", widget: "string", required: false }
+          - { label: "Dung Tích Bình Chứa Khí", name: "airReceiverVolume", widget: "string", required: false }
+          - { label: "Dung Tích Dầu", name: "oilCapacity", widget: "string", required: false }
+          - { label: "Loại Dầu", name: "oilType", widget: "string", required: false }
+          - { label: "Hệ Thống Làm Mát", name: "coolingSystem", widget: "string", required: false }
+          - { label: "Tiêu Thụ Nhiên Liệu/100km", name: "fuelConsumption100", widget: "string", required: false }
+          - { label: "Tiêu Thụ Nhiên Liệu 75%", name: "fuelConsumption75", widget: "string", required: false }
+          - { label: "Thời Gian Chạy Bình Đầy", name: "runTimeAtFullTank", widget: "string", required: false }
+          - { label: "Mức Độ Ồn", name: "noiseLevel", widget: "string", required: false }
+          - { label: "Loại Rơ Mooc", name: "trailerType", widget: "string", required: false }
+          - { label: "Tốc Độ Kéo", name: "towingSpeed", widget: "string", required: false }
+          - { label: "Lọc Gió", name: "airFilter", widget: "string", required: false }
+          - { label: "Tính Năng An Toàn", name: "safetyFeatures", widget: "string", required: false }
+          - { label: "Nhiệt Độ Vận Hành", name: "operatingTemperature", widget: "string", required: false }
+      - label: "🚧 Concrete Mixer"
+        name: "concreteMixerSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Dung Tích Máy Trộn", name: "mixerCapacity", widget: "string", required: false }
+          - { label: "Sản Lượng Mỗi Mẻ", name: "outputPerBatch", widget: "string", required: false }
+          - { label: "Dung Tích Gầu", name: "bucketCapacity", widget: "string", required: false }
+          - { label: "Dung Tích Bình Nước", name: "waterTankCapacity", widget: "string", required: false }
+          - { label: "Thời Gian Trộn", name: "mixingTime", widget: "string", required: false }
+          - { label: "Tốc Độ Trống", name: "drumSpeed", widget: "string", required: false }
+          - { label: "Chiều Cao Xả Tối Đa", name: "maxDischargingHeight", widget: "string", required: false }
+          - { label: "Tốc Độ Vận Chuyển Tối Đa", name: "maxTransportSpeed", widget: "string", required: false }
+          - { label: "Khả Năng Leo Dốc", name: "gradability", widget: "string", required: false }
+          - { label: "Dẫn Động Bánh", name: "wheelDrive", widget: "string", required: false }
+          - { label: "Hệ Thống Cân", name: "weighingSystem", widget: "string", required: false }
+          - { label: "Hệ Thống Thủy Lực", name: "hydraulicSystem", widget: "string", required: false }
+          - { label: "Loại Lái", name: "steeringType", widget: "string", required: false }
+          - { label: "Bán Kính Quay Vòng", name: "turningRadius", widget: "string", required: false }
+      - label: "🚧 Concrete Pump"
+        name: "concretePumpSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Sản Lượng Lý Thuyết", name: "theoreticalOutput", widget: "string", required: false }
+          - { label: "Áp Suất Tối Đa", name: "maxPressure", widget: "string", required: false }
+          - { label: "Đường Kính Xi Lanh", name: "cylinderDiameter", widget: "string", required: false }
+          - { label: "Hành Trình Piston", name: "pistonStroke", widget: "string", required: false }
+          - { label: "Nhát/Phút", name: "strokesPerMinute", widget: "string", required: false }
+          - { label: "Dung Tích Phễu", name: "hopperCapacity", widget: "string", required: false }
+          - { label: "Kích Thước Cốt Liệu Tối Đa", name: "maxAggregateSize", widget: "string", required: false }
+          - { label: "Đường Kính Đường Ống", name: "pipelineDiameter", widget: "string", required: false }
+          - { label: "Khoảng Cách Ngang", name: "horizontalDistance", widget: "string", required: false }
+          - { label: "Khoảng Cách Dọc", name: "verticalDistance", widget: "string", required: false }
+          - { label: "Áp Suất Thủy Lực", name: "hydraulicPressure", widget: "string", required: false }
+          - { label: "Dung Tích Dầu Thủy Lực", name: "hydraulicOilCapacity", widget: "string", required: false }
+          - { label: "Điều Khiển Từ Xa", name: "remoteControl", widget: "string", required: false }
+          - { label: "Hệ Thống Làm Sạch", name: "cleaningSystem", widget: "string", required: false }
+      - label: "🏗️ Crane"
+        name: "craneSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Sức Nâng Tối Đa", name: "maxLiftCapacity", widget: "string", required: false }
+          - { label: "Chiều Dài Cần Tối Đa", name: "maxBoomLength", widget: "string", required: false }
+          - { label: "Chiều Dài Cần Phụ Tối Đa", name: "maxJibLength", widget: "string", required: false }
+          - { label: "Chiều Cao Nâng Tối Đa", name: "maxLiftHeight", widget: "string", required: false }
+          - { label: "Bán Kính Làm Việc Tối Đa", name: "maxWorkingRadius", widget: "string", required: false }
+          - { label: "Bán Kính Làm Việc Tối Thiểu", name: "minWorkingRadius", widget: "string", required: false }
+          - { label: "Số Đốt Cần", name: "boomSections", widget: "number", required: false }
+          - { label: "Tốc Độ Nâng", name: "hoistSpeed", widget: "string", required: false }
+          - { label: "Tốc Độ Xoay", name: "slewingSpeed", widget: "string", required: false }
+          - { label: "Góc Xoay", name: "slewingAngle", widget: "string", required: false }
+          - { label: "Tầm Chân Chống", name: "outriggerSpan", widget: "string", required: false }
+          - { label: "Tính Năng An Toàn", name: "safetyFeatures", widget: "string", required: false }
+          - { label: "Đối Trọng", name: "counterweight", widget: "string", required: false }
+          - { label: "Sức Nâng", name: "liftingCapacity", widget: "number", required: false }
+          - { label: "Sức Nâng (Text)", name: "liftingCapacityText", widget: "string", required: false }
+          - { label: "Mô-men Nâng Tối Đa", name: "maxLiftingMoment", widget: "string", required: false }
+          - { label: "Chiều Cao Nâng Tối Đa", name: "maxLiftingHeight", widget: "string", required: false }
+          - { label: "Chiều Cao Cần Chính Tối Đa", name: "maxHeightMainBoom", widget: "string", required: false }
+          - { label: "Chiều Cao Tối Đa Với Cần Phụ", name: "maxHeightWithJib", widget: "string", required: false }
+          - { label: "Loại Cần", name: "boomType", widget: "string", required: false }
+          - { label: "Chiều Dài Cần", name: "boomLength", widget: "string", required: false }
+          - { label: "Chiều Dài Cần Thu Gọn", name: "boomRetractedLength", widget: "string", required: false }
+          - { label: "Chiều Dài Cần Mở Rộng", name: "boomExtendedLength", widget: "string", required: false }
+          - { label: "Góc Xoay", name: "swingAngle", widget: "string", required: false }
+          - { label: "Tốc Độ Xoay", name: "swingSpeed", widget: "string", required: false }
+          - { label: "Loại Tời", name: "winchType", widget: "string", required: false }
+          - { label: "Loại Chân Chống", name: "outriggersType", widget: "string", required: false }
+          - { label: "Cấu Hình Chân Chống", name: "outriggersConfigurations", widget: "string", required: false }
+          - { label: "Loại Di Chuyển", name: "travelType", widget: "string", required: false }
+          - { label: "Dẫn Động Di Chuyển", name: "travelDrive", widget: "string", required: false }
+          - { label: "Tốc Độ Di Chuyển", name: "travelSpeed", widget: "string", required: false }
+          - { label: "Khả Năng Leo Dốc", name: "gradability", widget: "string", required: false }
+          - { label: "Model Động Cơ", name: "engineModel", widget: "string", required: false }
+          - { label: "Nguồn Điện", name: "powerSource", widget: "string", required: false }
+          - { label: "Loại Bơm Thủy Lực", name: "hydraulicPumpType", widget: "string", required: false }
+          - { label: "Áp Suất Làm Việc Thủy Lực", name: "hydraulicOperatingPressure", widget: "string", required: false }
+          - { label: "Dung Tích Dầu Thủy Lực", name: "hydraulicOilCapacity", widget: "string", required: false }
+          - { label: "Van Điều Khiển Thủy Lực", name: "hydraulicControlValve", widget: "string", required: false }
+          - { label: "Áp Suất Van Xả Thủy Lực", name: "hydraulicReliefValvePressure", widget: "string", required: false }
+          - { label: "Motor Thủy Lực Nâng", name: "hydraulicMotorHoisting", widget: "string", required: false }
+          - { label: "Motor Thủy Lực Xoay", name: "hydraulicMotorSlewing", widget: "string", required: false }
+          - { label: "Xi Lanh Thủy Lực", name: "hydraulicCylinders", widget: "string", required: false }
+          - { label: "Kích Thước Khi Gấp", name: "foldedDimensions", widget: "string", required: false }
+          - { label: "Chiều Dài Khi Gấp", name: "foldedLength", widget: "string", required: false }
+          - { label: "Chiều Rộng Khi Gấp", name: "foldedWidth", widget: "string", required: false }
+          - { label: "Chiều Cao Khi Gấp", name: "foldedHeight", widget: "string", required: false }
+          - { label: "Trọng Lượng Vận Hành", name: "operatingWeight", widget: "string", required: false }
+          - { label: "Điều Khiển Từ Xa", name: "remoteControl", widget: "boolean", required: false }
+          - { label: "Loại Điều Khiển Từ Xa", name: "remoteControlType", widget: "string", required: false }
+          - { label: "Hệ Thống An Toàn", name: "safetySystem", widget: "string", required: false }
+          - { label: "Tính Năng Tùy Chọn", name: "optionalFeatures", widget: "list", required: false }
+          - label: "Bảng Tải Trọng"
+            name: "ratedLoadChart"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Đơn Vị", name: "unit", widget: "string", required: false }
+              - { label: "Ghi Chú", name: "note", widget: "string", required: false }
+              - { label: "Chiều Dài Các Đốt Cần", name: "boomLengths", widget: "list", required: false }
+              - { label: "Dữ Liệu", name: "data", widget: "list", required: false }
+          - { label: "Chi Tiết Sức Nâng", name: "detailedLiftingCapacity", widget: "list", required: false }
+          - { label: "Tải Trọng Đầu Cần", name: "tipLoadCapacity", widget: "string", required: false }
+          - { label: "Tốc Độ Xe Con", name: "trolleySpeed", widget: "string", required: false }
+      - label: "⛏️ Excavator"
+        name: "excavatorSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Dung Tích Gầu", name: "bucketCapacity", widget: "string", required: false }
+          - { label: "Chiều Sâu Đào Tối Đa", name: "maxDiggingDepth", widget: "string", required: false }
+          - { label: "Tầm Với Tối Đa", name: "maxReach", widget: "string", required: false }
+          - { label: "Chiều Cao Đổ Tối Đa", name: "maxDumpHeight", widget: "string", required: false }
+          - { label: "Lực Bứt Gầu", name: "bucketBreakoutForce", widget: "string", required: false }
+          - { label: "Lực Bứt Cần", name: "armBreakoutForce", widget: "string", required: false }
+          - { label: "Tốc Độ Xoay", name: "swingSpeed", widget: "string", required: false }
+          - { label: "Mô-men Xoay", name: "swingTorque", widget: "string", required: false }
+          - { label: "Chiều Dài Cần", name: "boomLength", widget: "string", required: false }
+          - { label: "Chiều Dài Cần Gầu", name: "armLength", widget: "string", required: false }
+          - { label: "Lưu Lượng Bơm Thủy Lực", name: "hydraulicPumpFlow", widget: "string", required: false }
+          - { label: "Áp Suất Thủy Lực", name: "hydraulicPressure", widget: "string", required: false }
+          - { label: "Chiều Rộng Bánh Xích", name: "trackShoeWidth", widget: "string", required: false }
+          - { label: "Trọng Lượng Vận Hành", name: "operatingWeight", widget: "string", required: false }
+          - { label: "Chiều Sâu Đào Tối Đa", name: "maxDigDepth", widget: "string", required: false }
+          - { label: "Chiều Cao Đào Tối Đa", name: "maxDigHeight", widget: "string", required: false }
+          - { label: "Lực Đào Gầu", name: "bucketDiggingForce", widget: "string", required: false }
+          - { label: "Lực Đào Của Cần", name: "armDiggingForce", widget: "string", required: false }
+          - { label: "Tùy Chọn Cần", name: "armOptions", widget: "string", required: false }
+          - { label: "Chiều Dài Xích", name: "trackLength", widget: "string", required: false }
+          - { label: "Khổ Xích", name: "trackGauge", widget: "string", required: false }
+          - { label: "Bán Kính Đuôi Xoay", name: "tailSwingRadius", widget: "string", required: false }
+          - { label: "Tốc Độ Di Chuyển", name: "travelSpeed", widget: "string", required: false }
+          - { label: "Áp Suất Đất", name: "groundPressure", widget: "string", required: false }
+          - { label: "Khả Năng Leo Dốc", name: "gradability", widget: "string", required: false }
+          - { label: "Đối Trọng", name: "counterweight", widget: "string", required: false }
+          - { label: "Dung Tích Bình Nhiên Liệu", name: "fuelTankCapacity", widget: "string", required: false }
+          - { label: "Dung Tích Bình Thủy Lực", name: "hydraulicTankCapacity", widget: "string", required: false }
+          - { label: "Lưu Lượng Thủy Lực", name: "hydraulicFlowRate", widget: "string", required: false }
+          - { label: "Hệ Thống Thủy Lực", name: "hydraulicSystem", widget: "string", required: false }
+          - { label: "Chế Độ Làm Việc", name: "workModes", widget: "string", required: false }
+          - { label: "Loại Cabin", name: "cabinType", widget: "string", required: false }
+          - { label: "Màn Hình", name: "display", widget: "string", required: false }
+          - { label: "Camera Lùi", name: "rearCamera", widget: "string", required: false }
+          - { label: "Điều Khiển", name: "control", widget: "string", required: false }
+          - { label: "Phụ Kiện", name: "attachments", widget: "string", required: false }
+          - { label: "Chứng Nhận", name: "certifications", widget: "string", required: false }
+      - label: "📦 Forklift"
+        name: "forkliftSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Tải Trọng", name: "loadCapacity", widget: "string", required: false }
+          - { label: "Tâm Tải", name: "loadCenter", widget: "string", required: false }
+          - { label: "Chiều Cao Nâng", name: "liftHeight", widget: "string", required: false }
+          - { label: "Kích Thước Càng Nâng", name: "forkDimensions", widget: "string", required: false }
+          - { label: "Loại Khung Nâng", name: "mastType", widget: "string", required: false }
+          - { label: "Chiều Cao Nâng Tự Do", name: "freeLifHeight", widget: "string", required: false }
+          - { label: "Góc Nghiêng", name: "tiltAngle", widget: "string", required: false }
+          - { label: "Loại Motor", name: "motorType", widget: "string", required: false }
+          - { label: "Thông Số Ắc Quy", name: "batterySpec", widget: "string", required: false }
+          - { label: "Hộp Số", name: "transmission", widget: "string", required: false }
+          - { label: "Loại Lái", name: "steeringType", widget: "string", required: false }
+          - { label: "Loại Lốp", name: "tireType", widget: "string", required: false }
+          - { label: "Bán Kính Quay Vòng", name: "turningRadius", widget: "string", required: false }
+          - { label: "Sức Nâng", name: "liftCapacity", widget: "string", required: false }
+          - { label: "Chiều Cao Nâng Tối Đa", name: "maxLiftHeight", widget: "string", required: false }
+          - { label: "Nâng Tự Do", name: "freeLift", widget: "string", required: false }
+          - { label: "Chiều Dài Càng", name: "forkLength", widget: "string", required: false }
+          - { label: "Chiều Rộng Càng", name: "forkWidth", widget: "string", required: false }
+          - { label: "Tốc Độ Nâng Có Tải", name: "liftSpeedLoaded", widget: "string", required: false }
+          - { label: "Tốc Độ Hạ Có Tải", name: "lowerSpeedLoaded", widget: "string", required: false }
+          - { label: "Tốc Độ Có Tải", name: "travelSpeedLoaded", widget: "string", required: false }
+          - { label: "Tốc Độ Không Tải", name: "travelSpeedUnloaded", widget: "string", required: false }
+          - { label: "Khả Năng Leo Dốc", name: "gradability", widget: "string", required: false }
+          - { label: "Chiều Rộng Lối Đi", name: "aisleWidth", widget: "string", required: false }
+          - { label: "Chiều Dài Tổng Thể", name: "overallLength", widget: "string", required: false }
+          - { label: "Chiều Rộng Tổng Thể", name: "overallWidth", widget: "string", required: false }
+          - { label: "Chiều Cao Tổng Thể", name: "overallHeight", widget: "string", required: false }
+          - { label: "Chiều Dài Cơ Sở", name: "wheelbase", widget: "string", required: false }
+          - { label: "Khoảng Sáng Gầm", name: "groundClearance", widget: "string", required: false }
+          - { label: "Lốp Trước", name: "frontTires", widget: "string", required: false }
+          - { label: "Lốp Sau", name: "rearTires", widget: "string", required: false }
+          - { label: "Đối Trọng", name: "counterweight", widget: "string", required: false }
+          - { label: "Dung Tích Bình Nhiên Liệu", name: "fuelTankCapacity", widget: "string", required: false }
+          - { label: "Tiêu Thụ Nhiên Liệu", name: "fuelConsumption", widget: "string", required: false }
+          - { label: "Dung Tích Dầu Thủy Lực", name: "hydraulicOilCapacity", widget: "string", required: false }
+          - { label: "Loại Phanh", name: "brakeType", widget: "string", required: false }
+          - { label: "Hệ Thống An Toàn", name: "safetySystem", widget: "string", required: false }
+          - { label: "Loại Cabin", name: "cabinType", widget: "string", required: false }
+          - { label: "Phụ Kiện", name: "attachments", widget: "string", required: false }
+          - { label: "Chứng Nhận", name: "certifications", widget: "string", required: false }
+      - label: "⚡ Generator"
+        name: "generatorSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Công Suất Dự Phòng", name: "standbyPower", widget: "string", required: false }
+          - { label: "Công Suất Liên Tục", name: "primePower", widget: "string", required: false }
+          - { label: "Điện Áp Định Mức", name: "ratedVoltage", widget: "string", required: false }
+          - { label: "Tần Số", name: "frequency", widget: "string", required: false }
+          - { label: "Số Pha", name: "phases", widget: "string", required: false }
+          - { label: "Hệ Số Công Suất", name: "powerFactor", widget: "string", required: false }
+          - { label: "Model Máy Phát", name: "alternatorModel", widget: "string", required: false }
+          - { label: "Loại Máy Phát", name: "alternatorType", widget: "string", required: false }
+          - { label: "Loại Kích Từ", name: "excitationType", widget: "string", required: false }
+          - { label: "Điện Áp Điều Chỉnh", name: "regulationVoltage", widget: "string", required: false }
+          - { label: "Tốc Độ Động Cơ", name: "engineSpeed", widget: "string", required: false }
+          - { label: "Tiêu Thụ Nhiên Liệu/100km", name: "fuelConsumption100", widget: "string", required: false }
+          - { label: "Tiêu Thụ Nhiên Liệu 75%", name: "fuelConsumption75", widget: "string", required: false }
+          - { label: "Tiêu Thụ Nhiên Liệu 50%", name: "fuelConsumption50", widget: "string", required: false }
+          - { label: "Hệ Thống Khởi Động", name: "startingSystem", widget: "string", required: false }
+          - { label: "Hệ Thống Làm Mát", name: "coolingSystem", widget: "string", required: false }
+          - { label: "Bảng Điều Khiển", name: "controlPanel", widget: "string", required: false }
+          - { label: "Mức Độ Ồn", name: "noiseLevel", widget: "string", required: false }
+          - { label: "Tương Thích ATS", name: "atsCompatible", widget: "string", required: false }
+          - { label: "Cấp Bảo Vệ", name: "protectionClass", widget: "string", required: false }
+      - label: "📋 Grader"
+        name: "graderSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Chiều Rộng Lưỡi", name: "bladeWidth", widget: "string", required: false }
+          - { label: "Chiều Cao Lưỡi", name: "bladeHeight", widget: "string", required: false }
+          - { label: "Độ Dày Lưỡi", name: "bladeThickness", widget: "string", required: false }
+          - { label: "Độ Cao Nâng Lưỡi Tối Đa", name: "maxBladeRaise", widget: "string", required: false }
+          - { label: "Độ Sâu Đào Lưỡi Tối Đa", name: "maxBladeDig", widget: "string", required: false }
+          - { label: "Góc Xoay Đĩa", name: "circleRotation", widget: "string", required: false }
+          - { label: "Góc Nghiêng Lưỡi", name: "bladeTiltAngle", widget: "string", required: false }
+          - { label: "Dịch Ngang Lưỡi", name: "bladeSideshift", widget: "string", required: false }
+          - { label: "Góc Uốn", name: "articulationAngle", widget: "string", required: false }
+          - { label: "Góc Nghiêng", name: "leanAngle", widget: "string", required: false }
+          - { label: "Chiều Rộng Cày Xới", name: "scarifierWidth", widget: "string", required: false }
+          - { label: "Độ Sâu Cày Xới", name: "scarifierDepth", widget: "string", required: false }
+          - { label: "Nghiêng Bánh Trước", name: "frontWheelLean", widget: "string", required: false }
+          - { label: "Bán Kính Quay Vòng", name: "turningRadius", widget: "string", required: false }
+          - { label: "Khoảng Sáng Gầm", name: "groundClearance", widget: "string", required: false }
+      - label: "📋 Hoist"
+        name: "hoistSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Sức Nâng", name: "liftCapacity", widget: "string", required: false }
+          - { label: "Chiều Cao Nâng", name: "liftHeight", widget: "string", required: false }
+          - { label: "Tốc Độ Nâng", name: "liftSpeed", widget: "string", required: false }
+          - { label: "Công Suất Motor Nâng", name: "liftMotorPower", widget: "string", required: false }
+          - { label: "Loại Tời", name: "hoistType", widget: "string", required: false }
+          - { label: "Loại Xích", name: "chainType", widget: "string", required: false }
+          - { label: "Loại Phanh", name: "brakeType", widget: "string", required: false }
+          - { label: "Cấp Tải Trọng", name: "dutyClass", widget: "string", required: false }
+          - { label: "Điện Áp", name: "voltage", widget: "string", required: false }
+          - { label: "Tần Số", name: "frequency", widget: "string", required: false }
+          - { label: "Cấp Bảo Vệ", name: "protectionClass", widget: "string", required: false }
+          - { label: "Nhiệt Độ Môi Trường", name: "ambientTemperature", widget: "string", required: false }
+          - { label: "Tốc Độ Xe Con", name: "trolleySpeed", widget: "string", required: false }
+          - { label: "Công Suất Motor Xe Con", name: "trolleyMotorPower", widget: "string", required: false }
+          - { label: "Loại Điều Khiển", name: "controlType", widget: "string", required: false }
+          - { label: "Tính Năng An Toàn", name: "safetyFeatures", widget: "string", required: false }
+      - label: "🚜 Loader"
+        name: "loaderSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Dung Tích Gầu", name: "bucketCapacity", widget: "string", required: false }
+          - { label: "Chiều Rộng Gầu", name: "bucketWidth", widget: "string", required: false }
+          - { label: "Lực Bứt", name: "breakoutForce", widget: "string", required: false }
+          - { label: "Tải Lật Tĩnh", name: "staticTippingLoad", widget: "string", required: false }
+          - { label: "Chiều Cao Nâng Tối Đa", name: "maxLiftHeight", widget: "string", required: false }
+          - { label: "Chiều Cao Đổ", name: "dumpHeight", widget: "string", required: false }
+          - { label: "Tầm Đổ", name: "dumpReach", widget: "string", required: false }
+          - { label: "Độ Sâu Đào", name: "digDepth", widget: "string", required: false }
+          - { label: "Góc Nghiêng Giá Đỡ", name: "rackbackAngle", widget: "string", required: false }
+          - { label: "Góc Đổ", name: "dumpAngle", widget: "string", required: false }
+          - { label: "Thời Gian Chu Kỳ Nâng", name: "liftCycleTime", widget: "string", required: false }
+          - { label: "Thời Gian Chu Kỳ Đổ", name: "dumpCycleTime", widget: "string", required: false }
+          - { label: "Thời Gian Chu Kỳ Hạ", name: "lowerCycleTime", widget: "string", required: false }
+          - { label: "Lưu Lượng Bơm Thủy Lực", name: "hydraulicPumpFlow", widget: "string", required: false }
+          - { label: "Áp Suất Thủy Lực", name: "hydraulicPressure", widget: "string", required: false }
+          - { label: "Bán Kính Quay Vòng", name: "turningRadius", widget: "string", required: false }
+      - label: "🚜 Roller"
+        name: "rollerSpec"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Số Bánh Xe", name: "numberOfWheels", widget: "string", required: false }
+          - { label: "Chiều Rộng Đầm Nén", name: "compactionWidth", widget: "string", required: false }
+          - { label: "Kích Thước Lốp", name: "tireSize", widget: "string", required: false }
+          - { label: "Dải Áp Suất Lốp", name: "tirePressureRange", widget: "string", required: false }
+          - { label: "Trọng Lượng Tối Thiểu", name: "minWeight", widget: "string", required: false }
+          - { label: "Trọng Lượng Tối Đa", name: "maxWeight", widget: "string", required: false }
+          - { label: "Loại Đối Trọng", name: "ballastType", widget: "string", required: false }
+          - { label: "Tải Tĩnh Tuyến Tính", name: "staticLinearLoad", widget: "string", required: false }
+          - { label: "Dung Tích Bình Nước", name: "waterTankCapacity", widget: "string", required: false }
+          - { label: "Hệ Thống Phun Nước", name: "waterSpraySystem", widget: "string", required: false }
+          - { label: "Loại Lái", name: "steeringType", widget: "string", required: false }
+          - { label: "Góc Lái", name: "steeringAngle", widget: "string", required: false }
+          - { label: "Bán Kính Quay Vòng", name: "turningRadius", widget: "string", required: false }
+          - { label: "Khả Năng Leo Dốc", name: "climbingAbility", widget: "string", required: false }
+          - { label: "Chiều Rộng Trống", name: "drumWidth", widget: "string", required: false }
+          - { label: "Đường Kính Trống", name: "drumDiameter", widget: "string", required: false }
+          - { label: "Trọng Lượng Trống", name: "drumWeight", widget: "string", required: false }
+          - { label: "Lực Li Tâm", name: "centrifugalForce", widget: "string", required: false }
+          - { label: "Tần Số", name: "frequency", widget: "string", required: false }
+          - { label: "Biên Độ", name: "amplitude", widget: "string", required: false }
+          - { label: "Độ Sâu Đầm Nén", name: "compactionDepth", widget: "string", required: false }
+          - { label: "Chế Độ Rung", name: "vibrationMode", widget: "string", required: false }
+          - { label: "Kích Thước Lốp Sau", name: "rearTireSize", widget: "string", required: false }
+          - { label: "Trọng Lượng Cầu Sau", name: "rearAxleWeight", widget: "string", required: false }
+
+
+  # =========================================================
+  # AUTO-GENERATED BLOG COLLECTIONS
+  # (Generated by scripts/generate-cms-config.js)
+  # =========================================================
+
+  # =========================================================
+  # BÀI VIẾT - TIN TỨC NGÀNH VẬN TẢI
+  # =========================================================
+  - name: "blog-tin-tuc-nganh-van-tai"
+    label: "📰 Tin Tức Ngành Vận Tải"
+    label_singular: "Bài Viết"
+    folder: "src/content/blog/tin-tuc-nganh-van-tai"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}}"
+    fields:
+      - { label: "ID", name: "id", widget: "string", required: true }
+      - { label: "Tiêu Đề", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Mô Tả", name: "description", widget: "text", required: true }
+      - label: "Danh Mục"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Tin Tức Ngành Vận Tải", value: "tin-tuc-nganh-van-tai" }
+          - { label: "Đánh Giá Xe", value: "danh-gia-xe" }
+          - { label: "Kinh Nghiệm Lái Xe", value: "kinh-nghiem-lai-xe" }
+          - { label: "Bảo Dưỡng", value: "bao-duong" }
+          - { label: "Tư Vấn Mua Xe", value: "tu-van-mua-xe" }
+          - { label: "Công Nghệ & Đổi Mới", value: "cong-nghe-va-doi-moi" }
+      - { label: "Ảnh", name: "images", widget: "list", required: true }
+      - { label: "Ngày Đăng (timestamp)", name: "publishDate", widget: "number", required: true }
+      - { label: "Thời Gian Đọc (phút)", name: "readTime", widget: "number", required: true }
+      - { label: "Tác Giả", name: "author", widget: "string", required: true }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Lượt Xem", name: "views", widget: "number", default: 0 }
+      - { label: "Bình Luận", name: "comments", widget: "number", default: 0 }
+      - { label: "Ẩn", name: "isHidden", widget: "boolean", default: false }
+      - { label: "Nội Dung", name: "body", widget: "markdown", required: true }
+      - { label: "Thứ Tự Sắp Xếp", name: "order", widget: "number", required: false }
+
+  # =========================================================
+  # BÀI VIẾT - ĐÁNH GIÁ XE
+  # =========================================================
+  - name: "blog-danh-gia-xe"
+    label: "⭐ Đánh Giá Xe"
+    label_singular: "Bài Viết"
+    folder: "src/content/blog/danh-gia-xe"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}}"
+    fields:
+      - { label: "ID", name: "id", widget: "string", required: true }
+      - { label: "Tiêu Đề", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Mô Tả", name: "description", widget: "text", required: true }
+      - label: "Danh Mục"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Tin Tức Ngành Vận Tải", value: "tin-tuc-nganh-van-tai" }
+          - { label: "Đánh Giá Xe", value: "danh-gia-xe" }
+          - { label: "Kinh Nghiệm Lái Xe", value: "kinh-nghiem-lai-xe" }
+          - { label: "Bảo Dưỡng", value: "bao-duong" }
+          - { label: "Tư Vấn Mua Xe", value: "tu-van-mua-xe" }
+          - { label: "Công Nghệ & Đổi Mới", value: "cong-nghe-va-doi-moi" }
+      - { label: "Ảnh", name: "images", widget: "list", required: true }
+      - { label: "Ngày Đăng (timestamp)", name: "publishDate", widget: "number", required: true }
+      - { label: "Thời Gian Đọc (phút)", name: "readTime", widget: "number", required: true }
+      - { label: "Tác Giả", name: "author", widget: "string", required: true }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Lượt Xem", name: "views", widget: "number", default: 0 }
+      - { label: "Bình Luận", name: "comments", widget: "number", default: 0 }
+      - { label: "Ẩn", name: "isHidden", widget: "boolean", default: false }
+      - { label: "Nội Dung", name: "body", widget: "markdown", required: true }
+      - { label: "Thứ Tự Sắp Xếp", name: "order", widget: "number", required: false }
+
+  # =========================================================
+  # BÀI VIẾT - KINH NGHIỆM LÁI XE
+  # =========================================================
+  - name: "blog-kinh-nghiem-lai-xe"
+    label: "🚗 Kinh Nghiệm Lái Xe"
+    label_singular: "Bài Viết"
+    folder: "src/content/blog/kinh-nghiem-lai-xe"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}}"
+    fields:
+      - { label: "ID", name: "id", widget: "string", required: true }
+      - { label: "Tiêu Đề", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Mô Tả", name: "description", widget: "text", required: true }
+      - label: "Danh Mục"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Tin Tức Ngành Vận Tải", value: "tin-tuc-nganh-van-tai" }
+          - { label: "Đánh Giá Xe", value: "danh-gia-xe" }
+          - { label: "Kinh Nghiệm Lái Xe", value: "kinh-nghiem-lai-xe" }
+          - { label: "Bảo Dưỡng", value: "bao-duong" }
+          - { label: "Tư Vấn Mua Xe", value: "tu-van-mua-xe" }
+          - { label: "Công Nghệ & Đổi Mới", value: "cong-nghe-va-doi-moi" }
+      - { label: "Ảnh", name: "images", widget: "list", required: true }
+      - { label: "Ngày Đăng (timestamp)", name: "publishDate", widget: "number", required: true }
+      - { label: "Thời Gian Đọc (phút)", name: "readTime", widget: "number", required: true }
+      - { label: "Tác Giả", name: "author", widget: "string", required: true }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Lượt Xem", name: "views", widget: "number", default: 0 }
+      - { label: "Bình Luận", name: "comments", widget: "number", default: 0 }
+      - { label: "Ẩn", name: "isHidden", widget: "boolean", default: false }
+      - { label: "Nội Dung", name: "body", widget: "markdown", required: true }
+      - { label: "Thứ Tự Sắp Xếp", name: "order", widget: "number", required: false }
+
+  # =========================================================
+  # BÀI VIẾT - BẢO DƯỠNG
+  # =========================================================
+  - name: "blog-bao-duong"
+    label: "🔧 Bảo Dưỡng"
+    label_singular: "Bài Viết"
+    folder: "src/content/blog/bao-duong"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}}"
+    fields:
+      - { label: "ID", name: "id", widget: "string", required: true }
+      - { label: "Tiêu Đề", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Mô Tả", name: "description", widget: "text", required: true }
+      - label: "Danh Mục"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Tin Tức Ngành Vận Tải", value: "tin-tuc-nganh-van-tai" }
+          - { label: "Đánh Giá Xe", value: "danh-gia-xe" }
+          - { label: "Kinh Nghiệm Lái Xe", value: "kinh-nghiem-lai-xe" }
+          - { label: "Bảo Dưỡng", value: "bao-duong" }
+          - { label: "Tư Vấn Mua Xe", value: "tu-van-mua-xe" }
+          - { label: "Công Nghệ & Đổi Mới", value: "cong-nghe-va-doi-moi" }
+      - { label: "Ảnh", name: "images", widget: "list", required: true }
+      - { label: "Ngày Đăng (timestamp)", name: "publishDate", widget: "number", required: true }
+      - { label: "Thời Gian Đọc (phút)", name: "readTime", widget: "number", required: true }
+      - { label: "Tác Giả", name: "author", widget: "string", required: true }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Lượt Xem", name: "views", widget: "number", default: 0 }
+      - { label: "Bình Luận", name: "comments", widget: "number", default: 0 }
+      - { label: "Ẩn", name: "isHidden", widget: "boolean", default: false }
+      - { label: "Nội Dung", name: "body", widget: "markdown", required: true }
+      - { label: "Thứ Tự Sắp Xếp", name: "order", widget: "number", required: false }
+
+  # =========================================================
+  # BÀI VIẾT - TƯ VẤN MUA XE
+  # =========================================================
+  - name: "blog-tu-van-mua-xe"
+    label: "💡 Tư Vấn Mua Xe"
+    label_singular: "Bài Viết"
+    folder: "src/content/blog/tu-van-mua-xe"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}}"
+    fields:
+      - { label: "ID", name: "id", widget: "string", required: true }
+      - { label: "Tiêu Đề", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Mô Tả", name: "description", widget: "text", required: true }
+      - label: "Danh Mục"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Tin Tức Ngành Vận Tải", value: "tin-tuc-nganh-van-tai" }
+          - { label: "Đánh Giá Xe", value: "danh-gia-xe" }
+          - { label: "Kinh Nghiệm Lái Xe", value: "kinh-nghiem-lai-xe" }
+          - { label: "Bảo Dưỡng", value: "bao-duong" }
+          - { label: "Tư Vấn Mua Xe", value: "tu-van-mua-xe" }
+          - { label: "Công Nghệ & Đổi Mới", value: "cong-nghe-va-doi-moi" }
+      - { label: "Ảnh", name: "images", widget: "list", required: true }
+      - { label: "Ngày Đăng (timestamp)", name: "publishDate", widget: "number", required: true }
+      - { label: "Thời Gian Đọc (phút)", name: "readTime", widget: "number", required: true }
+      - { label: "Tác Giả", name: "author", widget: "string", required: true }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Lượt Xem", name: "views", widget: "number", default: 0 }
+      - { label: "Bình Luận", name: "comments", widget: "number", default: 0 }
+      - { label: "Ẩn", name: "isHidden", widget: "boolean", default: false }
+      - { label: "Nội Dung", name: "body", widget: "markdown", required: true }
+      - { label: "Thứ Tự Sắp Xếp", name: "order", widget: "number", required: false }
+
+  # =========================================================
+  # BÀI VIẾT - CÔNG NGHỆ & ĐỔI MỚI
+  # =========================================================
+  - name: "blog-cong-nghe-va-doi-moi"
+    label: "🔬 Công Nghệ & Đổi Mới"
+    label_singular: "Bài Viết"
+    folder: "src/content/blog/cong-nghe-va-doi-moi"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}}"
+    fields:
+      - { label: "ID", name: "id", widget: "string", required: true }
+      - { label: "Tiêu Đề", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Mô Tả", name: "description", widget: "text", required: true }
+      - label: "Danh Mục"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Tin Tức Ngành Vận Tải", value: "tin-tuc-nganh-van-tai" }
+          - { label: "Đánh Giá Xe", value: "danh-gia-xe" }
+          - { label: "Kinh Nghiệm Lái Xe", value: "kinh-nghiem-lai-xe" }
+          - { label: "Bảo Dưỡng", value: "bao-duong" }
+          - { label: "Tư Vấn Mua Xe", value: "tu-van-mua-xe" }
+          - { label: "Công Nghệ & Đổi Mới", value: "cong-nghe-va-doi-moi" }
+      - { label: "Ảnh", name: "images", widget: "list", required: true }
+      - { label: "Ngày Đăng (timestamp)", name: "publishDate", widget: "number", required: true }
+      - { label: "Thời Gian Đọc (phút)", name: "readTime", widget: "number", required: true }
+      - { label: "Tác Giả", name: "author", widget: "string", required: true }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Lượt Xem", name: "views", widget: "number", default: 0 }
+      - { label: "Bình Luận", name: "comments", widget: "number", default: 0 }
+      - { label: "Ẩn", name: "isHidden", widget: "boolean", default: false }
+      - { label: "Nội Dung", name: "body", widget: "markdown", required: true }
+      - { label: "Thứ Tự Sắp Xếp", name: "order", widget: "number", required: false }

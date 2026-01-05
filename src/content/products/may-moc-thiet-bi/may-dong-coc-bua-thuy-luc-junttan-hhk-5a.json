@@ -1,0 +1,49 @@
+{
+    "id": "may-dong-coc-bua-thuy-luc-junttan-hhk-5a",
+    "name": "Máy Đóng Cọc Búa Thủy Lực Junttan HHK 5A - 5 Tấn 60kNm Nền Móng Cầu Đường",
+    "slug": "may-dong-coc-bua-thuy-luc-junttan-hhk-5a",
+    "brand": "Junttan",
+    "model": "HHK 5A",
+    "price": null,
+    "priceText": "Liên hệ",
+    "weightText": "9.900 kg (trọng lượng búa)",
+    "weight": 9900,
+    "length": 1190,
+    "width": 1190,
+    "height": 9180,
+    "dimensions": "1.190 x 1.190 x 9.180 mm",
+    "type": "may-moc-thiet-bi",
+    "isNew": true,
+    "isHot": true,
+    "stockStatus": "in-stock",
+    "origin": "Phần Lan",
+    "thumbnailUrl": "/assets/may-dong-coc-junttan-hhk-5a.webp",
+    "images": [
+        "/assets/may-dong-coc-junttan-hhk-5a.webp"
+    ],
+    "description": "Máy đóng cọc búa thủy lực Junttan HHK 5A 5 tấn - Búa đóng cọc Phần Lan năng lượng va đập 60kNm, 40-100 nhát/phút. Phù hợp cọc bê tông, ống thép, cừ larsen. Tiếng ồn thấp, dùng dầu sinh học, hiệu suất cao hơn búa rơi tự do 20%.",
+    "detailedDescription": "<h2>Máy Đóng Cọc Búa Thủy Lực Junttan HHK 5A - Công Nghệ Phần Lan Hàng Đầu</h2>\n<p><strong>Búa đóng cọc thủy lực Junttan HHK 5A</strong> là thiết bị thi công nền móng hiện đại nhất, với <strong>trọng lượng đầu búa 5 tấn</strong>, <strong>năng lượng va đập 60 kNm</strong> và <strong>tốc độ 40-100 nhát/phút</strong>. Phù hợp cho các dự án cầu đường, nhà cao tầng, cảng biển.</p>\n\n<h3>Thông Số Kỹ Thuật</h3>\n<ul>\n<li><strong>Trọng lượng đầu búa:</strong> 5.000 kg</li>\n<li><strong>Chiều cao rơi tối đa:</strong> 1.200 mm</li>\n<li><strong>Năng lượng va đập:</strong> 60 kNm</li>\n<li><strong>Tần suất đập:</strong> 40 - 100 nhát/phút</li>\n<li><strong>Lưu lượng dầu:</strong> 304 - 398 lít/phút</li>\n<li><strong>Áp suất làm việc:</strong> 176 bar</li>\n<li><strong>Công suất:</strong> 89 kW</li>\n</ul>\n\n<h3>Ưu Điểm Nổi Bật</h3>\n<ul>\n<li>Hiệu suất cao hơn búa rơi tự do 20%</li>\n<li>Điều chỉnh vô cấp năng lượng và tần suất</li>\n<li>Tiếng ồn và rung động thấp</li>\n<li>Tương thích dầu sinh học thân thiện môi trường</li>\n<li>Phù hợp cọc bê tông, ống thép, cừ larsen, cọc gỗ</li>\n</ul>\n\n<h3>Ứng Dụng</h3>\n<ul>\n<li>Móng cầu, cầu vượt, cầu cạn</li>\n<li>Nhà cao tầng, chung cư</li>\n<li>Cảng biển, bến tàu</li>\n<li>Kè sông, tường chắn đất</li>\n</ul>",
+    "features": [
+        "Trọng lượng đầu búa 5 tấn",
+        "Năng lượng va đập 60 kNm",
+        "Tần suất đập 40-100 nhát/phút",
+        "Chiều cao rơi 1.2m điều chỉnh vô cấp",
+        "Hiệu suất cao hơn búa rơi tự do 20%",
+        "Tiếng ồn và rung động thấp",
+        "Dùng dầu sinh học thân thiện môi trường",
+        "Phù hợp cọc bê tông, thép, cừ larsen",
+        "Thương hiệu Junttan Phần Lan"
+    ],
+    "drillingSystem": {
+        "maxDiameter": "Cọc bê tông 250-600mm, ống thép, cừ larsen",
+        "maxDepth": "Theo chiều dài cọc",
+        "maxTorque": "60 kNm (năng lượng va đập)",
+        "rotationSpeed": "40 - 100 nhát/phút",
+        "crowdForce": "5.000 kg (trọng lượng đầu búa)",
+        "pullbackForce": "Chiều cao rơi 1.200 mm",
+        "kellyBarType": "Búa thủy lực treo trên giá dẫn",
+        "hydraulicPressure": "176 bar",
+        "feedStroke": "Điều chỉnh vô cấp năng lượng"
+    },
+    "order": 10
+}

@@ -1,0 +1,227 @@
+{
+  "general_section": {
+    "siteName": "Soosan Motor",
+    "siteTagline": "Chuyên cung cấp xe tải chất lượng",
+    "siteDescription": "Nhà sản xuất sơ mi rơ moóc, cẩu, thùng xe tải đông lạnh, xe xitéc chở xăng dầu và các loại xe chuyên dụng. Đa dạng tải trọng và mẫu mã, giá cả cạnh tranh.",
+    "siteKeywords": [
+      "xe tải",
+      "đầu kéo",
+      "sơ mi rơ mooc",
+      "xe cẩu",
+      "soosan",
+      "xe tải chất lượng",
+      "mua xe tải"
+    ],
+    "siteUrl": "https://soosanmotor.com",
+    "cdnUrl": "https://cdn.soosanmotor.com"
+  },
+  "images_section": {
+    "logo": "https://cdn.soosanmotor.com/soosanmotor.com_logo_Soosan.webp",
+    "logoAlt": "Soosan Motor - Chuyên cung cấp xe tải chất lượng",
+    "favicon": "/favicon.ico",
+    "ogImage": "/og-default.jpg"
+  },
+  "contact_section": {
+    "phone": "0764678901",
+    "phoneDisplay": "0764 6789 01",
+    "email": "sales@soosanmotor.com",
+    "address": "Cụm công nghiệp Hạp Lĩnh, Phường Hạp Lĩnh, Tỉnh Bắc Ninh, Việt Nam"
+  },
+  "branches": [
+    {
+      "regionName": "Miền Bắc",
+      "addresses": [
+        {
+          "province": "Bắc Ninh",
+          "address": "Cụm công nghiệp Hạp Lĩnh, Phường Hạp Lĩnh, Tỉnh Bắc Ninh",
+          "phone": "0764 6789 01",
+          "mapUrl": ""
+        },
+        {
+          "province": "Hà Nội",
+          "address": "Đường Tân Xuân, Phường Đông Ngạc, TP Hà Nội",
+          "phone": "0764 6789 01",
+          "mapUrl": ""
+        },
+        {
+          "province": "Hải Phòng",
+          "address": "Khu đô thị Ecorivers Hải Dương, khu 4, Phường Tân Hưng, TP Hải Phòng",
+          "phone": "0764 6789 01",
+          "mapUrl": ""
+        },
+        {
+          "province": "Quảng Ninh",
+          "address": "Đường Nguyễn Văn Cừ, Tổ 5B, Khu 1A, Phường Hạ Long, Tỉnh Quảng Ninh",
+          "phone": "0764 6789 01",
+          "mapUrl": ""
+        },
+        {
+          "province": "Lào Cai",
+          "address": "Km 3+900, Đường Trần Hưng Đạo, Phường Cam Đường, Tỉnh Lào Cai",
+          "phone": "0764 6789 01",
+          "mapUrl": ""
+        }
+      ]
+    },
+    {
+      "regionName": "Miền Trung",
+      "addresses": [
+        {
+          "province": "Đà Nẵng",
+          "address": "Đường Trường Sơn, Phường Cẩm Lệ, TP Đà Nẵng",
+          "phone": "0764 6789 01",
+          "mapUrl": ""
+        },
+        {
+          "province": "Nghệ An",
+          "address": "Thôn 7, Xã Đức Châu, Tỉnh Nghệ An",
+          "phone": "0764 6789 01",
+          "mapUrl": ""
+        },
+        {
+          "province": "Thanh Hóa",
+          "address": "Km 325, đường tránh thành phố, Phường Quảng Phú, Tỉnh Thanh Hóa",
+          "phone": "0764 6789 01",
+          "mapUrl": ""
+        },
+        {
+          "province": "Gia Lai",
+          "address": "Đường Võ Nguyên Giáp, Phường Hội Phú, Tỉnh Gia Lai",
+          "phone": "0764 6789 01",
+          "mapUrl": ""
+        },
+        {
+          "province": "Khánh Hòa",
+          "address": "Đường 23/10, thôn Phú Thạnh, Phường Tây Nha Trang, Tỉnh Khánh Hòa",
+          "phone": "0764 6789 01",
+          "mapUrl": ""
+        }
+      ]
+    },
+    {
+      "regionName": "Miền Nam",
+      "addresses": [
+        {
+          "province": "Đồng Nai",
+          "address": "Khu công nghiệp Nhơn Trạch III – Giai đoạn 2, Xã Phước An, Tỉnh Đồng Nai",
+          "phone": "0764 6789 01",
+          "mapUrl": ""
+        },
+        {
+          "province": "Hồ Chí Minh",
+          "address": "Đường Lê Văn Tách, Phường Dĩ An, TP Hồ Chí Minh",
+          "phone": "0764 6789 01",
+          "mapUrl": ""
+        },
+        {
+          "province": "Tây Ninh",
+          "address": "Quốc lộ 22B, Phường Hòa Thành, Tỉnh Tây Ninh",
+          "phone": "0764 6789 01",
+          "mapUrl": ""
+        },
+        {
+          "province": "Cần Thơ",
+          "address": "Đường Võ Nguyên Giáp, Phường Cái Răng, TP Cần Thơ",
+          "phone": "0764 6789 01",
+          "mapUrl": ""
+        },
+        {
+          "province": "An Giang",
+          "address": "Đường Võ Văn Kiệt, Xã Thạnh Lộc, Tỉnh An Giang",
+          "phone": "0764 6789 01",
+          "mapUrl": ""
+        }
+      ]
+    }
+  ],
+  "social_section": {
+    "facebookUrl": "https://www.facebook.com/soosanmotor",
+    "facebookUsername": "@soosanmotor",
+    "messengerUrl": "https://m.me/soosanmotor",
+    "youtubeUrl": "https://www.youtube.com/@soosanmotor",
+    "youtubeChannelName": "Soosan Vina Motor (Official)",
+    "tiktokUrl": "https://www.tiktok.com/@moocsoosan",
+    "tiktokUsername": "@moocsoosan",
+    "zaloPhone": "0764678901"
+  },
+  "seo_section": {
+    "googleVerification": "",
+    "bingVerification": "",
+    "themeColor": "#dc2626"
+  },
+  "colors_section": {
+    "primaryColor": "#D84315",
+    "header": {
+      "bgColor": "#ffffff",
+      "textColor": "#1f2937",
+      "hoverColor": "#D84315"
+    },
+    "footer": {
+      "bgColor": "#111827",
+      "textColor": "#ffffff",
+      "mutedColor": "#9ca3af"
+    },
+    "pageHeader": {
+      "bgColor": "#1f2937",
+      "textColor": "#ffffff"
+    },
+    "buttons": {
+      "primaryBg": "#d84315",
+      "primaryText": "#ffffff",
+      "secondaryBg": "#f3f4f6",
+      "secondaryText": "#1f2937"
+    },
+    "cards": {
+      "bgColor": "#ffffff",
+      "borderColor": "#e5e7eb"
+    }
+  },
+  "organization_section": {
+    "organizationName": "Soosan Vina Motor",
+    "alternateName": "Soosan Motor",
+    "organizationType": "AutoDealer",
+    "schemaPhone": "+84-764-6789-01",
+    "priceRange": "₫₫₫",
+    "foundingDate": "",
+    "vatNumber": "",
+    "schemaDescription": "Nhà sản xuất và phân phối sơ mi rơ moóc, xe cẩu, xe tải chuyên dụng hàng đầu Việt Nam. Sản phẩm chất lượng Hàn Quốc, bảo hành chính hãng."
+  },
+  "schema_address": {
+    "streetAddress": "Cụm công nghiệp Hạp Lĩnh",
+    "addressLocality": "Phường Hạp Lĩnh",
+    "addressRegion": "Bắc Ninh",
+    "postalCode": "220000",
+    "addressCountry": "VN",
+    "latitude": 21.1215,
+    "longitude": 106.0763
+  },
+  "schema_policies": {
+    "returnPolicy": "MerchantReturnNotPermitted",
+    "returnDays": 0,
+    "shippingRate": 1,
+    "handlingTimeMin": 1,
+    "handlingTimeMax": 3,
+    "transitTimeMin": 2,
+    "transitTimeMax": 3
+  },
+  "schema_reviews": [
+    {
+      "authorName": "Anh Minh - Bắc Ninh",
+      "rating": 5,
+      "datePublished": "2025-11-15",
+      "reviewBody": "Sản phẩm chất lượng cao, giao hàng nhanh chóng. Đội ngũ tư vấn nhiệt tình, hỗ trợ đăng ký đăng kiểm tận nơi."
+    },
+    {
+      "authorName": "Chị Hương - Hải Phòng",
+      "rating": 5,
+      "datePublished": "2025-10-22",
+      "reviewBody": "Rất hài lòng với chất lượng sản phẩm. Giá cả hợp lý, bảo hành chu đáo. Sẽ giới thiệu cho bạn bè."
+    },
+    {
+      "authorName": "Anh Tùng - Đà Nẵng",
+      "rating": 5,
+      "datePublished": "2025-09-10",
+      "reviewBody": "Đã mua lần 2 tại Soosan Motor. Chất lượng vượt mong đợi, dịch vụ hậu mãi tốt."
+    }
+  ]
+}

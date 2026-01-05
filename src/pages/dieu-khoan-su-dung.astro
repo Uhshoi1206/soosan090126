@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Layout from '../components/Layout.tsx';
+import { getEntry } from 'astro:content';
+
+const settingsEntry = await getEntry('settings', 'site-settings');
+const settings = settingsEntry?.data;
+const phone = settings?.contact_section?.phone || '0815555528';
+const phoneDisplay = settings?.contact_section?.phoneDisplay || '0815555528';
+const email = settings?.contact_section?.email || 'sales@soosanmotor.com';
+const organizationName = settings?.organization_section?.organizationName || 'Soosan Vina Motor';
+---
+
+<BaseLayout
+  title="Điều Khoản Sử Dụng | Soosan Vina Motor"
+  description="Điều khoản và điều kiện sử dụng website Soosan Vina Motor. Vui lòng đọc kỹ trước khi sử dụng các dịch vụ của chúng tôi."
+>
+  <Layout client:load siteSettings={settings}>
+    <!-- Hero Section / Page Header -->
+    <section class="relative page-header-bg page-header-text py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            Điều Khoản Sử Dụng
+          </h1>
+          <p class="text-lg text-gray-200">
+            Các điều khoản và điều kiện khi sử dụng website và dịch vụ của chúng tôi
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto prose prose-lg">
+          
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8 rounded-r-lg">
+            <p class="text-blue-700 mb-0">
+              <strong>Cập nhật lần cuối:</strong> Ngày 01 tháng 01 năm 2025
+            </p>
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">
+            Chào mừng quý khách đến với website của <strong>{organizationName}</strong>. Bằng việc truy cập và sử dụng 
+            website này, quý khách đồng ý tuân thủ các điều khoản và điều kiện được nêu dưới đây. Vui lòng đọc kỹ 
+            trước khi tiếp tục sử dụng.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">1. Điều Khoản Chung</h2>
+          <ul class="list-disc pl-6 text-gray-700 space-y-2">
+            <li>Website này được vận hành bởi {organizationName}, chuyên cung cấp xe tải, sơ mi rơ moóc, xe cẩu và các loại xe thương mại</li>
+            <li>Bằng việc sử dụng website, bạn xác nhận đã đủ 18 tuổi hoặc có sự đồng ý của người giám hộ hợp pháp</li>
+            <li>Chúng tôi có quyền thay đổi, sửa đổi hoặc cập nhật các điều khoản này bất cứ lúc nào mà không cần thông báo trước</li>
+            <li>Việc tiếp tục sử dụng website sau khi có thay đổi đồng nghĩa với việc bạn chấp nhận các điều khoản mới</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">2. Quyền Sở Hữu Trí Tuệ</h2>
+          <ul class="list-disc pl-6 text-gray-700 space-y-2">
+            <li>Toàn bộ nội dung trên website bao gồm văn bản, hình ảnh, logo, video, thiết kế thuộc quyền sở hữu của {organizationName} hoặc các đối tác được cấp phép</li>
+            <li>Nghiêm cấm sao chép, phân phối, sửa đổi hoặc sử dụng nội dung website cho mục đích thương mại mà không có sự đồng ý bằng văn bản</li>
+            <li>Các thương hiệu, logo của các hãng xe (Hyundai, Hino, Isuzu, Dongfeng, Soosan...) thuộc quyền sở hữu của các hãng tương ứng</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">3. Thông Tin Sản Phẩm</h2>
+          <ul class="list-disc pl-6 text-gray-700 space-y-2">
+            <li>Chúng tôi nỗ lực cung cấp thông tin sản phẩm chính xác và cập nhật nhất có thể</li>
+            <li>Thông số kỹ thuật, hình ảnh, giá cả có thể thay đổi mà không cần thông báo trước</li>
+            <li>Giá hiển thị trên website chỉ mang tính chất tham khảo, giá chính thức sẽ được xác nhận khi liên hệ trực tiếp</li>
+            <li>Màu sắc, hình ảnh sản phẩm có thể khác so với thực tế do điều kiện chụp ảnh và hiển thị màn hình</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">4. Giới Hạn Trách Nhiệm</h2>
+          <ul class="list-disc pl-6 text-gray-700 space-y-2">
+            <li>{organizationName} không chịu trách nhiệm về bất kỳ thiệt hại trực tiếp hoặc gián tiếp nào phát sinh từ việc sử dụng website</li>
+            <li>Chúng tôi không đảm bảo website hoạt động liên tục, không có lỗi hoặc không bị gián đoạn</li>
+            <li>Không chịu trách nhiệm về nội dung của các website bên thứ ba được liên kết từ website này</li>
+            <li>Quyết định mua hàng cuối cùng thuộc về khách hàng sau khi đã xem xét trực tiếp sản phẩm</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">5. Quy Định Sử Dụng</h2>
+          <p class="text-gray-700">Khi sử dụng website, bạn cam kết không:</p>
+          <ul class="list-disc pl-6 text-gray-700 space-y-2">
+            <li>Sử dụng website cho mục đích bất hợp pháp hoặc gây hại</li>
+            <li>Can thiệp vào hoạt động bình thường của website hoặc máy chủ</li>
+            <li>Thu thập thông tin của người dùng khác mà không được phép</li>
+            <li>Đăng tải nội dung vi phạm pháp luật, xúc phạm hoặc không phù hợp</li>
+            <li>Cố gắng truy cập trái phép vào hệ thống hoặc dữ liệu của website</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">6. Chính Sách Bảo Hành</h2>
+          <ul class="list-disc pl-6 text-gray-700 space-y-2">
+            <li>Sản phẩm được bảo hành theo chính sách của từng hãng xe và nhà sản xuất</li>
+            <li>Chi tiết bảo hành cụ thể sẽ được cung cấp khi mua hàng</li>
+            <li>Điều kiện bảo hành áp dụng theo quy định của pháp luật Việt Nam</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">7. Luật Áp Dụng</h2>
+          <p class="text-gray-700">
+            Các điều khoản này được điều chỉnh bởi pháp luật Việt Nam. Mọi tranh chấp phát sinh sẽ được giải quyết 
+            tại tòa án có thẩm quyền tại Việt Nam.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">8. Liên Hệ</h2>
+          <p class="text-gray-700">
+            Nếu có bất kỳ câu hỏi nào về các điều khoản sử dụng này, vui lòng liên hệ:
+          </p>
+          <div class="bg-gray-50 p-6 rounded-lg mt-4">
+            <p class="text-gray-700 mb-2"><strong>{organizationName}</strong></p>
+            <p class="text-gray-700 mb-2">
+              <strong>Điện thoại:</strong> 
+              <a href={`tel:${phone}`} class="text-primary hover:underline">{phoneDisplay}</a>
+            </p>
+            <p class="text-gray-700 mb-2">
+              <strong>Email:</strong> 
+              <a href={`mailto:${email}`} class="text-primary hover:underline">{email}</a>
+            </p>
+            <p class="text-gray-700">
+              <strong>Địa chỉ:</strong> Cụm công nghiệp Hạp Lĩnh, Phường Hạp Lĩnh, Tỉnh Bắc Ninh, Việt Nam
+            </p>
+          </div>
+
+          <div class="mt-10 pt-6 border-t border-gray-200">
+            <p class="text-gray-600 text-sm">
+              Xem thêm: <a href="/chinh-sach-bao-mat" class="text-primary hover:underline">Chính sách bảo mật</a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </Layout>
+</BaseLayout>

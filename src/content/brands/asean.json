@@ -1,0 +1,14 @@
+{
+    "id": "asean",
+    "name": "ASEAN",
+    "slug": "asean",
+    "logo": "",
+    "logoAlt": "Logo thương hiệu ASEAN",
+    "description": "",
+    "seoTitle": "",
+    "seoDescription": "",
+    "country": "",
+    "website": "",
+    "order": 13,
+    "isActive": true
+}

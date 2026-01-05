@@ -1,0 +1,50 @@
+{
+    "id": "xe-nang-tay-cao-noblift-pse15",
+    "name": "Xe Nâng Tay Cao Noblift PSE15 - 1.5 Tấn Nâng 3m Kho Nhỏ",
+    "slug": "xe-nang-tay-cao-noblift-pse15",
+    "brand": "Noblift",
+    "model": "PSE15",
+    "price": null,
+    "priceText": "Liên hệ",
+    "weightText": "720 kg",
+    "weight": 720,
+    "length": 1850,
+    "width": 800,
+    "height": 2200,
+    "dimensions": "1.850 x 800 x 2.200 mm",
+    "type": "may-moc-thiet-bi",
+    "isNew": true,
+    "isHot": true,
+    "stockStatus": "in-stock",
+    "origin": "Trung Quốc",
+    "thumbnailUrl": "/assets/xe-nang-tay-cao-noblift-pse15.webp",
+    "images": [
+        "/assets/xe-nang-tay-cao-noblift-pse15.webp"
+    ],
+    "description": "Xe nâng tay cao Noblift PSE15 1.5 tấn - Nâng cao 3m, pin lithium, phù hợp kho nhỏ không gian hẹp. Giá thành hợp lý, thay thế xe nâng truyền thống.",
+    "detailedDescription": "<h2>Xe Nâng Tay Cao Noblift PSE15 - Giải Pháp Kinh Tế Cho Kho Nhỏ</h2>\n<p><strong>Xe nâng tay cao Noblift PSE15</strong> (Semi-electric Stacker) là thiết bị nâng hạ kinh tế với <strong>tải trọng 1.5 tấn</strong>, <strong>nâng cao 3m</strong>.</p>\n\n<h3>Thông Số Kỹ Thuật</h3>\n<ul>\n<li><strong>Tải trọng:</strong> 1.500 kg</li>\n<li><strong>Chiều cao nâng:</strong> 3.000 mm</li>\n<li><strong>Pin:</strong> 24V / 100Ah Lithium</li>\n<li><strong>Di chuyển:</strong> Đẩy tay / Điện tùy chọn</li>\n<li><strong>Kích thước càng:</strong> 1150 x 160 x 60 mm</li>\n<li><strong>Trọng lượng:</strong> 720 kg</li>\n</ul>\n\n<h3>Ưu Điểm</h3>\n<ul>\n<li>Giá thành hợp lý</li>\n<li>Linh hoạt trong không gian hẹp</li>\n<li>Pin lithium sạc nhanh</li>\n<li>Bảo dưỡng đơn giản</li>\n</ul>",
+    "features": [
+        "Tải trọng 1.5 tấn",
+        "Nâng cao 3m",
+        "Pin lithium 24V/100Ah",
+        "Nâng hạ bằng điện",
+        "Di chuyển đẩy tay hoặc điện",
+        "Thiết kế nhỏ gọn",
+        "Chi phí hợp lý",
+        "Thương hiệu Noblift"
+    ],
+    "forkliftSpec": {
+        "loadCapacity": "1.500 kg",
+        "loadCenter": "500 mm",
+        "liftHeight": "3.000 mm",
+        "forkDimensions": "1150 x 160 x 60 mm",
+        "mastType": "Trụ nâng 2 tầng",
+        "freeLifHeight": "80 mm",
+        "motorType": "Động cơ điện DC",
+        "batterySpec": "24V / 100Ah Lithium",
+        "steeringType": "Tay lái cơ học",
+        "tireType": "Lốp PU",
+        "turningRadius": "1.350 mm"
+    },
+    "order": 42
+}

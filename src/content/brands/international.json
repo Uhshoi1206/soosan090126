@@ -1,0 +1,14 @@
+{
+    "id": "international",
+    "name": "International",
+    "slug": "international",
+    "logo": "",
+    "logoAlt": "Logo thương hiệu International",
+    "description": "",
+    "seoTitle": "",
+    "seoDescription": "",
+    "country": "Mỹ",
+    "website": "",
+    "order": 15,
+    "isActive": true
+}
