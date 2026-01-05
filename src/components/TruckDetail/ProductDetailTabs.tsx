@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '../ui/tabs';
 import ContactForm from '../ContactForm';
 import CostEstimator from './CostEstimator';
 import { Truck } from '@/models/TruckTypes';
+import { marked } from 'marked';
+
+// Configure marked for safe HTML output
+marked.setOptions({
+  breaks: true,
+  gfm: true
+});
+
+// Helper to parse markdown content (supports both markdown and raw HTML)
+const parseContent = (content: string): string => {
+  if (!content) return '';
+  // If content starts with markdown syntax or contains markdown patterns, parse it
+  // Otherwise just return as-is (for legacy HTML content)
+  return marked.parse(content) as string;
+};
 
 interface ProductDetailTabsProps {
   truck: Truck;
@@ -12,6 +27,7 @@ interface TabDefinition {
   value: string;
   label: string;
 }
+
 
 const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
   const getTabs = (): TabDefinition[] => {
@@ -108,7 +124,7 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
           {truck.detailedDescription && (
             <div
               className="prose-content"
-              dangerouslySetInnerHTML={{ __html: truck.detailedDescription }}
+              dangerouslySetInnerHTML={{ __html: parseContent(truck.detailedDescription) }}
             />
           )}
         </div>

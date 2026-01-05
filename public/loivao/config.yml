@@ -104,6 +104,12 @@ display_url: "https://soosan090126.netlify.app"
 # Backend config is now managed directly in config.yml
 # =========================================================
 
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
 media_folder: "public/assets/uploads"
 public_folder: "/assets/uploads"
 
@@ -433,6 +439,10 @@ collections:
         widget: "select"
         options:
           - { label: "Xe Tải", value: "xe-tai" }
+          - { label: "Cần Cẩu", value: "can-cau" }
+          - { label: "Sơ Mi Rơ Mooc", value: "mooc" }
+          - { label: "Xe Đầu Kéo", value: "dau-keo" }
+          - { label: "Máy Móc & Thiết Bị", value: "may-moc-thiet-bi" }
           - { label: "Cần Cẩu", value: "can-cau" }
           - { label: "Sơ Mi Rơ Mooc", value: "mooc" }
           - { label: "Xe Đầu Kéo", value: "dau-keo" }
