@@ -1,12 +1,12 @@
 backend:
   name: github
-  repo: Uhshoi1206/soosan0901
+  repo: Uhshoi1206/soosan090126
   branch: main
-  site_domain: "soosan0901.netlify.app"
+  site_domain: "soosan090126.netlify.app"
   base_url: "https://api.netlify.com"
 
-site_url: "https://soosan0901.netlify.app"
-display_url: "https://soosan0901.netlify.app"
+site_url: "https://soosan090126.netlify.app"
+display_url: "https://soosan090126.netlify.app"
 
 # =========================================================
 # BASE TEMPLATE FOR CMS CONFIG
