@@ -5,8 +5,9 @@ import CostEstimator from './CostEstimator';
 import { Truck } from '@/models/TruckTypes';
 import { marked } from 'marked';
 
-// Configure marked for safe HTML output
-marked.setOptions({
+// Configure marked for sync output
+marked.use({
+  async: false,
   breaks: true,
   gfm: true
 });
@@ -14,9 +15,13 @@ marked.setOptions({
 // Helper to parse markdown content (supports both markdown and raw HTML)
 const parseContent = (content: string): string => {
   if (!content) return '';
-  // If content starts with markdown syntax or contains markdown patterns, parse it
-  // Otherwise just return as-is (for legacy HTML content)
-  return marked.parse(content) as string;
+  try {
+    // Parse markdown to HTML synchronously
+    const result = marked.parse(content);
+    return typeof result === 'string' ? result : content;
+  } catch {
+    return content;
+  }
 };
 
 interface ProductDetailTabsProps {
