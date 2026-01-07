@@ -183,7 +183,8 @@ const settings = settingsEntry?.data;
                 </div>
               )}
 
-              <div class="prose prose-lg max-w-none prose-content" set:html={post.body}>
+              <div class="prose prose-lg max-w-none prose-content">
+                <Content />
               </div>
 
               {tags.length > 0 && (
