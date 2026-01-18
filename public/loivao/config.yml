@@ -152,6 +152,12 @@ display_url: "https://soosan09012026.netlify.app"
 # Backend config is now managed directly in config.yml
 # =========================================================
 
+# =========================================================
+# BASE TEMPLATE FOR CMS CONFIG
+# This file only contains the collections template.
+# Backend config is now managed directly in config.yml
+# =========================================================
+
 media_folder: "public/assets/uploads"
 public_folder: "/assets/uploads"
 

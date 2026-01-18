@@ -34,13 +34,14 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Trích xuất các heading từ content HTML
+  // Trích xuất các heading từ DOM đã render (không ghi đè content)
   useEffect(() => {
     const extractHeadings = () => {
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = content;
+      // Đọc từ DOM thực tế đã được Astro render
+      const contentElement = document.querySelector('.prose-content');
+      if (!contentElement) return;
 
-      const headings = tempDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      const headings = contentElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
       const items: TocItem[] = [];
 
       headings.forEach((heading, index) => {
@@ -65,12 +66,12 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
             counter++;
           }
           id = finalId;
+
+          // Gán id vào heading trong DOM
+          heading.id = id;
         }
 
         if (id && heading.textContent) {
-          // Đảm bảo heading có id trong DOM
-          heading.id = id;
-
           items.push({
             id,
             title: heading.textContent.trim(),
@@ -79,19 +80,13 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
         }
       });
 
-      console.log('Extracted TOC items:', items); // Debug log
+      console.log('Extracted TOC items from DOM:', items);
       setTocItems(items);
-
-      // Cập nhật lại content trong DOM
-      const contentElement = document.querySelector('.prose-content');
-      if (contentElement) {
-        contentElement.innerHTML = tempDiv.innerHTML;
-      }
     };
 
-    if (content) {
-      extractHeadings();
-    }
+    // Đợi một chút để DOM được render hoàn chỉnh
+    const timeoutId = setTimeout(extractHeadings, 100);
+    return () => clearTimeout(timeoutId);
   }, [content]);
 
   // Tự động cuộn mục lục theo active item
