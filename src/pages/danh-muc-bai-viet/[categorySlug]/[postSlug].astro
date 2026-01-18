@@ -52,7 +52,8 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 // Parse markdown body using marked library instead of Content component
 // This fixes the issue where Astro's Content Collections don't render correctly on Netlify
-const parsedContent = marked.parse(post.body) as string;
+// Use await to ensure the Promise resolves correctly in Astro's async context
+const parsedContent = await marked.parse(post.body);
 const postData = post.data;
 const { categories, categoryMap, categoryInfoMap, getCategorySlug } = await getBlogCategories();
 const categoryLabel = categoryMap[postData.category] || postData.category;
