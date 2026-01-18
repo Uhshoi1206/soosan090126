@@ -12,12 +12,9 @@ import { getVisibleProducts } from '../../../utils/contentCollections';
 import type { Truck } from '../../../models/TruckTypes';
 import { getVehicleUrlPrefix } from '../../../models/TruckTypes';
 import useRelatedTruckForBlogPost from '../../../hooks/useRelatedTruckForBlogPost';
-import { marked } from 'marked';
+import { parseMarkdown } from '../../../utils/parseMarkdown';
 
-// Configure marked for sync output
-marked.use({ async: false, breaks: true, gfm: true });
-
-// Force Netlify rebuild - Content component fix v2 with marked
+// Force Netlify rebuild - using custom markdown parser v3
 export const prerender = true;
 
 export async function getStaticPaths() {
@@ -50,10 +47,9 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-// Parse markdown body using marked library instead of Content component
+// Parse markdown body using custom parser instead of Astro's Content component
 // This fixes the issue where Astro's Content Collections don't render correctly on Netlify
-// Use await to ensure the Promise resolves correctly in Astro's async context
-const parsedContent = await marked.parse(post.body);
+const parsedContent = parseMarkdown(post.body);
 const postData = post.data;
 const { categories, categoryMap, categoryInfoMap, getCategorySlug } = await getBlogCategories();
 const categoryLabel = categoryMap[postData.category] || postData.category;
