@@ -34,17 +34,13 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Trích xuất các heading từ DOM trực tiếp (đã được render từ server)
+  // Trích xuất các heading từ content HTML
   useEffect(() => {
     const extractHeadings = () => {
-      // Đọc headings trực tiếp từ DOM đã render, không dùng content prop
-      const contentElement = document.querySelector('.prose-content');
-      if (!contentElement) {
-        console.log('TableOfContents: .prose-content not found');
-        return;
-      }
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = content;
 
-      const headings = contentElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      const headings = tempDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
       const items: TocItem[] = [];
 
       headings.forEach((heading, index) => {
@@ -69,12 +65,12 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
             counter++;
           }
           id = finalId;
-
-          // Gán id cho heading trong DOM
-          heading.id = id;
         }
 
         if (id && heading.textContent) {
+          // Đảm bảo heading có id trong DOM
+          heading.id = id;
+
           items.push({
             id,
             title: heading.textContent.trim(),
@@ -83,14 +79,20 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
         }
       });
 
-      console.log('Extracted TOC items from DOM:', items);
+      console.log('Extracted TOC items:', items); // Debug log
       setTocItems(items);
+
+      // Cập nhật lại content trong DOM
+      const contentElement = document.querySelector('.prose-content');
+      if (contentElement) {
+        contentElement.innerHTML = tempDiv.innerHTML;
+      }
     };
 
-    // Delay nhẹ để đảm bảo DOM đã render xong
-    const timeoutId = setTimeout(extractHeadings, 100);
-    return () => clearTimeout(timeoutId);
-  }, []);
+    if (content) {
+      extractHeadings();
+    }
+  }, [content]);
 
   // Tự động cuộn mục lục theo active item
   const scrollToActiveItem = useCallback((activeItemId: string) => {
