@@ -28,24 +28,28 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Trích xuất các heading từ content HTML
+  // Trích xuất các heading từ DOM trực tiếp (đã được render từ server)
   useEffect(() => {
     const extractHeadings = () => {
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = content;
-      
-      const headings = tempDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      // Đọc headings trực tiếp từ DOM đã render, không dùng content prop
+      const contentElement = document.querySelector('.prose-content');
+      if (!contentElement) {
+        console.log('TableOfContents: .prose-content not found');
+        return;
+      }
+
+      const headings = contentElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
       const items: TocItem[] = [];
-      
+
       headings.forEach((heading, index) => {
         let id = heading.id;
-        
+
         // Nếu heading chưa có id, tạo id từ text content
         if (!id && heading.textContent) {
           id = heading.textContent
@@ -56,7 +60,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
             .replace(/\s+/g, '-')
             .trim()
             .replace(/^-+|-+$/g, '');
-          
+
           // Đảm bảo id là duy nhất
           let finalId = id;
           let counter = 1;
@@ -65,12 +69,12 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
             counter++;
           }
           id = finalId;
-        }
-        
-        if (id && heading.textContent) {
-          // Đảm bảo heading có id trong DOM
+
+          // Gán id cho heading trong DOM
           heading.id = id;
-          
+        }
+
+        if (id && heading.textContent) {
           items.push({
             id,
             title: heading.textContent.trim(),
@@ -78,21 +82,15 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
           });
         }
       });
-      
-      console.log('Extracted TOC items:', items); // Debug log
+
+      console.log('Extracted TOC items from DOM:', items);
       setTocItems(items);
-      
-      // Cập nhật lại content trong DOM
-      const contentElement = document.querySelector('.prose-content');
-      if (contentElement) {
-        contentElement.innerHTML = tempDiv.innerHTML;
-      }
     };
 
-    if (content) {
-      extractHeadings();
-    }
-  }, [content]);
+    // Delay nhẹ để đảm bảo DOM đã render xong
+    const timeoutId = setTimeout(extractHeadings, 100);
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   // Tự động cuộn mục lục theo active item
   const scrollToActiveItem = useCallback((activeItemId: string) => {
@@ -103,13 +101,13 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
       const container = tocContainerRef.current;
       const containerRect = container.getBoundingClientRect();
       const itemRect = activeItemElement.getBoundingClientRect();
-      
+
       // Tính toán vị trí cần cuộn
       const containerTop = containerRect.top;
       const containerBottom = containerRect.bottom;
       const itemTop = itemRect.top;
       const itemBottom = itemRect.bottom;
-      
+
       // Kiểm tra nếu item không nằm trong vùng nhìn thấy
       if (itemTop < containerTop || itemBottom > containerBottom) {
         // Cuộn để item ở giữa container
@@ -126,13 +124,13 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
   const updateScrollInfo = useCallback(() => {
     const scrollTop = window.scrollY;
     const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-    
+
     // Tính toán progress dựa trên vị trí cuộn
     let progress = 0;
     if (documentHeight > 0) {
       progress = Math.min((scrollTop / documentHeight) * 100, 100);
     }
-    
+
     // Tìm heading hiện tại với logic cải tiến
     const headingElements = tocItems.map(item => {
       const element = document.getElementById(item.id);
@@ -141,7 +139,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
 
     let currentActiveId = '';
     let readingProgress = 0;
-    
+
     if (headingElements.length > 0) {
       // Nếu đã cuộn gần đến cuối trang (90% trở lên), đặt progress = 100% và chọn heading cuối
       if (progress >= 90 || scrollTop + window.innerHeight >= document.documentElement.scrollHeight - 50) {
@@ -150,11 +148,11 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
       } else {
         // Logic thông thường: tìm heading gần nhất đã vượt qua
         let activeIndex = -1;
-        
+
         for (let i = headingElements.length - 1; i >= 0; i--) {
           const { element, item } = headingElements[i]!;
           const rect = element.getBoundingClientRect();
-          
+
           // Sử dụng threshold linh hoạt hơn
           if (rect.top <= 150) {
             currentActiveId = item.id;
@@ -162,21 +160,21 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
             break;
           }
         }
-        
+
         // Nếu không tìm thấy heading nào, nhưng đã cuộn xuống
         if (!currentActiveId && scrollTop > 100 && headingElements.length > 0) {
           currentActiveId = headingElements[0]!.item.id;
           activeIndex = 0;
         }
-        
+
         // Tính toán reading progress dựa trên heading hiện tại
         if (activeIndex >= 0) {
           const baseProgress = (activeIndex / Math.max(headingElements.length - 1, 1)) * 100;
-          
+
           // Điều chỉnh progress trong khoảng của heading hiện tại
           const currentHeading = headingElements[activeIndex]!;
           const nextHeading = headingElements[activeIndex + 1];
-          
+
           if (nextHeading) {
             const currentRect = currentHeading.element.getBoundingClientRect();
             const nextRect = nextHeading.element.getBoundingClientRect();
@@ -193,7 +191,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
         }
       }
     }
-    
+
     setScrollProgress(Math.round(readingProgress));
 
     if (currentActiveId !== activeId) {
@@ -218,10 +216,10 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
         timeoutId = setTimeout(updateScrollInfo, 50); // Throttle để tối ưu performance
       };
     })();
-    
+
     window.addEventListener('scroll', throttledUpdate, { passive: true });
     updateScrollInfo(); // Gọi ngay lập tức để tính toán ban đầu
-    
+
     return () => {
       window.removeEventListener('scroll', throttledUpdate);
     };
@@ -289,7 +287,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
             )}
           </Button>
         </div>
-        
+
         {/* Progress Bar */}
         <div className="mt-3">
           <div className="flex items-center justify-between mb-2">
@@ -302,10 +300,10 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
 
       {/* Content */}
       {!isCollapsed && (
-        <div 
+        <div
           ref={tocContainerRef}
           className="flex-1 overflow-y-auto p-2 scroll-smooth"
-          style={{ 
+          style={{
             maxHeight: 'calc(85vh - 140px)' // Trừ đi chiều cao header và footer
           }}
         >
